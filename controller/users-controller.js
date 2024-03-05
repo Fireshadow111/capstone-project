@@ -15,10 +15,10 @@ export default{
   },
   
   postUser: async (req, res) => {
-    const { user_Name, user_Email, user_Pass } = req.body;
+    const { user_Name, user_Email, user_Pass, user_Role } = req.body;
     bcrypt.hash(user_Pass, 10, async (err, hash) => {
         if (err) throw err;
-        await postUser(user_Name, user_Email, user_Pass);
+        await postUser(user_Name, user_Email, user_Pass, user_Role);
         res.send(await getUsers());
 
         const token = jwt.sign({ email: user_Email, SECRET_KEY }, { expiresIn: '1h' });
@@ -44,19 +44,19 @@ export default{
   
       user_Email ? user_Email= user_Email: {user_Email}=user
   
-      user_Email ? user_Email = user_Email: {user_Email} = user
-  
       user_Pass ? user_Pass = user_Pass: {user_Pass} = user
+
+      user_Role ? user_Role = user_Role: {user_Role} = user
   
   
-      await patchUser(user_Name, user_Email, user_Pass, +req.params.id)
+      await patchUser(user_Name, user_Email, user_Pass, user_Role, +req.params.id)
       
       res.json(await getUsers())
   },
 
 //   hash password
 signUpUser:('/users',(req,res)=>{
-    const {user_Name, user_Email, user_Pass} = req.body
+    const {user_Name, user_Email, user_Pass, user_Role} = req.body
     
 })
   
