@@ -15,10 +15,10 @@ export default{
   },
   
   postUser: async (req, res) => {
-    const { user_Name, user_Surname, user_Email, user_Pass } = req.body;
+    const { user_Name, user_Email, user_Pass } = req.body;
     bcrypt.hash(user_Pass, 10, async (err, hash) => {
         if (err) throw err;
-        await postUser(user_Name, user_Surname, user_Email, user_Pass);
+        await postUser(user_Name, user_Email, user_Pass);
         res.send(await getUsers());
 
         const token = jwt.sign({ email: user_Email, SECRET_KEY }, { expiresIn: '1h' });
@@ -38,11 +38,9 @@ export default{
   patchUser: async(req,res)=>{
       const [user] = await getUser(+req.params.id)
   
-      let {user_Name, user_Surname, user_Email, user_Pass} = req.body
+      let {user_Name, user_Email, user_Pass} = req.body
   
       user_Name ? user_Name=user_Name: {user_Name}=user
-  
-      user_Surname ? user_Surname= user_Surname: {user_Surname}=user
   
       user_Email ? user_Email= user_Email: {user_Email}=user
   
@@ -51,22 +49,16 @@ export default{
       user_Pass ? user_Pass = user_Pass: {user_Pass} = user
   
   
-      await patchUser(user_Name, user_Surname, user_Email, user_Pass, +req.params.id)
+      await patchUser(user_Name, user_Email, user_Pass, +req.params.id)
       
       res.json(await getUsers())
   },
 
 //   hash password
-// signUpUser:('/users',(req,res)=>{
-//     const {user_Name, user_Surname, user_Email, user_Pass} = req.body
-//     bcrypt.hash(user_Pass, 10, async(err, hash)=> {
-//         if(err) throw err
-//         await newUser(user_Name, user_Surname, user_Email, user_Pass)
-//         res.send({
-//             msg: "You have created an account"
-//         })
-//     })
-// })
+signUpUser:('/users',(req,res)=>{
+    const {user_Name, user_Email, user_Pass} = req.body
+    
+})
   
   
   

@@ -62,3 +62,13 @@ login: async (req,res,next)=>{
         }
     })
 }
+
+
+
+bcrypt.hash(user_Pass, 10, async(err, hash)=> {
+    if(err) throw err
+    await newUser(user_Name, user_Surname, user_Email, user_Pass)
+    res.send({
+        msg: "You have created an account"
+    })
+})

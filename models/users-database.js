@@ -20,10 +20,10 @@ const getUsers= async()=>{
     return result
   }
   
-  const postUser= async(user_Name, user_Surname, user_Email, user_Pass)=>{
+  const postUser= async(user_Name, user_Email, user_Pass)=>{
     const [user] = await pool.query(`
-        INSERT INTO users(user_Name, user_Surname, user_Email, user_Pass) VALUES (?,?,?,?)
-    `,[user_Name, user_Surname, user_Email, user_Pass])
+        INSERT INTO users(user_Name, user_Email, user_Pass) VALUES (?,?,?,?)
+    `,[user_Name, user_Email, user_Pass])
     return getUsers(user.InsertId)
   }
   
@@ -35,22 +35,22 @@ const getUsers= async()=>{
     return getUsers(user.DeleteId)
   } 
   
-  const patchUser = async(user_Name, user_Surname, user_Email, user_Pass, user_ID)=>{
+  const patchUser = async(user_Name, user_Email, user_Pass, user_ID)=>{
     await pool.query(`
         UPDATE users
-        SET user_Name = ?, user_Surname = ?, user_Email = ?, user_Pass = ?
+        SET user_Name = ?, user_Email = ?, user_Pass = ?
         WHERE user_ID = ?
-    `,[user_Name, user_Surname, user_Email, user_Pass, user_ID])
+    `,[user_Name, user_Email, user_Pass, user_ID])
     return getUsers()
   }
 
 
 
-  const newUser = async(user_Name, user_Surname, user_Email, user_Pass)=> {
+  const newUser = async(user_Name, user_Email, user_Pass)=> {
     await pool.query(`
-    INSERT INTO users (user_Name, user_Surname, user_Email, user_Pass)
+    INSERT INTO users (user_Name, user_Email, user_Pass)
     VALUES (?,?,?,?);
-    `, [user_Name, user_Surname, user_Email, user_Pass])
+    `, [user_Name, user_Email, user_Pass])
 }
 
   const checkUser = async(user_Name)=> {
