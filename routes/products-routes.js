@@ -6,13 +6,13 @@ const router = express.Router();
 router
     .route('/')
         .get(controller.getProducts)
-        .post(controller.addProduct)
+        .post(controller.postProduct)
         
 router
     .route('/:id')
         .get(controller.getProduct)
         .delete(controller.deleteProduct)
-        .patch(controller.editProduct)
+        .patch(controller.patchProduct)
 
 
 

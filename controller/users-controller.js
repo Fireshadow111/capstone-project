@@ -1,4 +1,4 @@
-import {getUsers,getUser,addUser,deleteUser,editUser} from '../models/users-database.js'
+import {getUsers,getUser,postUser,deleteUser,patchUser} from '../models/users-database.js'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 
@@ -14,11 +14,11 @@ export default{
       res.send(await getUser(+req.params.id))
   },
   
-  addUser: async (req, res) => {
+  postUser: async (req, res) => {
     const { user_Name, user_Surname, user_Email, user_Pass } = req.body;
     bcrypt.hash(user_Pass, 10, async (err, hash) => {
         if (err) throw err;
-        await addUser(user_Name, user_Surname, user_Email, user_Pass);
+        await postUser(user_Name, user_Surname, user_Email, user_Pass);
         res.send(await getUsers());
 
         const token = jwt.sign({ email: user_Email, SECRET_KEY }, { expiresIn: '1h' });
@@ -35,7 +35,7 @@ export default{
       res.send(await deleteUser(req.params.id));   
   },
   
-  editUser: async(req,res)=>{
+  patchUser: async(req,res)=>{
       const [user] = await getUser(+req.params.id)
   
       let {user_Name, user_Surname, user_Email, user_Pass} = req.body
@@ -51,7 +51,7 @@ export default{
       user_Pass ? user_Pass = user_Pass: {user_Pass} = user
   
   
-      await editUser(user_Name, user_Surname, user_Email, user_Pass, +req.params.id)
+      await patchUser(user_Name, user_Surname, user_Email, user_Pass, +req.params.id)
       
       res.json(await getUsers())
   },

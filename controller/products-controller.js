@@ -1,4 +1,4 @@
-import { getProducts, getProduct, addProduct , deleteProduct, editProduct} from "../models/products-database.js";
+import { getProducts, getProduct, postProduct , deleteProduct, patchProduct} from "../models/products-database.js";
 
 
 export default{
@@ -25,11 +25,11 @@ export default{
        
     },
 
-    addProduct: async(req,res)=>{
+    postProduct: async(req,res)=>{
 
         try{
             const { prod_URL, prod_Name, category, price } = req.body;
-            await addProduct(prod_URL, prod_Name, category, price);
+            await postProduct(prod_URL, prod_Name, category, price);
             res.send(await getProducts())
 
         } catch(error){
@@ -44,7 +44,7 @@ export default{
         res.send(await deleteProduct(req.params.id));   
     },
 
-    editProduct: async(req,res)=>{
+    patchProduct: async(req,res)=>{
         const [product] = await getProduct(+req.params.id)
 
         let {prod_URL, prod_Name, category, price} = req.body
@@ -57,7 +57,7 @@ export default{
 
         price ? price= price: {price}=product
 
-        await editProduct(prod_URL, prod_Name, category, price,+req.params.id)
+        await patchProduct(prod_URL, prod_Name, category, price,+req.params.id)
         
         res.json(await getProducts())
     }

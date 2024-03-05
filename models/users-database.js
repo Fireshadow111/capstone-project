@@ -20,7 +20,7 @@ const getUsers= async()=>{
     return result
   }
   
-  const addUser= async(user_Name, user_Surname, user_Email, user_Pass)=>{
+  const postUser= async(user_Name, user_Surname, user_Email, user_Pass)=>{
     const [user] = await pool.query(`
         INSERT INTO users(user_Name, user_Surname, user_Email, user_Pass) VALUES (?,?,?,?)
     `,[user_Name, user_Surname, user_Email, user_Pass])
@@ -35,7 +35,7 @@ const getUsers= async()=>{
     return getUsers(user.DeleteId)
   } 
   
-  const editUser = async(user_Name, user_Surname, user_Email, user_Pass, user_ID)=>{
+  const patchUser = async(user_Name, user_Surname, user_Email, user_Pass, user_ID)=>{
     await pool.query(`
         UPDATE users
         SET user_Name = ?, user_Surname = ?, user_Email = ?, user_Pass = ?
@@ -53,7 +53,7 @@ const getUsers= async()=>{
     `, [user_Name, user_Surname, user_Email, user_Pass])
 }
 
-  const checkUser = async(first_Name)=> {
+  const checkUser = async(user_Name)=> {
     const [[{password}]] = await pool.query(`
     SELECT user_Pass FROM users WHERE user_Name = ?
     `, [user_Name])
@@ -62,4 +62,4 @@ const getUsers= async()=>{
  
   
   
-  export {getUsers,getUser,addUser,deleteUser,editUser, newUser,checkUser}
+  export {getUsers,getUser,postUser,deleteUser,patchUser, newUser,checkUser}

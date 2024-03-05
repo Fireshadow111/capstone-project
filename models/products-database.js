@@ -20,7 +20,7 @@ const getProduct= async(id)=>{
     return result
 }
 
-const addProduct= async(prod_URL, prod_Name, category, price)=>{
+const postProduct= async(prod_URL, prod_Name, category, price)=>{
     const [product] = await pool.query(`
         INSERT INTO products(prod_URL, prod_Name, category, price) VALUES (?,?,?,?)
     `,[prod_URL, prod_Name, category, price])
@@ -35,7 +35,7 @@ const deleteProduct = async(id)=>{
     return getProducts(product.DeleteId)
 } 
 
-const editProduct = async(prod_URL, prod_Name, category, price,prod_ID)=>{
+const patchProduct = async(prod_URL, prod_Name, category, price,prod_ID)=>{
     await pool.query(`
         UPDATE products
         SET prod_URL = ?, prod_Name = ?, category = ?, price = ?
@@ -46,4 +46,4 @@ const editProduct = async(prod_URL, prod_Name, category, price,prod_ID)=>{
 
 
 
-export {getProducts,getProduct,addProduct,deleteProduct,editProduct}
+export {getProducts,getProduct,postProduct,deleteProduct,patchProduct}

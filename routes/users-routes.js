@@ -7,13 +7,13 @@ const router = express.Router();
 router
     .route('/')
         .get(controller.getUsers)
-        .post(controller.addUser)
+        .post(controller.postUser)
         
 router
     .route('/:id')
         .get(controller.getUser)
         .delete(controller.deleteUser)
-        .patch(controller.editUser)
+        .patch(controller.patchUser)
 
 
 
