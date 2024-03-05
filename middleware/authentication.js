@@ -10,7 +10,7 @@ const authenticateToken = (req,res,next)=>{
     if(tokenInHeader===null)res.sendStatus(401)
     jwt.verify(tokenInHeader,process.env.SECRET_KEY,(err,user)=>{
         if(err) return res.sendStatus(403)
-        req.email_Add = email_Add
+        req.user_Email = user_Email
         next()
     })
 }
@@ -19,15 +19,15 @@ const authenticateToken = (req,res,next)=>{
 
 
 const auth = async (req,res,next)=>{
-    const {first_Name,user_Pass} = req.body
-    console.log(first_Name);
-    const hashedPassword = await checkUser(first_Name)
+    const {user_Name,user_Pass} = req.body
+    console.log(user_Name);
+    const hashedPassword = await checkUser(user_Name)
     bcrypt.compare(user_Pass,hashedPassword,(err,result)=>{
         if(err) throw err
         if(result === true){
-            const {username} = req.body
-            console.log(first_Name)
-            const token = jwt.sign({first_Name:first_Name},process.env.SECRET_KEY,{expiresIn:'1h'})
+            const {user_Name} = req.body
+            console.log(user_Name)
+            const token = jwt.sign({user_Name:user_Name},process.env.SECRET_KEY,{expiresIn:'1h'})
             // res.cookie('jwt',token,{httpOnly:false})
             console.log(token);
             res.send({
@@ -48,13 +48,13 @@ app.post('/login',auth,(req,res)=>{
 
 
 login: async (req,res,next)=>{
-    const {first_Name,user_Pass} = req.body
-    const hashedPassword = await checkUser(first_Name)
-    bcrypt.compare(first_Name,hashedPassword,(err,result)=>{
+    const {user_Name,user_Pass} = req.body
+    const hashedPassword = await checkUser(user_Name)
+    bcrypt.compare(user_Name,hashedPassword,(err,result)=>{
         if(err) throw err
         if(result === true){
-            const {first_Name} = req.body
-            const token = jwt.sign({first_Name:first_Name},process.env.SECRET_KEY,{expiresIn:'1h'})
+            const {user_Name} = req.body
+            const token = jwt.sign({user_Name:user_Name},process.env.SECRET_KEY,{expiresIn:'1h'})
             res.cookie('jwt',token,{httpOnly:false})
             next()
         }else{
