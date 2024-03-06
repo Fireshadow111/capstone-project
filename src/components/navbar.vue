@@ -4,14 +4,14 @@
   
      <div id="navbarContainer">
 
-    <nav class="navbar navbar-expand-lg">
-  <div class="container-fluid">
+    <nav  class="navbar navbar-expand-lg">
+  <div  class="container-fluid">
     <a class="navbar-brand" href="#"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
+      <div  class="navbar-nav">
         <router-link id = "links" class = "mx-3" aria-current="page" to= "/">Home</router-link> 
         <router-link id = "links" class = "mx-3" to ="/products">Products</router-link>
         <router-link id = "links" class = "mx-3" to ="/checkout">Checkout</router-link>
@@ -40,8 +40,9 @@ body{
 #navbarContainer{
   display: flex;
   justify-content: center;
-  /* width: 100%;
-  position: fixed; */
+  width: 100%;
+  position: fixed;
+  
 }
 #links {
   font-size: 35px;
@@ -52,6 +53,8 @@ body{
 
   transition: text-decoration 0.5s;
   text-decoration: none;
+
+  
 }
 
 #links:hover {
@@ -64,6 +67,8 @@ body{
   border-bottom: 2px solid #44d62c;
   text-decoration-thickness: 3px;
 
+  
+
 }
     
 
@@ -72,6 +77,17 @@ body{
   
     
   }
+
+
+  /* #nav-aura{
+    box-shadow: 0 0 28px #44d62c;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#nav-aura:hover{
+    transform:scale(105%);
+    box-shadow: 0 0 45px #44d62c;
+} */
+
 
 
 </style>
