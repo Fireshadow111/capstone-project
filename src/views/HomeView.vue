@@ -1,8 +1,14 @@
 <template>
-  <div class="home">
+  <body>
+    
+    <img src="" alt="">
 
-   
-  </div>
+
+
+  </body>
+  
+
+
 </template>
 
 <script>
@@ -16,3 +22,12 @@ export default {
   }
 }
 </script>
+
+
+<style scoped>
+
+body{
+  background-color: black;
+}
+
+</style>
