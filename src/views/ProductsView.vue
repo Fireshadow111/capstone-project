@@ -1,6 +1,18 @@
 <template>
    <body>
     
+
+    <div class="container text-center">
+      <div class="row align-items-center">
+        <div id="products-div">
+
+          <h1 id="products-head" class = " mt-4 mb-4">Products</h1>
+
+        </div>
+      </div>
+    </div>
+
+
     <div class="container">
     <div class="row">
    
@@ -144,5 +156,26 @@ body{
   text-align: center;
 
 }
+
+.contact-container {
+  border-radius: 5px;
+  background-color: black;
+
+}
+
+
+
+#products-head {
+  background-color: black;
+  color: white;
+  border: 4px solid #44d62c;
+  border-radius: 55px;
+  font-family: "DM Serif Display";
+  font-size: 50px;
+
+
+
+}
+
     
 </style>

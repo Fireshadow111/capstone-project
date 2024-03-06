@@ -18,6 +18,8 @@
         <router-link id = "links" class = "mx-3" to ="/about">About</router-link>
         <router-link id = "links" class = "mx-3" to ="/contact">Contact</router-link>
         <router-link id = "links" class = "mx-3" to ="/admin">Admin</router-link>
+        <router-link id = "links" class = "mx-3" to ="/signup">Sign Up</router-link>
+        <router-link id = "links" class = "mx-3" to ="/login">Login</router-link>
       </div>
     </div>
   </div>
@@ -41,7 +43,7 @@ body{
   display: flex;
   justify-content: center;
   width: 100%;
-  position: fixed;
+ 
   
 }
 #links {

@@ -13,7 +13,7 @@
 
 <div class = "d-flex justify-content-center mt-2">
 
-  <h2>The House of Razer</h2>
+  <h2>Razer</h2>
 
 </div>
 
@@ -22,28 +22,10 @@
 
 
 
-<div class = "d-flex justify-content-center mt-3">
-
-  <a href = "#about">
-    <button id = "button1" type="button" class="btn-lg mx-2">Buy Now!</button>
-
-  </a>
-
-  <a href = "#contact">
-
-    <button id = "button2" type="button" class="btn-lg mx-2">About us?</button>
-
-  </a>
-  
-</div>
-
-
-
-
-
 </div>
 
 </div>
+
 
 
 
@@ -81,9 +63,10 @@ body{
 
 
 #heading-div{
+  min-width: 100%;
   background-color: black;
   border-radius: 70px;
-  border: 3.5px solid #44d62c ;
+  border: 3.5px solid #44d62c;
   background-color: none;
   animation-name: welcome;
   animation-duration: 26s;
@@ -91,7 +74,7 @@ body{
   position: relative;
   animation-direction: alternate;
 
-  margin-top: 200px;
+  margin-top: 150px;
 }
 
 /* Home Page Animations */
@@ -146,12 +129,14 @@ h2{
 
 #button1{
   font-family: "Roboto";
-  font-size: 22px;
-  background-color: #44d62c;
+  font-size: 30px;
   border-color: black;
   border-radius: 50px;
   margin-top: 20px;
-  color: black;
+  background-color: black;
+  color: #44d62c;
+  border-color: white;
+  border-width: 3px;
   transition: border-color 0.5s, background-color 0.5s, color 0.5s;
   font-weight: bold;
 
@@ -159,35 +144,30 @@ h2{
 
 #button2{
   font-family: "Roboto";
-  font-size: 22px;
-  background-color: #44d62c;
+  font-size: 30px;
+  
   border-color: black;
   border-radius: 50px;
   margin-top: 20px;
-  color: black;
+  background-color: black;
+  color: #44d62c;
+  border-color: white;
+  border-width: 3px;
   transition: border-color 0.5s, background-color 0.5s, color 0.5s;
   font-weight: bold;
 }
 
 #button1:hover{
-  background-color: black;
-  color: #44d62c;
-  border-color: white;
+  background-color: #44d62c;
+  color: black;
 }
 
 #button2:hover{
-  background-color: black;
-  color: #44d62c;
-  border-color: white;
-}
-
-
-.footer {
-  font-size: 15px;
-  color: black;
-  font-weight: bolder;
-  text-align: center;
   background-color: #44d62c;
+  color: black;
 }
+
+
+
 
 </style>
