@@ -1,30 +1,21 @@
 <template>
   <body id ="background">
     
-    <div id = "home-con" class="container text-center">
-      <div class="row align-items-center">
-
-    <div id = "heading-div" class = "">
-<div class = "d-flex justify-content-center">
-
-  <h1>Welcome to</h1>
-
-</div>
-
-<div class = "d-flex justify-content-center mt-2">
-
-  <h2>Razer</h2>
-
-</div>
-
-
-</div>
-
-
-
-</div>
-
-</div>
+    <div class="home">
+  <div class="row">
+ 
+    <div class="col-12">
+      <h1 class="text-capitalize m-4">Welcome <span>To</span><span class="d-block">Razer</span></h1>
+      <h6 class="fs-2 text-capitalize m-4">"For Gamers <span class="d-inline-block">By Gamers"</span></h6>
+     
+      <button id ="home-button" type="button" class="btn btn-dark">Buy Now</button>
+    
+     </div>
+    </div>
+  
+  
+  </div>
+ 
 
 
   <div id = "footer-prob">
@@ -57,7 +48,7 @@ body{
 
 #background{
 
-  background-image: url(https://cdn-images.imagevenue.com/0a/31/3f/ME17QOEA_o.png);
+  background-image: url(	https://cdn-images.imagevenue.com/87/25/0a/ME17QOE6_o.jpg);
   background-size: cover;
   background-attachment: fixed;
  
@@ -80,12 +71,108 @@ body{
   margin-top: 150px;
 }
 
+
+
+
+#home-button{
+  width: 150px;
+  height: 50px;
+  color: black;
+  font-family: "Roboto";
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #44d62c;;
+  border: solid 3px white;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: border-color 0.5s, background-color 0.5s, color 0.5s;
+}
+
+#home-button:hover{
+  background-color: black;
+  color: #44d62c;
+}
+
+#home-button:active{
+  box-shadow: 0 5px #666;
+  transform: translatex(4px);
+}
+
+        
+
+
+#footer {
+  color: black;
+  font-weight: bolder;
+  text-align: center;
+  background-color: #44d62c;
+}
+
+#footer-prob {
+  position: sticky;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+
+h1{
+  font-size: 100px;
+  color:#44d62c;
+  margin-top: 5rem;
+  font-family: "DM Serif Display";
+  font-size: 70px;
+  color: #44d62c;;
+ }
+
+ span{
+  color: #44d62c;;
+  text-transform: uppercase;
+  font-style: italic;
+ }
+
+ h6{
+  font-style: italic;
+ }
+
+ h1,h6,a, button{
+  /* margin-left:2.3rem; */
+  font-weight: 650;
+  color:#44d62c;
+  background-color: none;
+  animation-name: welcome;
+  animation-duration: 18s;
+  animation-delay: 0s;
+  position: relative;
+  animation-direction: alternate;
+ }
+
+ img{
+  background-color: none;
+  animation-name: image;
+  animation-duration: 18s;
+  animation-delay: 0s;
+  position: relative;
+  animation-direction: alternate;
+ }
+ 
+
+
+ 
+
+
+ @media screen and (max-width: 900px){
+   h1{
+    font-size: 50px;
+   }
+ }
+
 /* Home Page Animations */
 
 @keyframes welcome{
   0%{
-      left: 0px;
-      top: -800px;
+      left: -800px;
+      top: 0px;
   }
 
   25%{
@@ -109,80 +196,42 @@ body{
       left: 0px;
       top: 0px;
   }
+
 }  
 
 
+@keyframes image{
+  0%{
+      left: 800px;
+      top: 0px;
+  }
+
+  25%{
+      left: 0px;
+      top: 0px;
+
+  }
+
+  50%{
+      left: 0px;
+     top:0px;
+
+  }
+
+  75%{
+      top: 0px;
+      left: 0px 
+   }
+
+   100%{
+      left: 0px;
+      top: 0px;
+  }
 
 
 
 
-h1{
-  font-family: "DM Serif Display";
-  font-size: 70px;
-  color: white;
-}
-
-h2{
-  color: #44d62c;
-  font-size: 45px;
-  font-family: "Roboto";
-  font-weight: bold;
-  font-style: italic;
-}
-
-#button1{
-  font-family: "Roboto";
-  font-size: 30px;
-  border-color: black;
-  border-radius: 50px;
-  margin-top: 20px;
-  background-color: black;
-  color: #44d62c;
-  border-color: white;
-  border-width: 3px;
-  transition: border-color 0.5s, background-color 0.5s, color 0.5s;
-  font-weight: bold;
-
-}
-
-#button2{
-  font-family: "Roboto";
-  font-size: 30px;
   
-  border-color: black;
-  border-radius: 50px;
-  margin-top: 20px;
-  background-color: black;
-  color: #44d62c;
-  border-color: white;
-  border-width: 3px;
-  transition: border-color 0.5s, background-color 0.5s, color 0.5s;
-  font-weight: bold;
-}
-
-#button1:hover{
-  background-color: #44d62c;
-  color: black;
-}
-
-#button2:hover{
-  background-color: #44d62c;
-  color: black;
-}
-
-
-#footer {
-  color: black;
-  font-weight: bolder;
-  text-align: center;
-  background-color: #44d62c;
-}
-
-#footer-prob {
-  position: sticky;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
+}  
 
 </style>
