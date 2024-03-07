@@ -3,9 +3,7 @@
   <body>
     
   
-    <!-- <div class="container-fluid pb-2 pt-5">
-  
-      <h1 class="about-head">About Us</h1> -->
+
 
       <div class="container text-center">
       <div class="row align-items-center">

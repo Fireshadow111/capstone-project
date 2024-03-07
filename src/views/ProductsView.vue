@@ -157,11 +157,7 @@ body{
 
 }
 
-.contact-container {
-  border-radius: 5px;
-  background-color: black;
 
-}
 
 
 

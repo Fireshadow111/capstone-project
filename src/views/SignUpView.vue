@@ -4,7 +4,7 @@
       <div class="row align-items-center">
         <div id="signup-div">
 
-          <h1 id="signup-head" class = " mt-4 mb-4">Products</h1>
+          <h1 id="signup-head" class = " mt-4 mb-4">Sign Up</h1>
 
         </div>
       </div>

@@ -27,8 +27,9 @@
 </div>
 
 
-
-
+  <div id = "footer-prob">
+<footer id="footer">Razer - @Copyright&copy  - 2024</footer>
+</div>
   </body>
   
 
@@ -36,13 +37,13 @@
 </template>
 
 <script>
-
+import footer from '../components/footer.vue'
 
 
 export default {
   name: 'HomeView',
   components: {
-   
+   footer
   }
 }
 </script>
@@ -58,6 +59,8 @@ body{
 
   background-image: url(https://cdn-images.imagevenue.com/0a/31/3f/ME17QOEA_o.png);
   background-size: cover;
+  background-attachment: fixed;
+ 
 
 }
 
@@ -168,6 +171,18 @@ h2{
 }
 
 
+#footer {
+  color: black;
+  font-weight: bolder;
+  text-align: center;
+  background-color: #44d62c;
+}
 
+#footer-prob {
+  position: sticky;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
 
 </style>
