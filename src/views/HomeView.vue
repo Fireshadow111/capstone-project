@@ -1,20 +1,31 @@
 <template>
   <body id ="background">
     
-    <div class="home">
+    <div class="container text-center">
   <div class="row">
- 
-    <div class="col-12">
-      <h1 class="text-capitalize m-4">Welcome <span>To</span><span class="d-block">Razer</span></h1>
-      <h6 class="fs-2 text-capitalize m-4">"For Gamers <span class="d-inline-block">By Gamers"</span></h6>
-     
-      <button id ="home-button" type="button" class="btn btn-dark">Buy Now</button>
-    
-     </div>
-    </div>
-  
-  
+    <div class="col">
+      
+      <div id = "welcome">
+    <h1 class="text-capitalize m-4">Welcome <span>To</span><span class="d-block">Razer</span></h1>
   </div>
+     
+      
+    </div>
+    <div class="col">
+    
+    </div>
+    <div class="col">
+
+      <div id = "gamers" class = "justify-content-end">
+      <h6 id = "right"  class="fs-2 text-capitalize m-4">"For Gamers <span class="d-inline-block">By Gamers"</span></h6>
+      <router-link  to = "/products" id ="home-button" type="button" class="btn btn-dark">Buy Now</router-link>
+    </div>
+
+    </div>
+  </div>
+</div>
+  
+
  
 
 
@@ -43,12 +54,12 @@ export default {
 <style scoped>
 
 body{
-  min-height: 100vh;
+  min-height: 88vh;
 }
 
 #background{
 
-  background-image: url(	https://cdn-images.imagevenue.com/87/25/0a/ME17QOE6_o.jpg);
+  background-image: url(	https://cdn-images.imagevenue.com/5d/b8/81/ME17QOE5_o.png);
   background-size: cover;
   background-attachment: fixed;
  
@@ -56,26 +67,17 @@ body{
 }
 
 
-#heading-div{
-  min-width: 100%;
-  background-color: black;
-  border-radius: 70px;
-  border: 3.5px solid #44d62c;
-  background-color: none;
-  animation-name: welcome;
-  animation-duration: 26s;
-  animation-delay: 0s;
-  position: relative;
-  animation-direction: alternate;
+#gamers{
+  margin-top: 400px;
+}
 
-  margin-top: 150px;
+#welcome{
+  margin-right: 300px;
 }
 
 
-
-
 #home-button{
-  width: 150px;
+  width: 70%;
   height: 50px;
   color: black;
   font-family: "Roboto";
@@ -83,9 +85,17 @@ body{
   font-weight: bold;
   background-color: #44d62c;;
   border: solid 3px white;
-  border-radius: 50px;
+ 
   cursor: pointer;
   transition: border-color 0.5s, background-color 0.5s, color 0.5s;
+
+ 
+  background-color: none;
+  animation-name: image;
+  animation-duration: 18s;
+  animation-delay: 0s;
+  position: relative;
+  animation-direction: alternate;
 }
 
 #home-button:hover{
@@ -97,6 +107,8 @@ body{
   box-shadow: 0 5px #666;
   transform: translatex(4px);
 }
+
+
 
         
 
@@ -122,7 +134,15 @@ h1{
   margin-top: 5rem;
   font-family: "DM Serif Display";
   font-size: 70px;
-  color: #44d62c;;
+  color: #44d62c;
+  font-weight: bolder;
+
+  background-color: none;
+  animation-name: welcome;
+  animation-duration: 18s;
+  animation-delay: 0s;
+  position: relative;
+  animation-direction: alternate;
  }
 
  span{
@@ -135,19 +155,16 @@ h1{
   font-style: italic;
  }
 
- h1,h6,a, button{
-  /* margin-left:2.3rem; */
-  font-weight: 650;
-  color:#44d62c;
-  background-color: none;
-  animation-name: welcome;
-  animation-duration: 18s;
-  animation-delay: 0s;
-  position: relative;
-  animation-direction: alternate;
+
+ #welcome{
+  margin-top: 100px;
  }
 
- img{
+  
+  #right{
+    font-size: 80px;
+  font-weight: 850;
+  color:#44d62c;
   background-color: none;
   animation-name: image;
   animation-duration: 18s;
@@ -155,6 +172,10 @@ h1{
   position: relative;
   animation-direction: alternate;
  }
+
+
+
+
  
 
 

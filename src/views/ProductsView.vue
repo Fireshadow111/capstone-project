@@ -21,7 +21,7 @@
             <img src="https://cdn-images.imagevenue.com/8d/93/5d/ME17QI1U_o.jpg" class="card-img-top" alt="">
             <div class="card-body">
                 <h5 style="color: #44d62c; background-color: black;" class="card-title">Razer Blade 15</h5>
-                <p class="card-text" style="font-size: 17px; font-weight: bolder;"><i>NVIDIA® GeForce RTX™ 40 Series Intel® Core™ i7 Processor</i></p>
+                <p class="card-text" style="font-size: 17px; font-weight: bolder;"><i>NVIDIA GeForce RTX 40 Series Intel Core i7 Processor</i></p>
                 <p class="card-text" style="font-size: 17px;">$2499.99</p>
                 <button id = "products-add-cart-button" class="btn btn-primary">Add to Cart</button>
             </div>
