@@ -1,10 +1,11 @@
 import express from 'express';
 import {config} from 'dotenv';
+import { auth , authenticate } from './middleware/authentication.js'
 import cors from 'cors'
-// import productsRouter from './routes/products-routes.js';
-// import usersRouter from './routes/users-routes.js'
-// import signupRouter from './routes/signup-routes.js'
-// import loginRouter from './routes/login-routes.js'
+import productsRouter from './routes/products-routes.js';
+import usersRouter from './routes/users-routes.js'
+import cartRouter from './routes/cart-routes.js'
+import loginRouter from './routes/login-routes.js'
 import cookieParser from 'cookie-parser'
 import jwt from 'jsonwebtoken'
 config()
@@ -21,13 +22,13 @@ app.use(express.static('views'))
 
 app.use(cookieParser())
 
-// app.use('/products', productsRouter)
+app.use('/products', authenticate, productsRouter)
 
-// app.use('/users', usersRouter)
+app.use('/cart', authenticate, cartRouter)
 
-// app.use('/signup', signupRouter)
+app.use('/users', usersRouter)
 
-// app.use('/login', loginRouter)
+app.use('/login', auth, loginRouter)
 
 
 

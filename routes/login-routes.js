@@ -1,14 +1,10 @@
-// import express from 'express';
-// import controller from '../controller/products-controller.js';
+import express from 'express';
+import controller from '../controller/login-controller.js';
 
+const router = express.Router();
 
-// const router = express.Router();
+router
+    .route('/')
+        .post(controller.postLogin)
 
-
-// router
-//     .route("/:id")
-//         .get(controller.postLogin)
-
-
-
-// export default router
+export default router
