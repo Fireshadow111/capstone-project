@@ -1,258 +1,189 @@
 <template>
-  <body id ="background">
+  <body>
     
-    <div class="container text-center">
-  <div class="row">
-    <div class="col">
-      
-      <div id = "welcome">
-    <h1 class="text-capitalize m-4">Welcome <span>To</span><span class="d-block">Razer</span></h1>
-  </div>
-     
-      
-    </div>
-    <div class="col">
-    
-    </div>
-    <div class="col">
-
-      <div id = "gamers" class = "justify-content-end">
-      <h6 id = "right"  class="fs-2 text-capitalize m-4">"For Gamers <span class="d-inline-block">By Gamers"</span></h6>
-      <router-link  to = "/products" id ="home-button" type="button" class="btn btn-dark">Buy Now</router-link>
-    </div>
-
-    </div>
-  </div>
-</div>
-  
+    <navbar/>
 
  
 
 
-  <div id = "footer-prob">
-<footer id="footer">Razer - @Copyright&copy  - 2024</footer>
-</div>
-  </body>
+   <div class="container">
+   <div class="row">
   
+   <div class="col-md-4 my-5  d-flex justify-content-center">
+       <div class="card h-100" style="width: 18rem;">
+           <img src="https://cdn-images.imagevenue.com/8d/93/5d/ME17QI1U_o.jpg" class="card-img-top" alt="">
+           <div class="card-body">
+               <h5 style="color: #44d62c; background-color: black;" class="card-title">Razer Blade 15</h5>
+               <p class="card-text" style="font-size: 17px; font-weight: bolder;"><i>NVIDIA GeForce RTX 40 Series Intel Core i7 Processor</i></p>
+               <p class="card-text" style="font-size: 17px;">$2499.99</p>
+               <button id = "products-add-cart-button" class="btn btn-primary">Add to Cart</button>
+           </div>
+       </div>
+   </div>
 
 
+   <div class="col-md-4 my-5 d-flex justify-content-center">
+       <div class="card h-100" style="width: 18rem;">
+           <img src="https://cdn-images.imagevenue.com/fa/c4/44/ME17QI1V_o.jpg" class="card-img-top" alt="">
+           <div class="card-body">
+               <h5 style="color: #44d62c; background-color: black;" class="card-title">Razer Viper V2</h5>
+               <p class="card-text" style="font-size: 17px; font-weight: bolder;"><i>Ultra-lightweight, Ultra-fast Wireless Esports Mouse</i></p>
+               <p class="card-text" style="font-size: 17px;">$149.99</p>
+               <button id = "products-add-cart-button" class="btn btn-primary">Add to Cart</button>
+           </div>
+       </div>
+   </div>
+
+   
+   <div class="col-md-4 my-5 d-flex justify-content-center">
+       <div class="card h-100" style="width: 18rem;">
+           <img src="https://cdn-images.imagevenue.com/12/38/70/ME17QNXY_o.jpg" class="card-img-top" alt="">
+           <div class="card-body">
+               <h5 style="color: #44d62c; background-color: black;" class="card-title">Razer Blackshark</h5>
+               <p class="card-text" style="font-size: 17px; font-weight: bolder;"><i>Multi-platform wired esports headset</i></p>
+               <p class="card-text" style="font-size: 17px;">$39.99</p>
+               <button id = "products-add-cart-button" class="btn btn-primary">Add to Cart</button>
+           </div>
+       </div>
+   </div>
+
+
+   <div class="col-md-4 my-5 d-flex justify-content-center">
+       <div class="card h-100" style="width: 18rem;">
+           <img src="https://cdn-images.imagevenue.com/c5/bd/8e/ME17QI1T_o.jpg" class="card-img-top" alt="">
+           <div class="card-body">
+               <h5 style="color: #44d62c; background-color: black;" class="card-title">Razer Blackwidow</h5>
+               <p class="card-text" style="font-size: 17px; font-weight: bolder;"><i>Mechanical Gaming Keyboard with Razer Chroma™ RGB</i></p>
+               <p class="card-text" style="font-size: 17px;">$229.99</p>
+               <button id = "products-add-cart-button" class="btn btn-primary">Add to Cart</button>
+           </div>
+       </div>
+   </div>
+
+ 
+   <div class="col-md-4 my-5 d-flex justify-content-center">
+       <div class="card h-100" style="width: 18rem;">
+           <img src="https://cdn-images.imagevenue.com/ff/86/44/ME17QI1S_o.jpg" class="card-img-top" alt="">
+           <div class="card-body">
+               <h5 style="color: #44d62c; background-color: black;" class="card-title">Unleashed Zip Hoodie</h5>
+               <p class="card-text" style="font-size: 17px; font-weight: bolder;"><i>Everyday apparel thats bold in style and big on comfort</i></p>
+               <p class="card-text" style="font-size: 17px;">$69.99</p>
+               <button id = "products-add-cart-button" class="btn btn-primary">Add to Cart</button>
+           </div>
+       </div>
+   </div>
+
+
+   <div class="col-md-4 my-5 d-flex justify-content-center">
+       <div class="card h-100" style="width: 18rem;">
+           <img src="https://cdn-images.imagevenue.com/26/c1/b4/ME17QI1W_o.jpg" class="card-img-top" alt="">
+           <div class="card-body">
+               <h5 style="color: #44d62c;; background-color: black;" class="card-title">Rogue 14 Backpack</h5>
+               <p class="card-text" style="font-size: 17px; font-weight: bolder;"><i>Lightweight all-weather toploader backpack</i></p>
+               <p class="card-text" style="font-size: 17px;">$59.99</p>
+               <button id = "products-add-cart-button" class="btn btn-primary">Add to Cart</button>
+           </div>
+       </div>
+   </div>
+</div>
+</div>
+
+
+<footer id = "footer-con" class="container py-3 my-5" style="font-family: fantasy;">
+      <p id = "footer" class="text-center text">Copyright © 2023 | All Rights Reserved</p>
+    </footer>
+
+  </body>
 </template>
-
 <script>
+import navbar from '../components/navbar.vue'
 import footer from '../components/footer.vue'
-
-
 export default {
-  name: 'HomeView',
-  components: {
-   footer
-  }
+   name: 'HomeView',
+   components:{
+    navbar,
+    footer
+   }
 }
 </script>
-
-
 <style scoped>
 
 body{
-  min-height: 88vh;
+   background-color: black;
+   min-height: 10vh;
 }
 
-#background{
-
-  background-image: url(	https://cdn-images.imagevenue.com/5d/b8/81/ME17QOE5_o.png);
-  background-size: cover;
-  background-attachment: fixed;
- 
-
+.card-body{
+   text-align: center;
 }
 
-
-#gamers{
-  margin-top: 400px;
+.card{
+   box-shadow: 0 0 28px #44d62c;
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-#welcome{
-  margin-right: 300px;
+.card:hover{
+   transform:scale(105%);
+   box-shadow: 0 0 45px #44d62c;
 }
 
 
-#home-button{
-  width: 70%;
-  height: 50px;
-  color: black;
-  font-family: "Roboto";
-  font-size: 18px;
-  font-weight: bold;
-  background-color: #44d62c;;
-  border: solid 3px white;
- 
-  cursor: pointer;
-  transition: border-color 0.5s, background-color 0.5s, color 0.5s;
-
- 
-  background-color: none;
-  animation-name: image;
-  animation-duration: 18s;
-  animation-delay: 0s;
-  position: relative;
-  animation-direction: alternate;
+#products-add-cart-button {
+ width: 150px;
+ height: 60px;
+ color: black;
+ font-family: "Roboto";
+ font-size: 18px;
+ font-weight: bold;
+ background-color: #44d62c;
+ border: solid 3px black;
+ border-radius: 50px;
+ cursor: pointer;
+ transition: border-color 0.5s, background-color 0.5s, color 0.5s;
 }
 
-#home-button:hover{
-  background-color: black;
+#products-add-cart-button:hover {
+ background-color: black;
+ color: #44d62c;
+ border-color: white;
+
+}
+
+#products-add-cart-button:active {
+ box-shadow: 0 5px #666;
+ transform: translatex(4px);
+}
+
+#product-cards {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+ text-align: center;
+
+}
+
+
+
+
+
+#products-head {
+ background-color: black;
+ color: white;
+ border: 4px solid #44d62c;
+ border-radius: 55px;
+ font-family: "DM Serif Display";
+ font-size: 50px;
+
+
+
+}
+
+
+#footer-con{
+    border-top: 2px solid #44d62c;
+}
+
+#footer{
   color: #44d62c;
 }
-
-#home-button:active{
-  box-shadow: 0 5px #666;
-  transform: translatex(4px);
-}
-
-
-
-        
-
-
-#footer {
-  color: black;
-  font-weight: bolder;
-  text-align: center;
-  background-color: #44d62c;
-}
-
-#footer-prob {
-  position: sticky;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-
-
-h1{
-  font-size: 100px;
-  color:#44d62c;
-  margin-top: 5rem;
-  font-family: "DM Serif Display";
-  font-size: 70px;
-  color: #44d62c;
-  font-weight: bolder;
-
-  background-color: none;
-  animation-name: welcome;
-  animation-duration: 18s;
-  animation-delay: 0s;
-  position: relative;
-  animation-direction: alternate;
- }
-
- span{
-  color: #44d62c;;
-  text-transform: uppercase;
-  font-style: italic;
- }
-
- h6{
-  font-style: italic;
- }
-
-
- #welcome{
-  margin-top: 100px;
- }
-
-  
-  #right{
-    font-size: 80px;
-  font-weight: 850;
-  color:#44d62c;
-  background-color: none;
-  animation-name: image;
-  animation-duration: 18s;
-  animation-delay: 0s;
-  position: relative;
-  animation-direction: alternate;
- }
-
-
-
-
- 
-
-
- 
-
-
- @media screen and (max-width: 900px){
-   h1{
-    font-size: 50px;
-   }
- }
-
-/* Home Page Animations */
-
-@keyframes welcome{
-  0%{
-      left: -800px;
-      top: 0px;
-  }
-
-  25%{
-      left: 0px;
-      top: 0px;
-
-  }
-
-  50%{
-      left: 0px;
-     top:0px;
-
-  }
-
-  75%{
-      top: 0px;
-      left: 0px 
-   }
-
-   100%{
-      left: 0px;
-      top: 0px;
-  }
-
-}  
-
-
-@keyframes image{
-  0%{
-      left: 800px;
-      top: 0px;
-  }
-
-  25%{
-      left: 0px;
-      top: 0px;
-
-  }
-
-  50%{
-      left: 0px;
-     top:0px;
-
-  }
-
-  75%{
-      top: 0px;
-      left: 0px 
-   }
-
-   100%{
-      left: 0px;
-      top: 0px;
-  }
-
-
-
-
-  
-}  
-
+   
 </style>

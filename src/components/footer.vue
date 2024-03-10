@@ -1,27 +1,22 @@
 <template>
    
-   <footer id="footer">Razer - @Copyright&copy  - 2024</footer>
+   <footer id = "footer-con" class="container py-3 my-5" style="font-family: fantasy;">
+      <p id = "footer" class="text-center text-black text">Copyright © 2023 | All Rights Reserved</p>
+    </footer>
 </template>
 <script>
 export default {
-    
+    name: 'footer'
 }
 </script>
-<style>
+<style scoped>
 
-#footer {
-  color: black;
-  font-weight: bolder;
-  text-align: center;
-  background-color: #44d62c;
+#footer-con{
+    border-top: 2px solid #44d62c;
 }
 
-.footer-prob {
-  position: sticky;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+#footer{
+  color: #44d62c;
 }
-
     
 </style>
