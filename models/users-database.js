@@ -38,7 +38,7 @@ const getUsers= async()=>{
   const patchUser = async(user_Name, user_Email, user_Pass, user_Role, user_ID)=>{
     await pool.query(`
         UPDATE users
-        SET user_Name = ?, user_Email = ?, user_Pass = ?, user_Role = ?,
+        SET user_Name = ?, user_Email = ?, user_Pass = ?, user_Role = ?
         WHERE user_ID = ?
     `,[user_Name, user_Email, user_Pass, user_Role, user_ID])
     return getUsers()
