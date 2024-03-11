@@ -1,7 +1,7 @@
 <template>
     <body>
-        
-      <nav class="navbar navbar-light fixed-top">
+     
+      <nav style = "border-radius: 100px; max-width: 95%;" class="navbar navbar-light fixed-top mx-auto">
   <button  class="navbar-toggler custom-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
     <span class="navbar-toggler-icon"></span>
   </button>
