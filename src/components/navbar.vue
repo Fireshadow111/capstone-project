@@ -2,15 +2,15 @@
     <body>
         
       <nav class="navbar navbar-light fixed-top">
-  <button  class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-    <span  class="navbar-toggler-icon"></span>
+  <button  class="navbar-toggler custom-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+    <span class="navbar-toggler-icon"></span>
   </button>
-  <span class="name animate__animated animate__backInDown">Razer</span>
+  <span class="name animate__animated animate__backInDown"><img id = "logo" src="	https://cdn-images.imagevenue.com/20/f9/48/ME17RIFT_o.png" alt=""></span>
             <button type="button" class="btn position-relative cart">
-              <router-link to="/checkout" @click="scrollTop()"><i class="fa fa-shopping-cart cart"></i></router-link>
+              <router-link to="/checkout" @click="scrollTop()"><i style = "color:black" class="fa fa-shopping-cart cart"></i></router-link>
   </button>
 
-<div style = "background-color:#44d62c;" class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+<div style = "background-color:black" class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
   <div class="offcanvas-header">
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
@@ -24,6 +24,9 @@
           </li>
           <li class="nav-item my-4 mx-2">
             <router-link to="/contact" @click="scrollTop()">Contact</router-link>
+          </li>
+          <li class="nav-item my-4 mx-2">
+            <router-link to="/admin" @click="scrollTop()">Admin</router-link>
           </li>
         </ul>
         
@@ -69,8 +72,12 @@ text-align: center;
 .navbar{
 max-height: 90px;
 text-align: center;
-background-color: #44d62c;
-  opacity: 97%;
+background-color: #e10800;
+
+}
+
+.custom-toggler .navbar-toggler-icon {
+color: black;
 }
 
 .navbar span{
@@ -92,12 +99,12 @@ nav a {
 font-size: 27px;
 text-decoration: none;
 font-weight: bold;
-color: black;
+color: white;
 font-family: 'Syne';
 }
 
 nav a.router-link-exact-active {
-color: white;
+color:#e10800;
 }
 .navbar-toggler{
   border: 2px solid black;
@@ -109,13 +116,9 @@ color: white;
   font-size: 29px;
 }
 
-.name{
-padding-right: 5px;
-padding-left: 5px;
-border: 2px solid black;
-font-size: 20px;
-font-family: 'Syne', sans-serif !important;
-font-weight: 800;
+#logo{
+  max-height: 60px;
+  max-width: 100%;
 }
 
 .numbers{
@@ -129,13 +132,13 @@ font-weight: 800;
           text-align: center;
           text-decoration: none;
           max-width: 75%;
-          border: 2px solid black;
+          border: 2px solid #e10800;
           transition: background-color 0.3s ease, color 0.3s ease;
             }
 
       .sign-but:hover{
          background-color: black;
-         color:#44d62c;
+         color:#e10800;
       }
 
       .sign-but:active{

@@ -3,90 +3,31 @@
     
     <navbar/>
 
- 
-
-
-   <div class="container">
-   <div class="row">
-  
-   <div class="col-md-4 my-5  d-flex justify-content-center">
-       <div class="card h-100" style="width: 18rem;">
-           <img src="https://cdn-images.imagevenue.com/8d/93/5d/ME17QI1U_o.jpg" class="card-img-top" alt="">
-           <div class="card-body">
-               <h5 style="color: #44d62c; background-color: black;" class="card-title">Razer Blade 15</h5>
-               <p class="card-text" style="font-size: 17px; font-weight: bolder;"><i>NVIDIA GeForce RTX 40 Series Intel Core i7 Processor</i></p>
-               <p class="card-text" style="font-size: 17px;">$2499.99</p>
-               <button id = "products-add-cart-button" class="btn btn-primary">Add to Cart</button>
-           </div>
-       </div>
-   </div>
-
-
-   <div class="col-md-4 my-5 d-flex justify-content-center">
-       <div class="card h-100" style="width: 18rem;">
-           <img src="https://cdn-images.imagevenue.com/fa/c4/44/ME17QI1V_o.jpg" class="card-img-top" alt="">
-           <div class="card-body">
-               <h5 style="color: #44d62c; background-color: black;" class="card-title">Razer Viper V2</h5>
-               <p class="card-text" style="font-size: 17px; font-weight: bolder;"><i>Ultra-lightweight, Ultra-fast Wireless Esports Mouse</i></p>
-               <p class="card-text" style="font-size: 17px;">$149.99</p>
-               <button id = "products-add-cart-button" class="btn btn-primary">Add to Cart</button>
-           </div>
-       </div>
-   </div>
-
-   
-   <div class="col-md-4 my-5 d-flex justify-content-center">
-       <div class="card h-100" style="width: 18rem;">
-           <img src="https://cdn-images.imagevenue.com/12/38/70/ME17QNXY_o.jpg" class="card-img-top" alt="">
-           <div class="card-body">
-               <h5 style="color: #44d62c; background-color: black;" class="card-title">Razer Blackshark</h5>
-               <p class="card-text" style="font-size: 17px; font-weight: bolder;"><i>Multi-platform wired esports headset</i></p>
-               <p class="card-text" style="font-size: 17px;">$39.99</p>
-               <button id = "products-add-cart-button" class="btn btn-primary">Add to Cart</button>
-           </div>
-       </div>
-   </div>
-
-
-   <div class="col-md-4 my-5 d-flex justify-content-center">
-       <div class="card h-100" style="width: 18rem;">
-           <img src="https://cdn-images.imagevenue.com/c5/bd/8e/ME17QI1T_o.jpg" class="card-img-top" alt="">
-           <div class="card-body">
-               <h5 style="color: #44d62c; background-color: black;" class="card-title">Razer Blackwidow</h5>
-               <p class="card-text" style="font-size: 17px; font-weight: bolder;"><i>Mechanical Gaming Keyboard with Razer Chroma™ RGB</i></p>
-               <p class="card-text" style="font-size: 17px;">$229.99</p>
-               <button id = "products-add-cart-button" class="btn btn-primary">Add to Cart</button>
-           </div>
-       </div>
-   </div>
-
- 
-   <div class="col-md-4 my-5 d-flex justify-content-center">
-       <div class="card h-100" style="width: 18rem;">
-           <img src="https://cdn-images.imagevenue.com/ff/86/44/ME17QI1S_o.jpg" class="card-img-top" alt="">
-           <div class="card-body">
-               <h5 style="color: #44d62c; background-color: black;" class="card-title">Unleashed Zip Hoodie</h5>
-               <p class="card-text" style="font-size: 17px; font-weight: bolder;"><i>Everyday apparel thats bold in style and big on comfort</i></p>
-               <p class="card-text" style="font-size: 17px;">$69.99</p>
-               <button id = "products-add-cart-button" class="btn btn-primary">Add to Cart</button>
-           </div>
-       </div>
-   </div>
-
-
-   <div class="col-md-4 my-5 d-flex justify-content-center">
-       <div class="card h-100" style="width: 18rem;">
-           <img src="https://cdn-images.imagevenue.com/26/c1/b4/ME17QI1W_o.jpg" class="card-img-top" alt="">
-           <div class="card-body">
-               <h5 style="color: #44d62c;; background-color: black;" class="card-title">Rogue 14 Backpack</h5>
-               <p class="card-text" style="font-size: 17px; font-weight: bolder;"><i>Lightweight all-weather toploader backpack</i></p>
-               <p class="card-text" style="font-size: 17px;">$59.99</p>
-               <button id = "products-add-cart-button" class="btn btn-primary">Add to Cart</button>
-           </div>
-       </div>
-   </div>
-</div>
-</div>
+    <section class="container mt-5">
+    <Card  v-for="item in products" :key="item">      
+      <div class="card-body">
+        <div class="row justify-content-center align-items-center text-center">
+          <div class="col-md-6"><img :src="item.prod_URL" class="img-fluid">
+          </div>
+          <div class="col-md-6">
+            <h2 class="text-uppercase card-title card-title mt-3">
+             {{ item.prod_Name }}
+            </h2>
+            <h4 class="card-text">
+            {{ item.category}}
+            </h4>
+            <h4 class="card-text">
+            {{ item.price}}
+            </h4>
+            <!-- <router-link :to="{name: 'ProductView', params: {id:item.prod_ID}}"><a class="btn">View Product</a></router-link> -->
+          </div>
+        </div>
+      </div>
+    </Card>
+    <!-- <div class="card ml-0 mt-5"  v-for="item in products" :key="item">
+    </div> -->
+  </section>
+    
 
 
 <footer id = "footer-con" class="container py-3 my-5" style="font-family: fantasy;">
@@ -103,7 +44,35 @@ export default {
    components:{
     navbar,
     footer
-   }
+   },
+
+   data(){
+      return{
+        prod_URL: null,
+        prod_Name: null,
+        category:null,
+        price:null
+      }
+    },
+  
+    methods:{
+      
+    },
+    computed: {
+      products(){
+        return this.$store.state.products
+      },
+      getProducts(){
+        return this.$store.dispatch('getProducts')
+      },
+  
+      
+    },
+    mounted(){
+      this.getProducts
+    },
+    
+
 }
 </script>
 <style scoped>
@@ -179,11 +148,11 @@ body{
 
 
 #footer-con{
-    border-top: 2px solid #44d62c;
+    border-top: 2px solid #e10800;;
 }
 
 #footer{
-  color: #44d62c;
+  color: #e10800;;
 }
    
 </style>
