@@ -15,18 +15,32 @@
     
     <div id="contactForm-div">
 
+      <div class="body">
+        <div class="loginbox p-2  animate__animated animate__fadeIn container">
+            <form action="https://formspree.io/f/xzbwjdvo" method="POST" class="form" style="padding-bottom: 7%;">
+          <div class="row">
+            <div class="col mx-3">
+              <input type="text" class="form-control" name="name" placeholder="First name" aria-label="First name" required>
+            </div>
+            <div class="col mx-3">
+              <input type="text" class="form-control" name="lastname" placeholder="Last name" aria-label="Last name" required>
+            </div>
+          </div>
+          <div class="mb-3 mx-3">
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Your Email" required>
+          </div>
+        
+            <div class="mb-3 mx-3">
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="message" placeholder="Enter Message Here" required></textarea>
+            </div>
+            <div class="but">
+                <button type="submit" class="btn btn-light subButton" name="submit">Submit</button>
+            </div>
+        </form>
 
-<form action="https://formspree.io/f/myyqoarq" method="POST" target = "_blank">
-  <label for="firstName">First Name:</label>
-  <input type="text" id="firstName" name="firstName" placeholder="Enter your name..">
-  <label for="lastName">Last Name:</label>
-  <input type="text" id="lastName" name="lastName" placeholder="Enter your last name..">
-  <label for="email">Email:</label>
-  <input type="text" id="email" name="email" placeholder="Enter your email..">
-  <label for="messege">Messege:</label>
-  <textarea id="messege" name="messege" placeholder="Enter a messege.." style="height:170px"></textarea>
-  <input type="submit" value="Submit">
-</form>
+        
+    </div>
+        </div>
 
 
 <div id = "icons" class = "d-flex justify-content-center mt-4 mb-5">
@@ -102,66 +116,103 @@ font-size: 60px;
 }
 
 
+.form{
+    justify-content: center;
+}
+.my-element {
+  animation: fadeIn;
+  animation-duration: 5s;
+}
 
+.body{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+.loginbox{
+    min-width: 315px;
+    width: 60%;
+    background-color: #000;
+    color: white;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+}
 
-#contactForm-div {
-  width: 400px;
-  margin: auto;
+h1{
+    margin: 0;
+    padding: 0 0 10px;
+    text-align: center;
+    font-size: 28px;
+}
+
+.loginbox p{
+    margin: 0;
+    padding: 0;
 
 }
 
-label {
-  font-family: "Roboto";
-  font-size: 22px;
-  color:#e10800;
-  font-weight: bold;
+.loginbox input{
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    border-radius: 0px;
+    outline: none;
+    height: 40px;
+    color: white;
+
 }
 
-input[type=text],
-textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
-  border-radius: 15px;
+.loginbox textarea{
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    color: white;
 }
 
-input[type=submit] {
-  width: 120px;
-  height: 45px;
-  margin-right: 5px;
-  font-family: "Roboto";
-  font-size: 22px;
-  font-weight: bold;
-  background-color: #44d62c;
-  border: solid 3px black;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: border-color 0.5s, background-color 0.5s, color 0.5s;
+.loginbox button{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 0px;
 }
 
-input[type=submit]:hover {
-  background-color: black;
-  color: #44d62c;
-  border-color: white;
+.loginbox button:hover{
+    transition: 0.3s;
+    opacity: 80%;
 }
 
-input[type=submit]:active {
-  box-shadow: 0 5px #666;
-  transform: translatex(4px);
+.loginbox a{
+    text-decoration: none;
+    color: white;
 }
 
-.footer {
-  font-size: 15px;
-  color: black;
-  font-weight: bolder;
-  text-align: center;
-  background-color: #44d62c;
+.loginbox a:hover{
+    color: rgb(198, 191, 191);
+    transition: 0.3s;
 }
 
+.but{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.head{
+    font-family: 'Syne', sans-serif !important;
+}
+
+.subButton{
+    max-width: 50%;
+    font-family: 'Syne', sans-serif !important;
+}
 
 /* Contact Page */
 
