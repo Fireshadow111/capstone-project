@@ -3,9 +3,9 @@
      
       <nav style = "border-radius: 100px; max-width: 95%;" class="navbar navbar-light fixed-top mx-auto">
   <button  class="navbar-toggler custom-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-    <span class="navbar-toggler-icon"></span>
+    <span><i class="fa-solid fa-bars " style="color: #000000;"></i></span>
   </button>
-  <span class="name animate__animated animate__backInDown"><img id = "logo" src="	https://cdn-images.imagevenue.com/20/f9/48/ME17RIFT_o.png" alt=""></span>
+  <span class="name animate__animated animate__backInDown"><img id = "logo" src="https://cdn-images.imagevenue.com/2d/81/14/ME17RP2V_o.png" alt=""></span>
             <button type="button" class="btn position-relative cart">
               <router-link to="/checkout" @click="scrollTop()"><i style = "color:black" class="fa fa-shopping-cart cart"></i></router-link>
   </button>
@@ -142,7 +142,7 @@ color:#e10800;
       }
 
       .sign-but:active{
-        box-shadow: 0 5px #666;
+
       transform: translatex(4px);
       }
 

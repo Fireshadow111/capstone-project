@@ -4,27 +4,56 @@
     <navbar/>
 
 
-      
+    <div class="container text-center">
+      <div class="row align-items-center">
+        <div id="prod-head" class = "mt-5">
+          <h1 id = "prodDrag">Products</h1>
+          </div>
+
+          </div>
+          </div>
+
+    <div class="container">
+    <div class="row justify-content-center text-center">
+     
+
+   
+  
+
+    <div class="col-md-4 mt-5" v-for="item in products" :key="item">
+                <div class="card homeCard">
+                  <img :src="item.prod_URL" alt="" class="card-img-top w-100" style="height: 300px;">
+                  <div class="card-body" style = "background-color:#e10800;">
+                    <h3 style = "color:#e10800; font-weight: bold; background-color: black;" class="card-title mb-4">{{ item.prod_Name }}</h3>
+                      <div class="d-flex justify-content-between deats" v-if="user">
+                        <router-link :to="{ name: 'singleProduct', params: { id: item.id }}">
+                          <button type="button" class="btn btn-sm view">View More</button>
+                  </router-link>
+                        <p style = "color: black;" class="my-1 price text-success">${{ item.price }}</p>
+                      </div>
+                      <div v-else>
+                        <div class="d-flex justify-content-between deats">
+                        <router-link :to="{ name: 'checkout'}">
+                      <button type="button" class="btn btn-sm view" style = " font-weight: bold;">View More</button>
+                  </router-link>
+                        <p style = "color: black;" class="my-1 price">${{ item.price }}</p>
+                      </div>
+                      </div>
+                  </div>
+                </div>
+                </div>
+
+              </div>
+              </div>
+  
               
   
-     <div id = "product-con" class = "justify-content-center">
-     
-        <div v-for = "item in products" :key = "item" class="card h100" style="width: 18rem;">
-          <img :src="item.prod_URL" alt="" class="card-img-top">
-            <div class="card-body">
-                <h5 style="color: #44d62c; background-color: black;" class="card-title">{{item.prod_Name}}</h5>
-                <p class="card-text" style="font-size: 17px; font-weight: bolder;"><i>{{item.category}}</i></p>
-                <p class="card-text" style="font-size: 17px;">{{item.price}}</p>
-                <button id = "products-add-cart-button" class="btn btn-primary mb-5">Add to Cart</button>
-            </div>
-            </div>
-          </div>
         
   
 
 
 <footer id = "footer-con" class="container py-3 my-5" style="font-family: fantasy;">
-      <p id = "footer" class="text-center text">Copyright © 2023 | All Rights Reserved</p>
+      <p id = "footer" class="text-center text">Redragon - Copyright© - 2024 | All Rights Reserved</p>
     </footer>
 
   </body>
@@ -75,69 +104,97 @@ body{
    min-height: 10vh;
 }
 
-#product-con{
-  display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    border-radius: 20px;
-    margin: 100px;
-}
-
-.card-body{
-    text-align: center;
-}
-
-.card{
-    box-shadow: 0 0 28px #44d62c;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.card:hover{
-    transform:scale(105%);
-    box-shadow: 0 0 45px #44d62c;
-}
-
-
-#products-add-cart-button {
-  width: 120px;
-  height: 50px;
-  color: black;
-  font-family: "Roboto";
-  font-size: 18px;
-  font-weight: bold;
-  background-color: #44d62c;
-  border: solid 3px black;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: border-color 0.5s, background-color 0.5s, color 0.5s;
-}
-
-#products-add-cart-button:hover {
-  background-color: black;
-  color: #44d62c;
-  border-color: white;
-
-}
-
-#products-add-cart-button:active {
-  box-shadow: 0 5px #666;
-  transform: translatex(4px);
-}
-
-#product-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.prodHead{
   text-align: center;
+}
+
+
+.homeCard{
+  border-radius: 0px;
+  height: 420px; 
+  max-width: 400px;
+  background-color: black;
+
+  box-shadow: 0 0 25px #e10800;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.homeCard:hover{
+  transform:scale(105%);
+    box-shadow: 0 0 40px #e10800;
+}
+
+.col{
+  justify-content: center;
+}
+
+.card img{
+  max-width: 510px;
+}
+
+.deats{
+  align-items: center;
+}
+
+.view{
+  border-radius: 0px;
+  border: 2px solid black;
+  color: black;
+  
+}
+
+.view:hover{
+  color: white;
+  background-color: black;
+  color:#e10800;
+}
+
+.view:active{
+  transform: translatex(4px);
+  box-shadow: 0 5px #666;
+}
+
+.card-title{
+  font-size: 23px;
+}
+.price{
+  font-size: 19px;
+  font-weight: bold;
+}
+
+
+
+@media screen and (width <= 375px) {
+  .sneaks{
+  min-width: 300px;
+}
+}
+
+#footer-con{
+  border-top: 2px solid #e10800;
+}
+
+#footer{
+color: #e10800;
+}
+
+
+#prodDrag{
+
+  color: #e10800;
+  font-style: italic;
+  font-family: "DM Serif Display";
+  font-size: 60px;
 
 }
 
 
 
-
-
-#products-head {
+#prod-head {
   background-color: black;
   color: white;
-  border: 4px solid #44d62c;
+  border: 4px solid  #e10800;
   border-radius: 55px;
   font-family: "DM Serif Display";
   font-size: 50px;
@@ -146,12 +203,5 @@ body{
 
 }
 
-#footer-con{
-    border-top: 2px solid #e10800;;
-}
 
-#footer{
-  color: #e10800;;
-}
-   
 </style>

@@ -1,9 +1,13 @@
 <template>
   <navbar/>
   <div class="body">
-        <div class="loginbox animate__animated animate__fadeIn">
-            <h1 class="my-5 head">Sign Up</h1>
-            <form method="POST" class="mx-4 my-5">
+
+  
+
+
+        <div  class="loginbox animate__animated animate__fadeIn mt-3">
+            <h1 id = "register"class="my-3 head">Sign Up</h1>
+            <form method="POST" class="mx-3 my-3">
                 <div class="row">
         <div class="col">
             <p>Username:</p>
@@ -54,14 +58,16 @@ export default {
 </script>
 <style scoped>
     
+    #register{
+      font-size: 40px;
+      font-style: italic;
+    }
+
 
     i{
     display: none;
 }
-.my-element {
-  animation: fadeIn;
-  animation-duration: 5s;
-}
+
 
 .body{
     margin: 0;
@@ -75,13 +81,14 @@ export default {
 .loginbox{
     min-width: 300px;
     max-width: 700px;
-    background-color: #000;
-    color: #44d62c;
+ 
+    color: #e10800;
     top: 50%;
     left: 50%;
     position: absolute;
     transform: translate(-50%,-50%);
     box-sizing: border-box;
+ 
 }
 
 h1{
@@ -95,6 +102,8 @@ h1{
     margin: 0;
     padding: 0;
 
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .loginbox form input{
@@ -105,7 +114,7 @@ h1{
     border-bottom: 1px solid white;
     outline: none;
     height: 30px;
-    color: #44d62c;
+    color: #e10800;
     border-radius: 0px;
 
 }
@@ -115,12 +124,13 @@ h1{
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 0px;
+    
     transition: border-color 0.5s, background-color 0.5s, color 0.5s;
 }
 
 .loginbox button:hover{
   background-color: black;
- color: #44d62c;
+ color: #e10800;
  border-color: white;
 }
 
@@ -131,7 +141,7 @@ h1{
 
 .loginbox a{
     text-decoration: none;
-    color: #44d62c;
+    color:#e10800;
 }
 
 .loginbox a:hover{
@@ -152,4 +162,10 @@ h1{
         width: 70% !important;
     }
 }
+
+
+
+
+
+
 </style>

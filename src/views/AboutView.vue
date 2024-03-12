@@ -5,25 +5,20 @@
     <navbar/>
   
 
+    <div class="container text-center">
+      <div class="mt-5 row align-items-center">
+        <div id="about-head">
+          <h1 id = "aboutDrag">About</h1>
+          </div>
 
-      <div class="container text-center">
-      <div class="row align-items-center">
-        <div id="about-div">
+          </div>
+          </div>
+      <h2 class="about-title"><i>Tame, Slay, Dominate. in the world of gaming!</i></h2>
 
-          <h1 id="about-head" class = " mt-4 mb-1">About us</h1>
+      <h3 class="about-body mt-4 mb-4">Red Dragon is a manufacturer of unique high-quality gaming peripheral. Enjoy excellent performance, durable designs, and perfected ergonomics in everything from keyboards and mice to headsets and speakers.</h3>
 
-        </div>
-      </div>
-    </div>
-      <h2 class="about-title"><i>For gamers, by gamers</i></h2>
-
-      <h3 class="about-body">The triple-headed snake trademark of Razer is one of the most recognized logos in the
-        global gaming and esports communities. With a fan base that spans every continent, the company has designed and
-        built the worlds
-        largest gamer-focused ecosystem of hardware, software and services.</h3>
-
-      <div class=razer-banner-div>
-        <img class="razer-banner" src="https://cdn-images.imagevenue.com/48/fd/29/ME17QOJ8_o.jpg">
+      <div class=red-banner-div>
+        <img class="red-banner" src="https://cdn-images.imagevenue.com/00/17/85/ME17RPSL_o.png">
       </div>
 
    
@@ -50,36 +45,45 @@ body{
 #about-head {
   background-color: black;
   color: white;
-  border: 5px solid #44d62c;
+  border: 5px solid #e10800;
   border-radius: 50px;
   font-family: "Roboto";
   font-size: 50px;
   text-align: center;
+  margin-top: 70px;
 }
 
 .about-title {
-  color: #44d62c;
+  color: #e10800;
   text-align: center;
   margin-top: 30px;
 }
 
-.razer-banner {
-  width: 80%;
-  height: 100%;
+.red-banner {
+  width: 60%;
+  height: 50%;
   margin-bottom: 10px;
 
 }
 
-.razer-banner-div {
+.red-banner-div {
   display: flex;
   justify-content: center;
 }
 
 .about-body {
   text-align: center;
-  color: white;
-  margin-top: 20px;
+  color: #e10800;
   font-size: 28px;
+}
+
+#aboutDrag{
+
+color: #e10800;
+font-style: italic;
+font-family: "DM Serif Display";
+font-size: 60px;
+
 }
   
 </style>

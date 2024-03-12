@@ -2,15 +2,14 @@
     <div>
 
       <navbar/>
-        <div class="container text-center">
-      <div class="row align-items-center">
-        <div id="contact-div">
+      <div class="container text-center">
+      <div class="mt-5 row align-items-center">
+        <div id="contact-head" class = "mb-5">
+          <h1 id = "contactDrag">Contact</h1>
+          </div>
 
-          <h1 id="contact-head" class = " mt-4 mb-4">Contact</h1>
-
-        </div>
-      </div>
-    </div>
+          </div>
+          </div>
 
 
     
@@ -30,7 +29,7 @@
 </form>
 
 
-<div id = "icons" class = "d-flex justify-content-center mt-4">
+<div id = "icons" class = "d-flex justify-content-center mt-4 mb-5">
 
 <div id = "linkedin-div">
 <a href="https://www.linkedin.com/in/muhammad-rajah-a1a00421a/" target="_blank"><i class="fa-brands fa-linkedin fa-xl" style="color: #44d62c; cursor: pointer;"></i></a>
@@ -80,14 +79,28 @@ export default {
 }
 </script>
 <style>
-    #contact-head {
+   
+   
+#contactDrag{
+
+color: #e10800;
+font-style: italic;
+font-family: "DM Serif Display";
+font-size: 60px;
+
+}
+
+#contact-head {
   background-color: black;
   color: white;
-  border: 4px solid #44d62c;
-  border-radius: 55px;
-  font-family: "DM Serif Display";
+  border: 5px solid #e10800;
+  border-radius: 50px;
+  font-family: "Roboto";
   font-size: 50px;
+  text-align: center;
+  margin-top: 70px;
 }
+
 
 
 
@@ -100,7 +113,7 @@ export default {
 label {
   font-family: "Roboto";
   font-size: 22px;
-  color:#44d62c;
+  color:#e10800;
   font-weight: bold;
 }
 

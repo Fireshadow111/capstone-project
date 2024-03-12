@@ -1,9 +1,10 @@
 <template>
 
+<navbar/>
+
 <div>
 
-
-  <input type="text" placeholder="url" class="form-control my-2" v-model="prod_URL" required>
+  <input type="text" placeholder="url" class="form-control my-2 mt-5 pt-5" v-model="prod_URL" required>
           <input type="text"  placeholder="name" class="form-control my-2" v-model="prod_Name" required>
           <input type="text" placeholder="category" class="form-control my-2" v-model="category" required>
           <input type="number" placeholder="price" class="form-control my-2" v-model="price" required>
@@ -73,7 +74,11 @@
   
   </template>
   <script>
+  import navbar from '../components/navbar.vue'
   export default {
+    components:{
+      navbar
+    },
     data(){
       return{
         prod_URL: null,

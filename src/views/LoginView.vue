@@ -2,7 +2,7 @@
 <navbar/>
 <div class="body">
         <div class="loginbox p-2  animate__animated animate__fadeIn">
-            <h1 class="my-4 head">Login</h1>
+            <h1 id = "login" class="my-4 head">Login</h1>
             
             <form method="POST" class="mx-3 my-3">
     <div>
@@ -34,6 +34,12 @@ export default {
 </script>
 <style scoped>
 
+#login{
+    color: #e10800; 
+    font-size: 30px;
+    font-style: italic;
+}
+
 i{
     display: none;
 }
@@ -54,7 +60,7 @@ i{
     min-width: 300px;
     max-width: 700px;
     background-color: #000;
-    color: #44d62c;
+    color: #e10800; 
     top: 50%;
     left: 50%;
     position: absolute;
@@ -97,7 +103,7 @@ h1{
 
 .loginbox button:hover{
   background-color: black;
- color: #44d62c;
+ color: #e10800; 
  border-color: white;
 }
 
@@ -109,7 +115,7 @@ h1{
 
 .loginbox a{
     text-decoration: none;
-    color: #44d62c;
+    color:#e10800; 
 }
 
 .loginbox a:hover{
