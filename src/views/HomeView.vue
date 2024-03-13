@@ -152,7 +152,7 @@ body{
 
 .view:active{
   transform: translatex(4px);
-  box-shadow: 0 5px #666;
+ 
 }
 
 .card-title{

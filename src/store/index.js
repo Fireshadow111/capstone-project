@@ -35,8 +35,11 @@ export default createStore({
 
     async getProducts({ commit }) {
       try {
+        console.log('hello');
         const {data} = await axios.get(baseUrl+'/products');
+        console.log('after axios');
         commit("setProducts", data);
+        console.log('after setting');
         
       } catch (error) {
         console.error('Error fetching products:', error);

@@ -2,74 +2,115 @@
 
 <navbar/>
 
-<div>
 
-  <input type="text" placeholder="url" class="form-control my-2 mt-5 pt-5" v-model="prod_URL" required>
-          <input type="text"  placeholder="name" class="form-control my-2" v-model="prod_Name" required>
-          <input type="text" placeholder="category" class="form-control my-2" v-model="category" required>
-          <input type="number" placeholder="price" class="form-control my-2" v-model="price" required>
-    <button @click="addProduct()">Add Button</button>
+ 
+<div class="container text-center">
+      <div class="row align-items-center">
+        <div id="admin-head" class = "mb-5">
+          <h1 id = "adminDrag">Admin Dashboard</h1>
+          </div>
 
-    <h1></h1>
+          </div>
+          </div>
 
-    <table class="table">
-      <tr class="thead">
-        <th>id</th>
-        <th>URL</th>
-        <th>name</th>
-        <th>category</th>
-        <th>price</th>
-      </tr>
-      <tbody v-for="item in products" :key="item.id" >
-        <td>{{item.prod_ID}}</td>
-          <td><img :src="item.prod_URL"></td>
-          <td>{{item.prod_Name}}</td>
-          <td>{{item.category}}</td>
-          <td>{{item.price}}</td>
-        <button @click="editProd(item.prod_ID)">Edit</button>
-        <button @click="deleteProd(item.prod_ID)">Delete</button>
+
+
+          <h1 id = "input-head">Messege to all admins!</h1>
+          <p id = "input-text">Input data then click the add or edit button, thank you</p>
+
+
+
+          <h1 class = "userControl">Users Control</h1>
+
+
+          <input type="text" placeholder="User ID" class="input" v-model="user_ID" required>
+          <input type="text"  placeholder="Username" class="input" v-model="user_Name" required>
+          <input type="text" placeholder="Email" class="input" v-model="user_Email" required>
+          <input type="text" placeholder="Password" class="input" v-model="user_Pass" required>
+          <input type="text" placeholder="Role" class="input" v-model="user_Role" required>
+
+          <button style = "border: solid 3px red"  class = "addButton mx-4" @click = "addUser()">Add</button>
+
+
+          <div class="products" ng-app="app" ng-controller="AppCtrl">
+
+<div layout-padding>
+
+  <div class="tables">
+    <table class="table table-striped table-bordered table-hover table-checkable order-column dataTable table-dark">
+    <thead><tr>
+      <th class = "text-center" style = "color:#e10800;">ID</th>
+      <th class = "text-center" style = "color:#e10800;">Username</th>
+      <th class = "text-center" style = "color:#e10800;">Email</th>
+      <th class = "text-center" style = "color:#e10800;">Password</th>
+      <th class = "text-center" style = "color:#e10800;">Role</th>
+      <th class = "text-center" style = "color:#e10800;">For Admin Use Only</th>
+      
+      </tr></thead>
+      <tbody>
+        <tr v-for ="item in users" :key = "item.id">
+          <td class = "text-center" style="color: white; border: solid 3px #e10800;">{{item.user_ID}}</td>
+            <td class = "text-center" style="color: white;border: solid 3px #e10800; ">{{item.user_Name}}</td>
+            <td class = "text-center" style="color: white; border: solid 3px #e10800;">{{item.user_Email}}</td>
+            <td class = "text-center" style="color: white;border: solid 3px #e10800; ">{{item.user_Pass}}</td>
+            <td class = "text-center" style="color: white; border: solid 3px #e10800;">{{item.user_Role}}</td>
+            <td>
+              <button style = "border: solid 3px red" class = "buttons mx-4" @click = "editUser(item.user_ID)">Edit</button>
+              <button style = "border: solid 3px red" class = "buttons mx-4" @click = "deleteUser(item.user_ID)">Delete</button></td>
+            
+        </tr>
+   
       </tbody>
     </table>
-
-
-
-
-
-    
-  
-    <input type="text" placeholder="Name" class="form-control my-2" v-model="user_Name" required>
-    <input type="text"  placeholder="Email" class="form-control my-2" v-model="user_Email" required>
-    <input type="text" placeholder="Pass" class="form-control my-2" v-model="user_Pass" required>
-    <input type="text" placeholder="Role" class="form-control my-2" v-model="user_Role" required>
-    <button @click="addUser()">Add Button</button>
-
-    <h1></h1>
-
-
-    <table class="table">
-      <tr class="thead">
-
-
-        <th>id</th>
-        <th>name</th>
-        <th>email</th>
-        <th>pass</th>
-        <th>role</th>
-
-      </tr>
-      <tbody v-for="item in users" :key="item.id" >
-        <td>{{item.user_ID}}</td>
-        <td>{{item.user_Name}}</td>
-        <td>{{item.user_Email}}</td>
-        <td>{{item.user_Pass}}</td>
-        <td>{{item.user_Role}}</td>
-        <button @click="editUser(item.user_ID)">Edit</button>
-        <button @click="deleteUser(item.user_ID)">Delete</button>
-      </tbody>
-    </table>
-    
   </div>
+  </div>
+</div>
 
+    
+
+          <h1 class = "prodControl">Products Control</h1>
+
+
+          <input type="text" placeholder="Image" class="input" v-model="prod_URL" required>
+          <input type="text"  placeholder="Product Name" class="input" v-model="prod_Name" required>
+          <input type="text" placeholder="Category" class="input" v-model="category" required>
+          <input type="number" placeholder="Price" class="input" v-model="price" required>
+          <button style = "border: solid 3px red"  class = "addButton mx-4" @click = "addProduct()">Add</button>
+
+
+
+          <div class="products" ng-app="app" ng-controller="AppCtrl">
+
+<div layout-padding>
+
+  <div class="tables">
+    <table class="table table-striped table-bordered table-hover table-checkable order-column dataTable table-dark">
+    <thead><tr>
+      <th class = "text-center" style = "color:#e10800;">ID</th>
+      <th class = "text-center" style = "color:#e10800;">Product Image</th>
+      <th class = "text-center" style = "color:#e10800;">Product Name</th>
+      <th class = "text-center" style = "color:#e10800;">Product Category</th>
+      <th class = "text-center" style = "color:#e10800;">Product Price</th>
+      <th class = "text-center" style = "color:#e10800;">For Admin Use Only</th>
+      </tr></thead>
+      <tbody>
+        <tr v-for ="item in products" :key = "item">
+          <td class = "text-center" style="color: white; border: solid 3px #e10800;">{{item.prod_ID}}</td>
+            <td class = "text-center" style="color: white; border: solid 3px #e10800;"><img :src ="item.prod_URL" width="400" height="280"></td> 
+            <td class = "text-center" style="color: white;border: solid 3px #e10800; ">{{item.prod_Name}}</td>
+            <td class = "text-center" style="color: white; border: solid 3px #e10800;">{{item.category}}</td>
+            <td class = "text-center" style="color: white; border: solid 3px #e10800;">{{item.price}}</td>
+            <td>
+              <button style = "border: solid 3px red" class = "buttons mx-4" @click = "editProd(item.prod_ID)">Edit</button>
+              <button style = "border: solid 3px red" class = "buttons mx-4" @click = "deleteProd(item.prod_ID)">Delete</button></td>
+            
+        </tr>
+   
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>  
 
   
   </template>
@@ -135,6 +176,7 @@
         return this.$store.state.products
       },
       getProducts(){
+        console.log('hello');
         return this.$store.dispatch('getProducts')
       },
       users(){
@@ -155,129 +197,142 @@
   }
   </script>
   <style>
-  .table {
-    width: 96%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    align-content: center;
-    /* margin: 2.3rem; */
-    
-  }
-  
-  .table th, .table td {
-    border: 1px solid #ddd;
-    padding: 1px;
-    text-align: left;
-  }
-  
-  .thead {
-    background-color:inherit;
-    color: white;
-  }
-  
-  .table img {
-    max-width:400px;
-    max-height: 50px;
-    border-radius: 5px;
-    background-color: inherit;
-  }
-  
-  #edit, #delete {
-    color: white;
-   background-color: inherit;
-    padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-    margin: 2px;
-    cursor: pointer;
-    border-radius: 3px;
-    margin-top: 10px;
-  }
-  
-  .table #edit:hover {
-    background-color: #39983d;
-  }
-  .table #delete:hover {
-    background-color: #dc5957;
-  }
-  
-  #add{
-    margin-left: 2.5rem;
-    display: grid;
-  }
 
-  .d-flex{
-  justify-content: space-between
+
+
+.userControl{
+color:#e10800;
+text-align: center;
 }
 
-@media screen and (max-width: 1080px) {
-    .container-fluid {
-      padding: 0 15px; 
-    }
+.prodControl{
+  color:#e10800;
+text-align: center;
 
-    .table {
-      width: 100%;
-    }
+  margin-top: 200px;
+}
 
-    .d-flex {
-      flex-direction: column;
-    }
-
-    #add {
-      margin-left: 0; 
-    }
+  #input-head{
+    color: #e10800;
   }
 
-  @media screen and (max-width: 720px) {
-    .container-fluid {
-      padding: 0 10px; 
-    }
-
-    .table {
-      width: 100%;
-    }
-
-    .d-flex {
-      flex-direction: column;
-    }
-
-    #add {
-      margin-left: 0; 
-    }
-
-    .modal-dialog {
-      max-width: 100%;
-    }
+  #input-text{
+    color: white;
+    font-style: italic;
+    font-size: 20px;
   }
 
-  @media screen and (max-width: 300px) {
-    .container-fluid {
-      padding: 0 5px; 
-    }
+#adminDrag{
 
-    .table {
-      width: 100%;
-    }
+color: #e10800;
+font-style: italic;
+font-family: "DM Serif Display";
+font-size: 60px;
 
-    .d-flex {
-      flex-direction: column;
-    }
+}
 
-    #add {
-      margin-left: 0; 
-    }
+#admin-head {
+  background-color: black;
+  color: white;
+  border: 5px solid #e10800;
+  border-radius: 50px;
+  font-family: "Roboto";
+  font-size: 50px;
+  text-align: center;
+  margin-top: 70px;
+}
+  
+.buttons {
+  width: 130px;
+  height: 50px;
+  font-family: "Roboto";
+  font-size: 22px;
+  font-weight: bold;
+  background-color: #e10800;
+  border: solid 3px black;
+  border-radius: 50px;
+  cursor: pointer;
+  
+  margin-top: 110px;
+ 
+}
 
-    .modal-dialog {
-      max-width: 100%;
-    }
+.buttons:hover {
+  background-color: black;
+  color: #e10800;
+  border-color: white;
+}
 
-    .modal-body input {
-      width: 100%;
-    }
+.buttons:active {
+  box-shadow: 0 5px #666;
+  transform: translatex(4px);
+}
 
+.addButton {
+  width: 130px;
+  height: 50px;
+  font-family: "Roboto";
+  font-size: 22px;
+  font-weight: bold;
+  background-color: #e10800;
+  border: solid 3px black;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.addButton:hover {
+  background-color: black;
+  color: #e10800;
+  border-color: white;
+}
+
+.addButtons:active {
+  box-shadow: 0 5px #666;
+  transform: translatex(4px);
+}
+
+
+.input {
+  width: 100%;
+  height: 40px;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #495057;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+
+
+
+.input:focus {
+  outline: none;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.products{
+  .name{
+    border-bottom: 1px dotted #ccc;
+    cursor: pointer;
   }
+}
 
 
-  </style>
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
