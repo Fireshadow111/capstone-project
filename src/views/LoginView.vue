@@ -6,11 +6,11 @@
             
             <form method="POST" class="mx-3 my-3">
     <div>
-        <p>Email</p>
+        <p style = "font-weight: bold;">Email</p>
        <input type="email"  name="userEmail" id="email" class="my-2" placeholder="Enter Email" required> 
     </div>
     <div>
-        <p>Password</p>
+        <p style = "font-weight: bold;">Password</p>
         <input type="password"  name="password" id="password" class="my-2" placeholder="Enter Password" required>
     </div>
     <div>
@@ -23,6 +23,9 @@
         
     </div>
         </div>
+        <footer id = "footer-con" class="container py-3 my-1" style="font-family: fantasy;">
+      <p id = "footer" class="text-center text">Redragon - Copyright© - 2024 | All Rights Reserved</p>
+    </footer>
 </template>
 <script>
 import navbar from '../components/navbar.vue'
@@ -130,4 +133,13 @@ h1{
 .log{
     font-family: 'Syne', sans-serif !important;
 }
+
+#footer-con{
+  border-top: 2px solid #e10800;
+}
+
+#footer{
+color: #e10800;
+}
+
 </style>

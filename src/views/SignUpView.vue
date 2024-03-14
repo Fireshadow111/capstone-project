@@ -34,7 +34,7 @@
     </div>
 
 <div>
-<button type="submit" class="btn btn-light reg" value="register" ><span id="logs">Register</span><i class="fa fa-spinner fa-spin" id="icon"></i></button>
+<button style = "font-weight: bold;" type="submit" class="btn btn-light reg" value="register" ><span id="logs">Register</span><i class="fa fa-spinner fa-spin" id="icon"></i></button>
 </div>
 
 <router-link to="/login"><a href="">Already have an account?</a></router-link>
@@ -45,7 +45,9 @@
     </div>
         </div>
 
-
+        <footer id = "footer-con" class="container py-3 my-1" style="font-family: fantasy;">
+      <p id = "footer" class="text-center text">Redragon - Copyright© - 2024 | All Rights Reserved</p>
+    </footer>
 
 </template>
 <script>
@@ -72,7 +74,7 @@ export default {
 .body{
     margin: 0;
     padding: 0;
-  
+    
     background-position: center;
     background-size: cover;
     min-height: 100vh;
@@ -114,7 +116,7 @@ h1{
     border-bottom: 1px solid white;
     outline: none;
     height: 30px;
-    color: #e10800;
+    color: white;
     border-radius: 0px;
 
 }
@@ -165,6 +167,13 @@ h1{
 
 
 
+#footer-con{
+  border-top: 2px solid #e10800;
+}
+
+#footer{
+color: #e10800;
+}
 
 
 

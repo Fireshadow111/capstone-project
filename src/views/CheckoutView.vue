@@ -3,15 +3,14 @@
   <navbar/>
     <div>
 
-        <div class="container text-center">
+      <div class="container text-center">
       <div class="row align-items-center">
-        <div id="checkout-div">
+        <div id="checkout-head" class = "mb-5">
+          <h1 id = "checkoutDrag">Checkout</h1>
+          </div>
 
-          <h1 id="checkout-head" class = " mt-4 mb-4">Checkout</h1>
-
-        </div>
-      </div>
-    </div>
+          </div>
+          </div>
 
     <div class="container mt-4">
     <div class="row">
@@ -59,6 +58,9 @@
 
         
     </div>
+    <footer id = "footer-con" class="container py-3 my-1" style="font-family: fantasy;">
+      <p id = "footer" class="text-center text">Redragon - Copyright© - 2024 | All Rights Reserved</p>
+    </footer>
 </template>
 <script>
 import navbar from '../components/navbar.vue'
@@ -69,18 +71,28 @@ export default {
 }
 </script>
 <style>
+#checkoutDrag{
+
+color: #e10800;
+font-style: italic;
+font-family: "DM Serif Display";
+font-size: 60px;
+
+}
 
 #checkout-head {
   background-color: black;
   color: white;
-  border: 4px solid #44d62c;
-  border-radius: 55px;
-  font-family: "DM Serif Display";
+  border: 5px solid #e10800;
+  border-radius: 50px;
+  font-family: "Roboto";
   font-size: 50px;
+  text-align: center;
+  margin-top: 70px;
 }
 
 .table th{
-    color: #44d62c;
+    color: #e10800;
     font-weight: bolder;
 }
 
@@ -141,11 +153,18 @@ export default {
 }
 
 #total {
-  color: #44d62c;
+  color: #e10800;
   margin-top: 8px;
   margin-right: 10px;
   font-weight: bold;
 }
     
+#footer-con{
+  border-top: 2px solid #e10800;
+}
+
+#footer{
+color: #e10800;
+}
 
 </style>

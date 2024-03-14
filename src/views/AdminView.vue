@@ -16,7 +16,7 @@
 
 
           <h1 id = "input-head">Messege to all admins!</h1>
-          <p id = "input-text">Input data then click the add or edit button, thank you</p>
+          <p id = "input-text">Input your data then click the add or edit button, thank you</p>
 
 
 
@@ -27,10 +27,12 @@
           <input type="text"  placeholder="Username" class="input" v-model="user_Name" required>
           <input type="text" placeholder="Email" class="input" v-model="user_Email" required>
           <input type="text" placeholder="Password" class="input" v-model="user_Pass" required>
-          <input type="text" placeholder="Role" class="input" v-model="user_Role" required>
 
-          <div id = "userAddDiv">
-          <button style = "border: solid 3px red"  class = "addButton mb-2 mx-5" @click = "addUser()">Add</button>
+          <div id = "userRole">
+          <input type="text" placeholder="Role" class="input" v-model="user_Role" required>
+        </div>
+          <div id = "userAddDiv" class = "text-center justify-content-center">
+          <button style = "border: solid 3px red"  class = "addButton mb-4" @click = "addUser()">Add</button>
         </div>
 
           <div class="products" ng-app="app" ng-controller="AppCtrl">
@@ -83,7 +85,7 @@
           <input type="text" placeholder="Category" class="input" v-model="category" required>
           <input type="number" placeholder="Price" class="input" v-model="price" required>
 
-          <div id = "prodAddDiv">
+          <div id = "prodAddDiv" class = "justify-content-center d-flex text-center">
           <button style = "border: solid 3px red"  class = "addButton mb-2 mx-5" @click = "addProduct()">Add</button>
 
         </div>
@@ -129,6 +131,9 @@
 </div>
 </div>  
 
+<footer id = "footer-con" class="container py-3 my-1" style="font-family: fantasy;">
+      <p id = "footer" class="text-center text">Redragon - Copyright© - 2024 | All Rights Reserved</p>
+    </footer>
   
   </template>
   <script>
@@ -215,9 +220,14 @@
   </script>
   <style>
 
+#userRole{
+  text-align: center;
+}
 #userConBut{
   display: flex;
     justify-content: center;
+    
+
 }
 
   #prodConBut{
@@ -225,18 +235,18 @@
     justify-content: center;
   }
 
-  #user
+ 
 
 #userAddDiv{
   display: flex;
+  justify-content: center;
   text-align: center;
-  justify-content: end;
 }
 
 #prodAddDiv{
   display: flex;
   text-align: center;
-  justify-content: end;
+  justify-content: center;
 }
 
 .userControl{
@@ -248,7 +258,8 @@ text-align: center;
   color:#e10800;
 text-align: center;
 
-  margin-top: 200px;
+margin-top: 150px;
+
 }
 
   #input-head{
@@ -343,9 +354,32 @@ input.input {
   color: #495057;
   font-size: 16px;
   font-family: Arial, sans-serif;
+  border-radius: 30px;
+}
+
+.prodButtons{
+  width: 130px;
+  height: 50px;
+  font-family: "Roboto";
+  font-size: 22px;
+  font-weight: bold;
+  background-color: #e10800;
+  border: solid 3px black;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.prodButtons:hover{
+  background-color: black;
+  color: #e10800;
+  border-color: white;
 }
 
 
+.prodButtons:active {
+  box-shadow: 0 5px #666;
+  transform: translatex(4px);
+}
 
 
 .products{
@@ -353,6 +387,14 @@ input.input {
     border-bottom: 1px dotted #ccc;
     cursor: pointer;
   }
+}
+
+#footer-con{
+  border-top: 2px solid #e10800;
+}
+
+#footer{
+color: #e10800;
 }
 
 

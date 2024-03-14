@@ -22,14 +22,18 @@
       </div>
 
    
-
+      <footer id = "footer-con" class="container py-3 my-1" style="font-family: fantasy;">
+      <p id = "footer" class="text-center text">Redragon - Copyright© - 2024 | All Rights Reserved</p>
+    </footer>
   </body>
 </template>
 <script>
+import footer from '../components/footer.vue'
 import navbar from '../components/navbar.vue'
 export default {
   components:{
-    navbar
+    navbar,
+    footer
   }
 }
 </script>
@@ -85,5 +89,12 @@ font-family: "DM Serif Display";
 font-size: 60px;
 
 }
-  
+#footer-con{
+  border-top: 2px solid #e10800;
+}
+
+#footer{
+color: #e10800;
+}
+
 </style>

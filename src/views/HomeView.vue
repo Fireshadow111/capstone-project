@@ -16,7 +16,6 @@
     <div class="container">
     <div class="row justify-content-center text-center">
      
-
    
   
 
@@ -25,13 +24,7 @@
                   <img :src="item.prod_URL" alt="" class="card-img-top w-100" style="height: 300px;">
                   <div class="card-body" style = "background-color:#e10800;">
                     <h3 style = "color:#e10800; font-weight: bold; background-color: black;" class="card-title mb-4">{{ item.prod_Name }}</h3>
-                      <div class="d-flex justify-content-between deats" v-if="user">
-                        <router-link :to="{ name: 'singleProduct', params: { id: item.id }}">
-                          <button type="button" class="btn btn-sm view">View More</button>
-                  </router-link>
-                        <p style = "color: black;" class="my-1 price text-success">${{ item.price }}</p>
-                      </div>
-                      <div v-else>
+                      <div>
                         <div class="d-flex justify-content-between deats">
                         <router-link :to="{ name: 'checkout'}">
                       <button type="button" class="btn btn-sm view" style = " font-weight: bold;">View More</button>
@@ -59,13 +52,15 @@
   </body>
 </template>
 <script>
+import spinner from '../components/spinner.vue'
 import navbar from '../components/navbar.vue'
 import footer from '../components/footer.vue'
 export default {
    name: 'HomeView',
    components:{
     navbar,
-    footer
+    footer,
+    spinner
    },
 
    data(){
