@@ -1,5 +1,5 @@
 
-import {postCart, getCart, deleteCart, getUserID } from "../models/cart-database.js";
+import {postCart, getCart, deleteCart, getUserID, deleteFromCart } from "../models/cart-database.js";
 
 
 export default {
@@ -25,7 +25,6 @@ export default {
     },
     getCart: async (req, res) => {
         const user_Email = req.user_Email;    
-        console.log(user_Email);
         const user_ID = await getUserID(user_Email)
         res.send(await  getCart(user_ID));
     },
@@ -34,5 +33,12 @@ export default {
         console.log(user_Email);
         const user_ID = await getUserID(user_Email)
         res.send(await  deleteCart(user_ID));
+    },
+
+    deleteFromCart: async (req, res) => {
+        const user_Email = req.user_Email;
+        const {prod_ID} = req.body;   
+        const user_ID = await getUserID(user_Email);
+        res.send(await  deleteFromCart(user_ID,prod_ID));
     }
 }

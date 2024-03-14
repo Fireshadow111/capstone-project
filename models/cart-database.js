@@ -27,6 +27,16 @@ const deleteCart = async (user_ID) => {
     `, [user_ID]);
 };
 
+
+const deleteFromCart = async (userID, productID) => {
+    // Remove a product from the user's cart
+    await pool.query(`
+        DELETE FROM cart
+        WHERE userID = ? AND productID = ?
+    `, [userID, productID]);
+};
+
+
 const getUserID= async (user_Email) => {
     const [[{user_ID}]] = await pool.query(`
     SELECT user_ID 
@@ -39,4 +49,4 @@ const getUserID= async (user_Email) => {
 
 
 
-export{postCart, getCart, deleteCart, getUserID }
+export{postCart, getCart, deleteCart, getUserID,  deleteFromCart }
