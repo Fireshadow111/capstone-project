@@ -37,13 +37,13 @@ export default {
     },
 
     // Hash password
-    postSignUp: async (req, res) => {
+    postUser: async (req, res) => {
         const { user_Name, user_Email, user_Pass, user_Role } = req.body;
         try {
             // Hashing the password using bcrypt
             const hashedPassword = await bcrypt.hash(user_Pass, 10);
 
-            await postSignUp(user_Name, user_Email, hashedPassword, user_Role);
+            await postUser(user_Name, user_Email, hashedPassword, user_Role);
 
             res.send({
                 msg: "You have created an account"
