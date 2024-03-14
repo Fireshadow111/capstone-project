@@ -3,7 +3,7 @@
 
       <navbar/>
       <div class="container text-center">
-      <div class="mt-5 row align-items-center">
+      <div class="row align-items-center">
         <div id="contact-head" class = "mb-5">
           <h1 id = "contactDrag">Contact</h1>
           </div>

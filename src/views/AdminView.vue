@@ -29,8 +29,9 @@
           <input type="text" placeholder="Password" class="input" v-model="user_Pass" required>
           <input type="text" placeholder="Role" class="input" v-model="user_Role" required>
 
-          <button style = "border: solid 3px red"  class = "addButton mx-4" @click = "addUser()">Add</button>
-
+          <div id = "userAddDiv">
+          <button style = "border: solid 3px red"  class = "addButton mb-2 mx-5" @click = "addUser()">Add</button>
+        </div>
 
           <div class="products" ng-app="app" ng-controller="AppCtrl">
 
@@ -55,8 +56,14 @@
             <td class = "text-center" style="color: white;border: solid 3px #e10800; ">{{item.user_Pass}}</td>
             <td class = "text-center" style="color: white; border: solid 3px #e10800;">{{item.user_Role}}</td>
             <td>
-              <button style = "border: solid 3px red" class = "buttons mx-4" @click = "editUser(item.user_ID)">Edit</button>
-              <button style = "border: solid 3px red" class = "buttons mx-4" @click = "deleteUser(item.user_ID)">Delete</button></td>
+
+                <div id = "userConDiv">
+              <button style = "border: solid 3px red" class = "userButtons mx-4" @click = "editUser(item.user_ID)">Edit</button>
+              <button style = "border: solid 3px red" class = "userButtons mx-4" @click = "deleteUser(item.user_ID)">Delete</button>
+
+            </div>
+            
+            </td>
             
         </tr>
    
@@ -75,8 +82,11 @@
           <input type="text"  placeholder="Product Name" class="input" v-model="prod_Name" required>
           <input type="text" placeholder="Category" class="input" v-model="category" required>
           <input type="number" placeholder="Price" class="input" v-model="price" required>
-          <button style = "border: solid 3px red"  class = "addButton mx-4" @click = "addProduct()">Add</button>
 
+          <div id = "prodAddDiv">
+          <button style = "border: solid 3px red"  class = "addButton mb-2 mx-5" @click = "addProduct()">Add</button>
+
+        </div>
 
 
           <div class="products" ng-app="app" ng-controller="AppCtrl">
@@ -101,8 +111,15 @@
             <td class = "text-center" style="color: white; border: solid 3px #e10800;">{{item.category}}</td>
             <td class = "text-center" style="color: white; border: solid 3px #e10800;">{{item.price}}</td>
             <td>
-              <button style = "border: solid 3px red" class = "buttons mx-4" @click = "editProd(item.prod_ID)">Edit</button>
-              <button style = "border: solid 3px red" class = "buttons mx-4" @click = "deleteProd(item.prod_ID)">Delete</button></td>
+              
+              <div id =  "prodConBut">
+                
+              <button style = "border: solid 3px red" class = "prodButtons mx-4" @click = "editProd(item.prod_ID)">Edit</button>
+              <button style = "border: solid 3px red" class = "prodButtons mx-4" @click = "deleteProd(item.prod_ID)">Delete</button>
+            
+            </div>
+            
+            </td>
             
         </tr>
    
@@ -198,7 +215,29 @@
   </script>
   <style>
 
+#userConBut{
+  display: flex;
+    justify-content: center;
+}
 
+  #prodConBut{
+    display: flex;
+    justify-content: center;
+  }
+
+  #user
+
+#userAddDiv{
+  display: flex;
+  text-align: center;
+  justify-content: end;
+}
+
+#prodAddDiv{
+  display: flex;
+  text-align: center;
+  justify-content: end;
+}
 
 .userControl{
 color:#e10800;
@@ -242,7 +281,7 @@ font-size: 60px;
   margin-top: 70px;
 }
   
-.buttons {
+.userButtons {
   width: 130px;
   height: 50px;
   font-family: "Roboto";
@@ -253,17 +292,17 @@ font-size: 60px;
   border-radius: 50px;
   cursor: pointer;
   
-  margin-top: 110px;
+
  
 }
 
-.buttons:hover {
+.userButtons:hover {
   background-color: black;
   color: #e10800;
   border-color: white;
 }
 
-.buttons:active {
+.userButtons:active {
   box-shadow: 0 5px #666;
   transform: translatex(4px);
 }
@@ -278,6 +317,7 @@ font-size: 60px;
   border: solid 3px black;
   border-radius: 50px;
   cursor: pointer;
+
 }
 
 .addButton:hover {
@@ -286,20 +326,20 @@ font-size: 60px;
   border-color: white;
 }
 
-.addButtons:active {
+.addButton:active {
   box-shadow: 0 5px #666;
   transform: translatex(4px);
 }
 
 
-.input {
-  width: 100%;
+input.input {
+  width: 50%;
   height: 40px;
   padding: 8px;
   margin-bottom: 15px;
-  border: 1px solid #ced4da;
+  border: 1px solid #e10800;
   border-radius: 5px;
-  background-color: #fff;
+  background: transparent;
   color: #495057;
   font-size: 16px;
   font-family: Arial, sans-serif;
@@ -307,11 +347,6 @@ font-size: 60px;
 
 
 
-.input:focus {
-  outline: none;
-  border-color: #80bdff;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-}
 
 .products{
   .name{

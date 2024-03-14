@@ -6,7 +6,7 @@
   
 
     <div class="container text-center">
-      <div class="mt-5 row align-items-center">
+      <div class=" row align-items-center">
         <div id="about-head">
           <h1 id = "aboutDrag">About</h1>
           </div>
