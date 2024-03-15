@@ -11,7 +11,7 @@
           </div>
           </div>
 
-         
+         <div id = "con-background">
     <div id="contactForm-div">
 
 
@@ -26,6 +26,7 @@
   <textarea id="messege" name="messege" placeholder="Enter a messege.." style="height:170px"></textarea>
   <input type="submit" value="Submit">
 </form>
+
 
 
 <div id = "icons" class = "d-flex justify-content-center mt-4 mb-5">
@@ -51,7 +52,7 @@
 
 </div>
 </div>
-
+</div>
 
 
         
@@ -68,7 +69,7 @@ export default {
 }
 </script>
 <style>
-   
+ 
    
 #contactDrag{
 

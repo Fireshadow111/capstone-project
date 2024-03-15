@@ -3,7 +3,7 @@
   <div class="body">
 
   
-
+<div>
 
         <div  class="loginbox animate__animated animate__fadeIn mt-3">
             <h1 id = "register"class="my-3 head">Sign Up</h1>
@@ -11,7 +11,7 @@
                 <div class="row">
         <div class="col">
             <p>Username:</p>
-          <input type="text" class="form-control"  name="firstName" placeholder="Enter FirstName" aria-label="First name" required="">
+          <input type="text" class="form-control"  name="user_Name" placeholder="Enter Username" aria-label="First name" required="">
         </div>
       </div>
       <div class="row">
@@ -27,8 +27,13 @@
         </div>
         <div class="row">
         <div class="col">
-            <p>Role:</p>
-          <input type="password" class="form-control"   name="userPass" placeholder="Enter Password" aria-label="Last name" required="">
+            <label for="dropdown">Role:</label>
+    <select id="dropdown" name="dropdown">
+      <option value="option2">Customer</option>
+      <option value="option1">Admin</option>
+      
+     
+    </select>
         </div>
       </div>
     </div>
@@ -43,6 +48,7 @@
 
         
     </div>
+        </div>
         </div>
 
         <footer id = "footer-con" class="container py-3 my-1" style="font-family: fantasy;">
@@ -59,7 +65,12 @@ export default {
 }
 </script>
 <style scoped>
+
+
     
+#dropdown{
+  border-radius: 20px;
+}
     #register{
       font-size: 40px;
       font-style: italic;
@@ -144,6 +155,7 @@ h1{
 .loginbox a{
     text-decoration: none;
     color:#e10800;
+
 }
 
 .loginbox a:hover{

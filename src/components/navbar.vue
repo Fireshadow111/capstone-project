@@ -32,6 +32,8 @@
         
       </div>
       <div class="btn-group my-4 justify-content-center" data-bs-dismiss="offcanvas">
+      
+        <router-link to="/profile" class="sign-but my-3 p-1 py-2 btn btn1">Profile</router-link>
                     <router-link to="/signup" class="sign-but my-3 p-1 py-2 btn btn1">Sign Up</router-link>
               </div>
 </div>

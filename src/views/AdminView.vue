@@ -23,14 +23,13 @@
           <h1 class = "userControl">Users Control</h1>
 
 
-          <input type="text" placeholder="User ID" class="input" v-model="user_ID" required>
           <input type="text"  placeholder="Username" class="input" v-model="user_Name" required>
           <input type="text" placeholder="Email" class="input" v-model="user_Email" required>
           <input type="text" placeholder="Password" class="input" v-model="user_Pass" required>
 
-          <div id = "userRole">
+          
           <input type="text" placeholder="Role" class="input" v-model="user_Role" required>
-        </div>
+    
           <div id = "userAddDiv" class = "text-center justify-content-center">
           <button style = "border: solid 3px red"  class = "addButton mb-4" @click = "addUser()">Add</button>
         </div>
@@ -220,9 +219,7 @@
   </script>
   <style>
 
-#userRole{
-  text-align: center;
-}
+
 #userConBut{
   display: flex;
     justify-content: center;
@@ -351,7 +348,7 @@ input.input {
   border: 1px solid #e10800;
   border-radius: 5px;
   background: transparent;
-  color: #495057;
+  color: white;
   font-size: 16px;
   font-family: Arial, sans-serif;
   border-radius: 30px;
