@@ -34,6 +34,7 @@
       
      
     </select>
+    <h4>{{ $store.state.login }}</h4>
         </div>
       </div>
     </div>
@@ -61,7 +62,29 @@ import navbar from '../components/navbar.vue'
 export default {
     components:{
       navbar
-    }
+    },
+
+    data() {
+        return {
+            user_Name: null,
+            user_Email: null,
+            user_Pass: null,
+            user_Role: null
+        }
+    },
+    computed: {
+        registerUser(){
+            this.$store.dispatch('registerUser',this.$data)
+        },
+    },
+    methods: {
+        submitData(){
+           console.log(this.$data.email)
+           //this is the only place because that can handle asycronous functions
+           //the data is only being saved when it is being used
+           this.$store.dispatch('login',this.$data)
+        },
+    },
 }
 </script>
 <style scoped>

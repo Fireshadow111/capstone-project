@@ -32,8 +32,22 @@ import navbar from '../components/navbar.vue'
 export default {
     components:{
       navbar
+    },
+
+    data() {
+    return{
+        user_Email: null,
+        user_Pass: null
     }
+    },
+    computed: {
+        loginUser(){
+            console.log(this.$data)
+            this.$store.dispatch('loginUser',this.$data)
+        },
+    },
 }
+
 </script>
 <style scoped>
 

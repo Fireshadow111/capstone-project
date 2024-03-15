@@ -1,13 +1,16 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
-
+import router from '@/router'
+axios.defaults.withCredentials = true
 const baseUrl = 'https://capstone-project-mthn.onrender.com'
 
 export default createStore({
   state: {
     products: null,
-    users: null,
     product: null,
+    users: null,
+   user: null,
+   cart: null,
     login: false
 
   },
@@ -25,6 +28,14 @@ export default createStore({
 
     setUsers(state, data){
       state.users = data
+    },
+
+    setUser(state,data){
+      state.user = data;
+    },
+
+    setCart(state, data) {
+      state.cart = data;
     },
 
     setLogin(state,data){
@@ -95,13 +106,12 @@ export default createStore({
         console.error('Error fetching users:', error);
       }
     },
-    async getUser({commit}){
-      try {
-        await axios.get(baseUrl+'/users')
-      } catch (error) {
-        console.error('Error getting user:', error);
-      }
+    async getUser({commit},prod_ID){
+      const {data} =  await axios.get(baseUrl+'/users/'+prod_ID)
+      console.log(data);
+      commit("setUser", data);
     },
+
     async addUser({commit},add) {
       try {
          const {data} = await axios.post(baseUrl+'/users',add)
@@ -127,6 +137,33 @@ export default createStore({
         console.error('Error edit user:', error);
       }
     },
+
+    
+     async loginUser({commit}, currentUser){
+      let {data} = await axios.post(baseUrl + '/login', currentUser)
+      $cookies.set('jwt', data.token)
+      alert(data.msg)
+      router.push('/')
+      // window.location.reload()
+      commit('setLogin', true)
+    },
+    async logOut(context){
+      let cookies = cookies.keys()
+      console.log(cookies)
+      cookies.remove('jwt')
+      window.location.reload()
+      let { data } = await axios.delete(baseUrl + '/logout')
+      alert(data.msg)
+    },
+    //cart
+    async addCart({commit},newProduct){
+      const {data} = await axios.post(baseUrl+'/cart',newProduct)
+      commit("setCart",alert(data.msg));
+     },
+     async getCart({commit}){
+      const {data} =  await axios.get(baseUrl+'/cart')
+      commit("setCart",data);
+     }
   },
 
   modules: {
