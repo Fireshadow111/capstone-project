@@ -1,6 +1,6 @@
 import express from 'express';
 import {config} from 'dotenv';
-// import {authenticate } from './middleware/authentication.js'
+import {authenticate } from './middleware/authentication.js'
 import { certificate } from './middleware/authentication.js';
 import cors from 'cors'
 import productsRouter from './routes/products-routes.js';
@@ -30,11 +30,11 @@ app.use(cookieParser())
 
 app.use('/products', productsRouter)
 
-app.use('/cart', cartRouter)
+app.use('/cart', authenticate, cartRouter)
 
-app.use('/users', usersRouter)
+app.use('/users',  usersRouter)
 
-app.use('/login',certificate, loginRouter)
+app.use('/login', certificate, loginRouter)
 
 
 

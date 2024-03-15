@@ -1,7 +1,6 @@
 import { login } from "../models/users-database.js";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-//login feature
 
 
 const authenticate = (req,res,next) => {
@@ -17,11 +16,7 @@ const authenticate = (req,res,next) => {
     })
 }
 
-
-
-
 const certificate = async(req,res,next) => {
-
     const {user_Email, user_Pass} = req.body
     const hashedPassword = await logIn(user_Email)
     bcrypt.compare(user_Pass, hashedPassword, (err,result)=>{
@@ -33,16 +28,11 @@ const certificate = async(req,res,next) => {
             console.log(token);
 
             res.cookie('token', token,{ httpOnly:false, expiresIn:'1hr'});
-            
-
             res.send({
                 token:token,
                 msg: 'You have logged in! YAY!'
             })
-
-
             next();
-
         }else{
             res.send({msg: 'The email or password is incorrect'})
         }

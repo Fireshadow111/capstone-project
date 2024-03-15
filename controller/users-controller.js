@@ -19,28 +19,27 @@ export default {
     },
 
     patchUser: async (req, res) => {
-        const [user] = await getUser(+req.params.id);
+        const [user] = await getProduct(+req.params.id);
 
-        let { user_Name, user_Email, user_Pass, user_Role } = req.body;
-
-        user_Name ? (user_Name = user_Name) : ({ user_Name } = user);
-
-        user_Email ? (user_Email = user_Email) : ({ user_Email } = user);
-
-        user_Pass ? (user_Pass = user_Pass) : ({ user_Pass } = user);
-
-        user_Role ? (user_Role = user_Role) : ({ user_Role } = user);
-
-        await patchUser(user_Name, user_Email, user_Pass, user_Role, +req.params.id);
-
-        res.json(await getUsers());
+        let { user_Name, user_Email, user_Pass} = req.body;
+        if (user_Pass) {
+            try {
+                user_Pass = await bcrypt.hash(user_Pass, 10);
+            } catch (error) {
+                console.error("Error hashing password:", error);
+                res.status(500).send({ error: "An error occurred while hashing the password" });
+                return;
+            }
+        } else {
+            user_Pass = user.Password;
+        }
+        await patchUser(user_Name, user_Email, user_Pass, +req.params.id);
+        res.send(await getUsers());
     },
 
-    // Hash password
     postUser: async (req, res) => {
         const { user_Name, user_Email, user_Pass, user_Role } = req.body;
         try {
-            // Hashing the password using bcrypt
             const hashedPassword = await bcrypt.hash(user_Pass, 10);
 
             await postUser(user_Name, user_Email, hashedPassword, user_Role);

@@ -54,21 +54,6 @@ const getUsers= async()=>{
     return password
 };
 
-
-//   const newUser = async(user_Name, user_Email, user_Pass, user_Role)=> {
-//     await pool.query(`
-//     INSERT INTO users (user_Name, user_Email, user_Pass, user_Role)
-//     VALUES (?,?,?,?);
-//     `, [user_Name, user_Email, user_Pass, user_Role])
-// }
-
-//   const checkUser = async(user_Name)=> {
-//     const [[{password}]] = await pool.query(`
-//     SELECT user_Pass FROM users WHERE user_Name = ?
-//     `, [user_Name])
-//     return password
-// }
- 
   
   
   export {getUsers,getUser,postUser,deleteUser,patchUser, login}

@@ -4,17 +4,13 @@ import {postCart, getCart, deleteCart, getUserID, deleteFromCart } from "../mode
 
 export default {
     postCart: async (req, res) => {
-        // Get emailAdd from cookies
         const user_Email = req.user_Email;    
         console.log(user_Email);
-        // Use a function to find the userID based on emailAdd
         try {
             const user_ID = await getUserID(user_Email)
             
-            // Assuming prodID and quantity are obtained from request body or query parameters
             const { prod_ID, quantity } = req.body;
 
-            // Insert product into cart table using userID and prodID
             await postCart(user_ID, prod_ID, quantity);
 
             res.send({ msg: 'Product added to cart successfully' });
