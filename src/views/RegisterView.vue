@@ -6,24 +6,24 @@
 <div>
 
         <div  class="loginbox animate__animated animate__fadeIn mt-3">
-            <h1 id = "register"class="my-3 head">Sign Up</h1>
+            <h1 id = "register"class="my-3 head">Register</h1>
             <form method="POST" class="mx-3 my-3">
                 <div class="row">
         <div class="col">
             <p>Username:</p>
-          <input type="text" class="form-control"  name="user_Name" placeholder="Enter Username" aria-label="First name" required="">
+          <input type="text" class="form-control"  name="user_Name" placeholder="Enter Username..." aria-label="First name" required="">
         </div>
       </div>
       <div class="row">
         <div class="col">
             <p>Email:</p>
-          <input type="text" class="form-control"  name="userEmail" placeholder="Enter Email" aria-label="First name" required="">
+          <input type="text" class="form-control"  name="userEmail" placeholder="Enter Email..." aria-label="First name" required="">
         </div>
       </div>
       <div class="row">
         <div class="col">
             <p>Password:</p>
-          <input type="password" class="form-control"   name="userPass" placeholder="Enter Password" aria-label="Last name" required="">
+          <input type="password" class="form-control"   name="userPass" placeholder="Enter Password..." aria-label="Last name" required="">
         </div>
         <div class="row">
         <div class="col">
@@ -89,14 +89,22 @@ export default {
 </script>
 <style scoped>
 
+label{
+  font-weight: bold;
+    font-size: 18px;
+}
 
     
 #dropdown{
   border-radius: 20px;
+  
 }
     #register{
       font-size: 40px;
-      font-style: italic;
+      font-family: "Roboto";
+  
+     
+
     }
 
 
@@ -124,6 +132,10 @@ export default {
     position: absolute;
     transform: translate(-50%,-50%);
     box-sizing: border-box;
+    padding: 20px; 
+  border-radius: 20px; 
+  box-shadow: 0 0 25px #e10800;
+  
  
 }
 
@@ -152,6 +164,7 @@ h1{
     height: 30px;
     color: white;
     border-radius: 0px;
+    font-weight: bold;
 
 }
 
@@ -160,6 +173,7 @@ h1{
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 0px;
+    border-radius: 20px;
     
     transition: border-color 0.5s, background-color 0.5s, color 0.5s;
 }
@@ -178,6 +192,7 @@ h1{
 .loginbox a{
     text-decoration: none;
     color:#e10800;
+    font-style: Arial;
 
 }
 
@@ -186,9 +201,7 @@ h1{
     transition: 0.3s;
 }
 
-.head{
-    font-family: 'Syne', sans-serif !important;
-}
+
 
 .reg{
     font-family: 'Syne', sans-serif !important;

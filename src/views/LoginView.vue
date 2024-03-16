@@ -6,12 +6,12 @@
             
             <form method="POST" class="mx-3 my-3">
     <div>
-        <p style = "font-weight: bold;">Email</p>
-       <input type="email"  name="userEmail" id="email" class="my-2" placeholder="Enter Email" required> 
+        <p style = "font-weight: bold;">Email:</p>
+       <input type="email"  name="userEmail" id="email" class="my-2" placeholder="Enter Email..." required> 
     </div>
     <div>
-        <p style = "font-weight: bold;">Password</p>
-        <input type="password"  name="password" id="password" class="my-2" placeholder="Enter Password" required>
+        <p style = "font-weight: bold;">Password:</p>
+        <input type="password"  name="password" id="password" class="my-2" placeholder="Enter Password..." required>
     </div>
     <div>
       <button class="btn btn-light log" id="log" ><span id="logs">Login </span><i class="fa fa-spinner fa-spin" id="icon"></i></button>
@@ -53,8 +53,8 @@ export default {
 
 #login{
     color: #e10800; 
-    font-size: 30px;
-    font-style: italic;
+    font-size: 40px;
+    font-family: "Roboto";
 }
 
 i{
@@ -83,6 +83,11 @@ i{
     position: absolute;
     transform: translate(-50%,-50%);
     box-sizing: border-box;
+
+
+    padding: 20px; 
+  border-radius: 20px; 
+  box-shadow: 0 0 25px #e10800;
 }
 
 h1{
@@ -95,6 +100,8 @@ h1{
 .loginbox p{
     margin: 0;
     padding: 0;
+
+    font-size: 18px;
 
 }
 
@@ -114,8 +121,9 @@ h1{
     width: 100%;
     margin-top: 10px;
     margin-bottom: 10px;
-    border-radius: 0px;
+    border-radius: 20px;
     transition: border-color 0.5s, background-color 0.5s, color 0.5s;
+
 }
 
 .loginbox button:hover{
@@ -133,6 +141,8 @@ h1{
 .loginbox a{
     text-decoration: none;
     color:#e10800; 
+
+    font-family: Arial;
 }
 
 .loginbox a:hover{
@@ -140,12 +150,10 @@ h1{
     transition: 0.3s;
 }
 
-.head{
-    font-family: 'Syne', sans-serif !important;
-}
 
-.log{
-    font-family: 'Syne', sans-serif !important;
+
+#log{
+    font-weight: bold;
 }
 
 #footer-con{

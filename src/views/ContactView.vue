@@ -1,10 +1,12 @@
 <template>
 
+<body>
+  
 
       <navbar/>
       <div class="container text-center">
       <div class="row align-items-center">
-        <div id="contact-head" class = "mb-5">
+        <div id="contact-head" class = "mb-5 mt-5">
           <h1 id = "contactDrag">Contact</h1>
           </div>
 
@@ -56,9 +58,10 @@
 
 
         
-<footer id = "footer-con" class="container py-3 my-1" style="font-family: fantasy;">
+<footer id = "footer-con" class="container py-3 my-5" style="font-family: fantasy;">
       <p id = "footer" class="text-center text">Redragon - Copyright© - 2024 | All Rights Reserved</p>
     </footer>
+  </body>
 </template>
 <script>
 import navbar from '../components/navbar.vue'
@@ -68,8 +71,20 @@ export default {
     }
 }
 </script>
-<style>
+<style scoped>
+
+
+i{
+  transition: transform 0.3s ease
+}
+
+i:hover{
+  transform:scale(105%);
+}
  
+ body{
+  background-color: black
+ }
    
 #contactDrag{
 
@@ -88,45 +103,57 @@ font-size: 60px;
   font-family: "Roboto";
   font-size: 50px;
   text-align: center;
-  margin-top: 70px;
+
 }
 
 #contactForm-div {
-  width: 400px;
+  width: 550px;
   margin: auto;
-
+ 
+  padding: 20px; 
+  border-radius: 20px; 
+  box-shadow: 0 0 25px #e10800;
+  
 }
+
+
 
 label {
   font-family: "Roboto";
-  font-size: 22px;
+  font-size: 23px;
   color:#e10800;
   font-weight: bold;
+  
+  
 }
 
 input[type=text],
 textarea {
   width: 100%;
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 2px solid #e10800;
   margin-top: 6px;
   margin-bottom: 16px;
   resize: vertical;
   border-radius: 15px;
+  font-weight: bold;
+  background:transparent;
+  color:white;
+
 }
 
 input[type=submit] {
-  width: 120px;
+  min-width: 500px;
   height: 45px;
-  margin-right: 5px;
   font-family: "Roboto";
-  font-size: 22px;
+  font-size: 26px;
   font-weight: bold;
   background-color: #e10800;
   border: solid 3px black;
   border-radius: 50px;
   cursor: pointer;
   transition: border-color 0.5s, background-color 0.5s, color 0.5s;
+  
 }
 
 input[type=submit]:hover {
@@ -161,7 +188,7 @@ body {
 
 
 
-#ontact-head {
+#contact-head {
   font-size: 30px;
 }
 

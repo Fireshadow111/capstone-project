@@ -1,5 +1,5 @@
 <template>
-
+ <body>
 <navbar/>
 
 
@@ -22,16 +22,15 @@
 
           <h1 class = "userControl">Users Control</h1>
 
-
+          <div id = "user-background">
           <input type="text"  placeholder="Username" class="input" v-model="user_Name" required>
           <input type="text" placeholder="Email" class="input" v-model="user_Email" required>
           <input type="text" placeholder="Password" class="input" v-model="user_Pass" required>
-
-          
           <input type="text" placeholder="Role" class="input" v-model="user_Role" required>
-    
+        </div>
+
           <div id = "userAddDiv" class = "text-center justify-content-center">
-          <button style = "border: solid 3px red"  class = "addButton mb-4" @click = "addUser()">Add</button>
+          <button style = "border: solid 3px red"  class = "addButton mb-4 mt-2" @click = "addUser()">Add</button>
         </div>
 
           <div class="products" ng-app="app" ng-controller="AppCtrl">
@@ -56,11 +55,11 @@
             <td class = "text-center" style="color: white; border: solid 3px #e10800;">{{item.user_Email}}</td>
             <td class = "text-center" style="color: white;border: solid 3px #e10800; ">{{item.user_Pass}}</td>
             <td class = "text-center" style="color: white; border: solid 3px #e10800;">{{item.user_Role}}</td>
-            <td>
+            <td style = "border: solid 3px #e10800;">
 
-                <div id = "userConDiv">
-              <button style = "border: solid 3px red" class = "userButtons mx-4" @click = "editUser(item.user_ID)">Edit</button>
-              <button style = "border: solid 3px red" class = "userButtons mx-4" @click = "deleteUser(item.user_ID)">Delete</button>
+                <div id = "userConDiv" class = "d-flex justify-content-center">
+              <button  class = "userButtons mx-5" @click = "editUser(item.user_ID)">Edit</button>
+              <button  class = "userButtons mx-5" @click = "deleteUser(item.user_ID)">Delete</button>
 
             </div>
             
@@ -111,7 +110,7 @@
             <td class = "text-center" style="color: white;border: solid 3px #e10800; ">{{item.prod_Name}}</td>
             <td class = "text-center" style="color: white; border: solid 3px #e10800;">{{item.category}}</td>
             <td class = "text-center" style="color: white; border: solid 3px #e10800;">{{item.price}}</td>
-            <td>
+            <td style = "border: solid 3px #e10800;">
               
               <div id =  "prodConBut">
                 
@@ -130,10 +129,12 @@
 </div>
 </div>  
 
-<footer id = "footer-con" class="container py-3 my-1" style="font-family: fantasy;">
+<footer id = "footer-con" class="container py-3 my-5" style="font-family: fantasy;">
       <p id = "footer" class="text-center text">Redragon - Copyright© - 2024 | All Rights Reserved</p>
     </footer>
-  
+ 
+    
+  </body>
   </template>
   <script>
   import navbar from '../components/navbar.vue'
@@ -217,7 +218,10 @@
     
   }
   </script>
-  <style>
+  <style scoped>
+
+
+
 
 
 #userConBut{
@@ -325,7 +329,6 @@ font-size: 60px;
   border: solid 3px black;
   border-radius: 50px;
   cursor: pointer;
-
 }
 
 .addButton:hover {
@@ -343,7 +346,7 @@ font-size: 60px;
 input.input {
   width: 50%;
   height: 40px;
-  padding: 8px;
+
   margin-bottom: 15px;
   border: 1px solid #e10800;
   border-radius: 5px;
@@ -378,13 +381,11 @@ input.input {
   transform: translatex(4px);
 }
 
-
-.products{
-  .name{
-    border-bottom: 1px dotted #ccc;
-    cursor: pointer;
-  }
+input[type=text]{
+  font-weight: bold;
 }
+
+
 
 #footer-con{
   border-top: 2px solid #e10800;

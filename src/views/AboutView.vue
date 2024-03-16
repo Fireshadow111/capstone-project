@@ -7,7 +7,7 @@
 
     <div class="container text-center">
       <div class=" row align-items-center">
-        <div id="about-head">
+        <div id="about-head" class = "mt-5">
           <h1 id = "aboutDrag">About</h1>
           </div>
 
@@ -54,7 +54,6 @@ body{
   font-family: "Roboto";
   font-size: 50px;
   text-align: center;
-  margin-top: 70px;
 }
 
 .about-title {

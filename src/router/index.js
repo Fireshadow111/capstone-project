@@ -5,7 +5,7 @@ import ProductView from '../views/ProductView.vue'
 import ContactView from '../views/ContactView.vue'
 import CheckoutView from '../views/CheckoutView.vue'
 import AdminView from '../views/AdminView.vue'
-import SignUpView from '../views/SignUpView.vue'
+import RegisterView from '../views/RegisterView.vue'
 import LoginView from '../views/LoginView.vue'
 import ProfileView from '../views/ProfileView.vue'
 
@@ -52,9 +52,9 @@ const routes = [
   },
 
   {
-    path: '/signup',
-    name: 'signup',
-    component: SignUpView
+    path: '/register',
+    name: 'register',
+    component: RegisterView
   },
 
   {
