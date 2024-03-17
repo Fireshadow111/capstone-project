@@ -16,8 +16,8 @@
     <div>
       <button class="btn btn-light log" id="log" ><span id="logs">Login </span><i class="fa fa-spinner fa-spin" id="icon"></i></button>
     </div>
-    
-    <router-link to="/signup"><a href="">Don't have an account?</a></router-link>
+    <h4>{{ $store.state.login }}</h4>
+    <router-link to="/register"><a href="">Don't have an account?</a></router-link>
      </form>
 
         
