@@ -17,6 +17,16 @@ const getCart = async (user_ID) => {
 };
 
 
+const getCarts= async()=>{
+    const [result] = await pool.query(`
+    SELECT * FROM cart`)
+    if (!result || result.length === 0){
+        throw error();
+    }
+    return result
+};
+
+
 const deleteCart = async (user_ID) => {
     await pool.query(`
         DELETE FROM cart
@@ -25,11 +35,11 @@ const deleteCart = async (user_ID) => {
 };
 
 
-const deleteFromCart = async (userID, productID) => {
+const deleteFromCart = async (user_ID, prod_ID) => {
     await pool.query(`
         DELETE FROM cart
         WHERE userID = ? AND productID = ?
-    `, [userID, productID]);
+    `, [user_ID, prod_ID]);
 };
 
 
@@ -45,4 +55,4 @@ const getUserID= async (user_Email) => {
 
 
 
-export{postCart, getCart, deleteCart, getUserID,  deleteFromCart }
+export{postCart, getCart, deleteCart, getUserID,  deleteFromCart, getCarts }

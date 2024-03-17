@@ -18,7 +18,7 @@ const authenticate = (req,res,next) => {
 
 const certificate = async(req,res,next) => {
     const {user_Email, user_Pass} = req.body
-    const hashedPassword = await logIn(user_Email)
+    const hashedPassword = await login(user_Email)
     bcrypt.compare(user_Pass, hashedPassword, (err,result)=>{
         if(err) throw err
         if(result === true){

@@ -1,5 +1,5 @@
 
-import {postCart, getCart, deleteCart, getUserID, deleteFromCart } from "../models/cart-database.js";
+import {postCart, getCart, deleteCart, getUserID, deleteFromCart,getCarts } from "../models/cart-database.js";
 
 
 export default {
@@ -19,6 +19,11 @@ export default {
             res.status(500).send({ error: 'An error occurred while adding product to cart' });
         }
     },
+
+    getCarts: async(req,res)=>{
+        res.send(await getCarts())
+    },
+
     getCart: async (req, res) => {
         const user_Email = req.user_Email;    
         const user_ID = await getUserID(user_Email)

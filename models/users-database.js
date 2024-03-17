@@ -19,6 +19,7 @@ const getUsers= async()=>{
     }
     return result
   }
+
   
   const postUser= async(user_Name, user_Email, user_Pass,user_Role)=>{
     const [user] = await pool.query(`
@@ -54,6 +55,15 @@ const getUsers= async()=>{
     return password
 };
 
+
+const userInfo = async (user_Email) => {
+  const [[result]] = await pool.query(`
+  SELECT * 
+  FROM users 
+  WHERE user_Email = ?
+  `, [user_Email])
+  return result
+};
   
   
-  export {getUsers,getUser,postUser,deleteUser,patchUser, login}
+  export {getUsers,getUser,postUser,deleteUser,patchUser, login, userInfo}

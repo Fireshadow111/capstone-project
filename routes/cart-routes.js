@@ -7,6 +7,7 @@ router
     .route('/')
         .post(controller.postCart)
         .get(controller.getCart)
+        .get(controller.getCarts)
         .delete(controller.deleteCart)
         .delete(controller.deleteFromCart)
 export default router

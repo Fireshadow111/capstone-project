@@ -1,4 +1,4 @@
-import { getUsers, getUser, postUser, deleteUser, patchUser } from '../models/users-database.js';
+import { getUsers, getUser, postUser, deleteUser, patchUser, login } from '../models/users-database.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
@@ -9,8 +9,9 @@ export default {
         res.send(await getUsers());
     },
 
-    getUser: async (req, res) => {
-        res.send(await getUser(+req.params.id));
+    getUser: async(req,res)=>{
+        const user_Email = req.user_Email;
+        res.send(await getUser(user_Email))
     },
 
 
@@ -18,11 +19,23 @@ export default {
         res.send(await deleteUser(req.params.id));
     },
 
-    patchUser: async (req, res) => {
-        const [user] = await getProduct(+req.params.id);
+   
 
-        let { user_Name, user_Email, user_Pass} = req.body;
+    patchUser: async (req, res) => {
+        const [user] = await getUser(+req.params.id);
+
+        let { user_Name, user_Email, user_Pass, user_Role } = req.body;
+
+        user_Name ? user_Name=user_Name: {user_Name} = user
+
+        user_Email ? user_Email=user_Email: {user_Email} = user
+
+        user_Pass ? user_Pass=user_Pass: {user_Pass} = user
+
+        user_Role? user_Role=user_Role: {user_Role} = user
+        
         if (user_Pass) {
+         
             try {
                 user_Pass = await bcrypt.hash(user_Pass, 10);
             } catch (error) {
@@ -31,11 +44,15 @@ export default {
                 return;
             }
         } else {
-            user_Pass = user.Password;
+    
+            user_Pass = user.user_Pass;
         }
-        await patchUser(user_Name, user_Email, user_Pass, +req.params.id);
+        await patchUser(user_Name, user_Email, user_Pass, user_Role, +req.params.id)
+        
         res.send(await getUsers());
     },
+
+
 
     postUser: async (req, res) => {
         const { user_Name, user_Email, user_Pass, user_Role } = req.body;
