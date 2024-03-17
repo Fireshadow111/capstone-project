@@ -15,12 +15,7 @@ const PORT=process.env.MYSQL_ADDON_PORT || 9001
 
 const app=express()
 
-app.use(cors(
-    { 
-        origin: 'http://localhost:8080',
-        credentials: true
-      }
-))
+app.use(cors())
 
 app.use(express.json())
 
