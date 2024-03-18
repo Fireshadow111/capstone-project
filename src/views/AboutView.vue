@@ -83,9 +83,12 @@ body{
 #aboutDrag{
 
 color: #e10800;
-font-style: italic;
-font-family: "DM Serif Display";
+
+font-weight: bolder;
+font-family: "Montserrat";
 font-size: 60px;
+
+
 
 }
 #footer-con{

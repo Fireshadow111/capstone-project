@@ -184,7 +184,7 @@
       let edit = {
       id:user_ID,
       user_Name: this.user_Name,
-     user_Email: this.user_Email.Email,
+     user_Email: this.user_Email,
       user_Pass: this.user_Pass,
       user_Role: this.user_Role,
       }
@@ -252,13 +252,21 @@
 }
 
 .userControl{
-color:#e10800;
+color:black;
 text-align: center;
+font-family: "Montserrat";
+background-color:#e10800;
+font-weight: bolder;
+
 }
 
 .prodControl{
-  color:#e10800;
+  color:black;
 text-align: center;
+font-family: "Montserrat";
+background-color:#e10800;
+font-weight: bolder;
+
 
 margin-top: 150px;
 
@@ -266,6 +274,7 @@ margin-top: 150px;
 
   #input-head{
     color: #e10800;
+    font-style: italic;
   }
 
   #input-text{
@@ -277,8 +286,8 @@ margin-top: 150px;
 #adminDrag{
 
 color: #e10800;
-font-style: italic;
-font-family: "DM Serif Display";
+font-weight: bolder;
+font-family: "Montserrat";
 font-size: 60px;
 
 }

@@ -17,7 +17,8 @@
     <div id="contactForm-div">
 
 
-<form action="https://formspree.io/f/myyqoarq" method="POST" target = "_blank">
+<form  action="https://formspree.io/f/xqkrdpya"
+  method="POST" target = "_blank">
   <label for="firstName">First Name:</label>
   <input type="text" id="firstName" name="firstName" placeholder="Enter your name..">
   <label for="lastName">Last Name:</label>
@@ -89,8 +90,8 @@ i:hover{
 #contactDrag{
 
 color: #e10800;
-font-style: italic;
-font-family: "DM Serif Display";
+font-weight: bolder;
+font-family: "Montserrat";
 font-size: 60px;
 
 }

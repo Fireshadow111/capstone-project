@@ -26,7 +26,7 @@
                     <h3 style = "color:#e10800; font-weight: bold; background-color: black;" class="card-title mb-4">{{ item.prod_Name }}</h3>
                       <div>
                         <div class="d-flex justify-content-between deats">
-                        <router-link :to="{ name: 'checkout'}">
+                        <router-link :to="{name: 'product', params: {id:item.prod_ID}}">
                       <button type="button" class="btn btn-sm view" style = " font-weight: bold;">View More</button>
                   </router-link>
                         <p style = "color: black;" class="my-1 price">${{ item.price }}</p>
@@ -73,7 +73,7 @@ export default {
     },
   
     methods:{
-      
+  
     },
     computed: {
       products(){
@@ -178,8 +178,8 @@ color: #e10800;
 #prodDrag{
 
   color: #e10800;
-  font-style: italic;
-  font-family: "DM Serif Display";
+  font-weight: bolder;
+font-family: "Montserrat";
   font-size: 60px;
 
 }
