@@ -13,8 +13,8 @@
           </div>
           </div>
 
-         <div id = "con-background">
-    <div id="contactForm-div">
+         <div id = "con-background" class = "animate__animated animate__fadeIn">
+    <div id="contactForm-div" >
 
 
 <form  action="https://formspree.io/f/xqkrdpya"
@@ -122,7 +122,7 @@ font-size: 60px;
 label {
   font-family: "Roboto";
   font-size: 23px;
-  color:#e10800;
+  color:white;
   font-weight: bold;
   
   

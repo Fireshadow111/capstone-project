@@ -16,11 +16,11 @@
           </div>
 
 
-<div class="col-md-4 my-5  d-flex justify-content-center">
+<div class="col-md-4 my-5  d-flex justify-content-center animate__animated animate__fadeIn">
         <div class="card h-100" style="width: 21rem;" v-for="item in product" :key="item.prod_ID">
             <img :src="item.prod_URL" class="card-img-top" alt="" style = "background-color: black
             ;">
-            <div class="card-body" style = "background-color: ">
+            <div class="card-body">
                 <h5 style="color: #e10800; font-size:22px; background-color: black; font-weight: bold;" class="card-title">{{ item.prod_Name }}</h5>
                 <p class="card-text" style="font-size: 20px; font-weight: bold;">{{ item.category }}</p>
                 <p class="card-text" style="font-size: 20px;font-weight: bold">${{ item.price }}</p>
@@ -110,8 +110,8 @@ h1{
 
 
 .products-add-cart-button {
-  width: 140px;
-  height: 60px;
+  width: 130px;
+  height: 50px;
   color: black;
   font-family: "Roboto";
   font-size: 20px;

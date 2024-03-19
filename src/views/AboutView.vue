@@ -7,8 +7,8 @@
 
     <div class="container text-center">
       <div class=" row align-items-center">
-        <div id="about-head" class = "mt-5">
-          <h1 id = "aboutDrag">About</h1>
+        <div id="about-head" class = "mt-5 mb-4">
+          <h1 id = "aboutDrag" >About</h1>
           </div>
 
           </div>
@@ -59,7 +59,7 @@ body{
 .about-title {
   color: #e10800;
   text-align: center;
-  margin-top: 30px;
+
 }
 
 .red-banner {
@@ -76,7 +76,7 @@ body{
 
 .about-body {
   text-align: center;
-  color: #e10800;
+  color: white;
   font-size: 28px;
 }
 

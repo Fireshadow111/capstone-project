@@ -3,7 +3,7 @@
      
       <nav style = "border-radius: 100px; max-width: 95%;" class="navbar navbar-light mx-auto mt-2">
   <button  class="navbar-toggler custom-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-    <span><i class="fa-solid fa-bars " style="color: #000000;"></i></span>
+    <span><i class="fa-solid fa-bars "  style="color: #000000;"></i></span>
   </button>
   <span class="name animate__animated animate__backInDown"><img id = "logo" src="https://cdn-images.imagevenue.com/2d/81/14/ME17RP2V_o.png" alt=""></span>
             <button type="button" class="btn position-relative cart">
@@ -34,7 +34,7 @@
       <div class="btn-group my-4 justify-content-center" data-bs-dismiss="offcanvas">
       
         <router-link to="/profile" class="sign-but my-3 p-1 py-2 btn btn1">Profile</router-link>
-                    <router-link to="/register" class="sign-but my-3 p-1 py-2 btn btn1">Register</router-link>
+                    <router-link to="/login" class="sign-but my-3 p-1 py-2 btn btn1">Login</router-link>
               </div>
 </div>
 </nav>
@@ -54,6 +54,7 @@ export default {
 }
 </script>
 <style scoped>
+
 
 
 .btn{
@@ -143,10 +144,12 @@ color:#e10800;
          color:#e10800;
       }
 
-      .sign-but:active{
 
-      transform: translatex(4px);
-      }
+    #check-logo:hover{
+      transform: translatex(100px);
+    }
+
+     
 
 
 @media screen and (width <= 375px) {

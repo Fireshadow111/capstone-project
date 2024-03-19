@@ -5,8 +5,8 @@
   
 <div>
 
-        <div  class="loginbox animate__animated animate__fadeIn mt-3">
-            <h1 id = "register"class="my-3 head">Register</h1>
+        <div  class="loginbox animate__animated animate__fadeIn mt-4">
+            <h1 id = "register"class="my-3 head" style = "color:#e10800;">Register</h1>
             <form method="POST" class="mx-3 my-3">
                 <div class="row">
         <div class="col">
@@ -126,7 +126,7 @@ label{
     min-width: 300px;
     max-width: 700px;
  
-    color: #e10800;
+    color: white;
     top: 50%;
     left: 50%;
     position: absolute;
@@ -174,13 +174,15 @@ h1{
     margin-bottom: 10px;
     border-radius: 0px;
     border-radius: 20px;
+    background-color: black;
+ color: #e10800;
     
     transition: border-color 0.5s, background-color 0.5s, color 0.5s;
 }
 
 .loginbox button:hover{
-  background-color: black;
- color: #e10800;
+  background-color: #e10800;
+ color: black;
  border-color: white;
 }
 

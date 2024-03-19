@@ -5,7 +5,7 @@
 
       <div class="container text-center">
       <div class="row align-items-center">
-        <div id="checkout-head" class = "mb-5">
+        <div id="checkout-head" class = "mb-5 mt-4">
           <h1 id = "checkoutDrag">Checkout</h1>
           </div>
 
@@ -88,7 +88,7 @@ font-size: 60px;
   font-family: "Roboto";
   font-size: 50px;
   text-align: center;
-  margin-top: 70px;
+
 }
 
 .table th{

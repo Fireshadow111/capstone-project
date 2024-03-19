@@ -336,7 +336,7 @@ font-size: 60px;
   font-size: 22px;
   font-weight: bold;
   background-color: #e10800;
-  border: solid 3px black;
+  border: solid 3px black !important;
   border-radius: 50px;
   cursor: pointer;
 }
@@ -344,7 +344,7 @@ font-size: 60px;
 .addButton:hover {
   background-color: black;
   color: #e10800;
-  border-color: white;
+  border-color: white !important;
 }
 
 .addButton:active {
@@ -374,7 +374,7 @@ input.input {
   font-size: 22px;
   font-weight: bold;
   background-color: #e10800;
-  border: solid 3px black;
+  border: solid 3px black !important;
   border-radius: 50px;
   cursor: pointer;
 }
@@ -382,7 +382,7 @@ input.input {
 .prodButtons:hover{
   background-color: black;
   color: #e10800;
-  border-color: white;
+  border-color: white !important;
 }
 
 

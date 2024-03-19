@@ -2,7 +2,7 @@
 <navbar/>
 <div class="body">
         <div class="loginbox p-2  animate__animated animate__fadeIn">
-            <h1 id = "login" class="my-4 head">Login</h1>
+            <h1 id = "login" class="my-4 head" style = "color:#e10800; ">Login</h1>
             
             <form method="POST" class="mx-3 my-3">
     <div>
@@ -77,7 +77,7 @@ i{
     min-width: 300px;
     max-width: 700px;
     background-color: #000;
-    color: #e10800; 
+    color: white; 
     top: 50%;
     left: 50%;
     position: absolute;
@@ -123,12 +123,14 @@ h1{
     margin-bottom: 10px;
     border-radius: 20px;
     transition: border-color 0.5s, background-color 0.5s, color 0.5s;
+    background-color: black;
+ color: #e10800; 
 
 }
 
 .loginbox button:hover{
-  background-color: black;
- color: #e10800; 
+  background-color: #e10800; 
+ color: black; 
  border-color: white;
 }
 

@@ -22,7 +22,7 @@
     <div class="col-md-4 mt-5" v-for="item in products" :key="item">
                 <div class="card homeCard">
                   <img :src="item.prod_URL" alt="" class="card-img-top w-100" style="height: 300px;">
-                  <div class="card-body" style = "background-color:#e10800;">
+                  <div class="card-body" style = "background-color:white;">
                     <h3 style = "color:#e10800; font-weight: bold; background-color: black;" class="card-title mb-4">{{ item.prod_Name }}</h3>
                       <div>
                         <div class="d-flex justify-content-between deats">
@@ -96,7 +96,7 @@ export default {
 
 body{
    background-color: black;
-   min-height: 10vh;
+ 
 }
 
 .prodHead{
@@ -109,6 +109,7 @@ body{
   height: 420px; 
   max-width: 400px;
   background-color: black;
+  border-radius: 20px;
 
   box-shadow: 0 0 25px #e10800;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -140,9 +141,10 @@ body{
 }
 
 .view:hover{
-  color: white;
+  
   background-color: black;
   color:#e10800;
+
 }
 
 .view:active{
@@ -156,6 +158,7 @@ body{
 .price{
   font-size: 19px;
   font-weight: bold;
+  color: white
 }
 
 
