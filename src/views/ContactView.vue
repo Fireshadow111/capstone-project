@@ -144,7 +144,7 @@ textarea {
 }
 
 input[type=submit] {
-  min-width: 500px;
+  max-width: 500px;
   height: 45px;
   font-family: "Roboto";
   font-size: 26px;

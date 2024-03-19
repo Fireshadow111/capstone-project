@@ -22,8 +22,8 @@
     <div class="col-md-4 mt-5" v-for="item in products" :key="item">
                 <div class="card homeCard">
                   <img :src="item.prod_URL" alt="" class="card-img-top w-100" style="height: 300px;">
-                  <div class="card-body" style = "background-color:white;">
-                    <h3 style = "color:#e10800; font-weight: bold; background-color: black;" class="card-title mb-4">{{ item.prod_Name }}</h3>
+                  <div class="card-body" style = "background-color:white;  border-radius: 10px;">
+                    <h3 style = "color:#e10800; font-weight: bold; background-color: black;  border-radius: 10px;" class="card-title mb-4">{{ item.prod_Name }}</h3>
                       <div>
                         <div class="d-flex justify-content-between deats">
                         <router-link :to="{name: 'product', params: {id:item.prod_ID}}">
@@ -109,7 +109,7 @@ body{
   height: 420px; 
   max-width: 400px;
   background-color: black;
-  border-radius: 20px;
+  border-radius: 10px;
 
   box-shadow: 0 0 25px #e10800;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -137,6 +137,7 @@ body{
   border-radius: 0px;
   border: 2px solid black;
   color: black;
+  border-radius: 10px;
   
 }
 
