@@ -3,11 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Help</title>
+    <title>Routes Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2 {
+            color: #000000;
+            text-align: center;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            border: 2px solid #000000;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #000000;
+        }
+        th {
+            background-color: black;
+            color: red;
+        }
+      
+    </style>
 </head>
 <body>
 
-    
-    
+<h1>Routes Information</h1>
+
+<h2>Home</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Path</th>
+            <th>HTTP Methods</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>/</td>
+            <td>GET</td>
+            <td>Home Page</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Products</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Path</th>
+            <th>HTTP Methods</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>/products</td>
+            <td>GET</td>
+            <td>Get all Products</td>
+        </tr>
+        <tr>
+            <td>/products/:id</td>
+            <td>GET</td>
+            <td>Get specific Product</td>
+        </tr>
+        <tr>
+            <td>/products</td>
+            <td>POST</td>
+            <td>Add new Product</td>
+        </tr>
+        <tr>
+            <td>/products/:id</td>
+            <td>Patch</td>
+            <td>Update a Product</td>
+        </tr>
+        <tr>
+            <td>/products/:id</td>
+            <td>DELETE</td>
+            <td>Delete a Product</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Users</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Path</th>
+            <th>HTTP Methods</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>/Users</td>
+            <td>GET</td>
+            <td>Get all Users</td>
+        </tr>
+        <tr>
+            <td>/Users/:id</td>
+            <td>GET</td>
+            <td>Get specific User</td>
+        </tr>
+        <tr>
+            <td>/Users</td>
+            <td>POST</td>
+            <td>Add A User</td>
+        </tr>
+        <tr>
+            <td>/Users/:id</td>
+            <td>Patch</td>
+            <td>Update a User</td>
+        </tr>
+        <tr>
+            <td>/Users/:id</td>
+            <td>DELETE</td>
+            <td>Delete a User</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Cart</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Path</th>
+            <th>HTTP Methods</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>/cart</td>
+            <td>GET</td>
+            <td>Get all items in the cart</td>
+        </tr>
+        <tr>
+            <td>/cart</td>
+            <td>POST</td>
+            <td>Adds to cart</td>
+        </tr>
+        <tr>
+            <td>/cart</td>
+            <td>DELETE</td>
+            <td>Delete items</td>
+        </tr>
+    </tbody>
+</table>
+
 </body>
 </html>

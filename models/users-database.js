@@ -9,16 +9,21 @@ const getUsers= async()=>{
     return result
   }
   
-  const getUser= async(id)=>{
-    const[result] = await pool.query(`
+  const getUser= async(user_Email)=>{
+    const [result] = await pool.query(`
+    SELECT * 
+    FROM users
+    WHERE user_Email = ?`,[user_Email])
+    return result
+  }
+
+  const getUserByID = async(id)=>{
+    const [result] = await pool.query(`
     SELECT * 
     FROM users
     WHERE user_ID = ?`,[id])
-    if(!id || isNaN(id) || id > result) {
-      throw error()
-    }
     return result
-  }
+};
 
   
   const postUser= async(user_Name, user_Email, user_Pass,user_Role)=>{
@@ -46,6 +51,17 @@ const getUsers= async()=>{
   }
 
 
+  const patchUserProfile = async(user_Name, user_Email, user_Pass, user_Role)=>{
+    await pool.query(`
+        UPDATE users
+        SET user_Name = ?, user_Email = ?, user_Pass = ?, user_Role = ?
+        WHERE user_Email = ?
+    `,[user_Name, user_Email, user_Pass, user_Role])
+    return getUsers()
+};
+
+
+
   const login = async(user_Email)=> {
     const [[{password}]] = await pool.query(`
     SELECT password 
@@ -66,4 +82,4 @@ const userInfo = async (user_Email) => {
 };
   
   
-  export {getUsers,getUser,postUser,deleteUser,patchUser, login, userInfo}
+  export {getUsers,getUser,postUser,deleteUser,patchUser, login, userInfo, getUserByID, patchUserProfile}

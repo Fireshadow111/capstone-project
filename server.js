@@ -7,6 +7,7 @@ import productsRouter from './routes/products-routes.js';
 import usersRouter from './routes/users-routes.js'
 import cartRouter from './routes/cart-routes.js'
 import loginRouter from './routes/login-routes.js'
+import registerRouter from './routes/register-routes.js'
 import cookieParser from 'cookie-parser'
 import jwt from 'jsonwebtoken'
 config()
@@ -30,11 +31,13 @@ app.use(cookieParser())
 
 app.use('/products', productsRouter)
 
-app.use('/cart', cartRouter)
+app.use('/cart',authenticate, cartRouter)
 
 app.use('/users',  usersRouter)
 
 app.use('/login', loginRouter)
+
+app.use('/register', registerRouter)
 
 
 

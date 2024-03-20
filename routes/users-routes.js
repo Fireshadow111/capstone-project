@@ -5,17 +5,20 @@ import controller from '../controller/users-controller.js'
 const router = express.Router();
 
 router
+    .route('/user')
+        .get(controller.getUser)
+        .patch(controller.patchUserProfile)
+
+router
     .route('/')
-       
         .get(controller.getUsers)
         .post(controller.postUser)
-        .get(controller.getUser)
-        
+    
 router
     .route('/:id')
-    
         .delete(controller.deleteUser)
         .patch(controller.patchUser)
+
 
 
 
