@@ -22,18 +22,20 @@
       </div>
       <div class="row">
         <div class="col">
-            <p>Password:</p>
-          <input type="password" class="form-control"   name="userPass" placeholder="Enter Password..." aria-label="Last name" required="">
-        </div>
-        <div class="row">
-        <div class="col">
-            <label for="dropdown">Role:</label>
+          <label for="dropdown">Role:</label>
     <select id="dropdown" name="dropdown">
       <option value="option2">Customer</option>
       <option value="option1">Admin</option>
       
      
     </select>
+          
+        </div>
+        <div class="row">
+        <div class="col">
+          <p>Password:</p>
+          <input type="password" class="form-control"   name="userPass" placeholder="Enter Password..." aria-label="Last name" required="">
+      
     <h4>{{ $store.state.login }}</h4>
         </div>
       </div>
