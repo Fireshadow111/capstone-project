@@ -22,27 +22,23 @@
       </div>
       <div class="row">
         <div class="col">
-          <label for="dropdown">Role:</label>
-    <select id="dropdown" name="dropdown">
-      <option value="option2">Customer</option>
-      <option value="option1">Admin</option>
+          <p>User Role:</p>
+          <input type="text" class="form-control"  name="userEmail" placeholder="Enter User Role..." aria-label="First name" required="">
       
      
-    </select>
-          
+ 
         </div>
         <div class="row">
         <div class="col">
           <p>Password:</p>
           <input type="password" class="form-control"   name="userPass" placeholder="Enter Password..." aria-label="Last name" required="">
-      
-    <h4>{{ $store.state.login }}</h4>
+ 
         </div>
       </div>
     </div>
 
 <div>
-<button style = "font-weight: bold;" type="submit" class="btn btn-light reg" value="register" ><span id="logs">Register</span><i class="fa fa-spinner fa-spin" id="icon"></i></button>
+<button @click="registerUser" style = "font-weight: bold;" type="submit" class="btn btn-light reg" value="register" ><span id="logs">Register</span><i class="fa fa-spinner fa-spin" id="icon"></i></button>
 </div>
 
 <router-link to="/login"><a href="">Already have an account?</a></router-link>
@@ -79,14 +75,7 @@ export default {
             this.$store.dispatch('registerUser',this.$data)
         },
     },
-    methods: {
-        submitData(){
-           console.log(this.$data.email)
-           //this is the only place because that can handle asycronous functions
-           //the data is only being saved when it is being used
-           this.$store.dispatch('login',this.$data)
-        },
-    },
+  
 }
 </script>
 <style scoped>

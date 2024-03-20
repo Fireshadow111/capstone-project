@@ -14,9 +14,9 @@
         <input type="password"  name="password" id="password" class="my-2" placeholder="Enter Password..." required>
     </div>
     <div>
-      <button class="btn btn-light log" id="log" ><span id="logs">Login </span><i class="fa fa-spinner fa-spin" id="icon"></i></button>
+      <button @click="loginUser" class="btn btn-light log" id="log" ><span id="logs">Login </span><i class="fa fa-spinner fa-spin" id="icon"></i></button>
     </div>
-    <h4>{{ $store.state.login }}</h4>
+
     <router-link to="/register"><a href="">Don't have an account?</a></router-link>
      </form>
 

@@ -2,7 +2,7 @@ import { createStore } from 'vuex'
 import axios from 'axios'
 import router from '@/router'
 axios.defaults.withCredentials = true
-const baseUrl = 'https://capstone-project-mthn.onrender.com'
+const baseUrl = 'http://localhost:9001'
 
 export default createStore({
   state: {
@@ -15,7 +15,9 @@ export default createStore({
 
   },
   getters: {
-  
+    currentYear: () => {
+      return new Date().getFullYear();
+    },
   },
   mutations: {
     setProducts(state, data){
@@ -139,12 +141,12 @@ export default createStore({
     },
 
     
-     async loginUser({commit}, currentUser){
+    async loginUser({commit}, currentUser){
       let {data} = await axios.post(baseUrl + '/login', currentUser)
       $cookies.set('jwt', data.token)
       alert(data.msg)
       router.push('/')
-      // window.location.reload()
+      window.location.reload()
       commit('setLogin', true)
     },
     async logOut(context){
@@ -157,8 +159,17 @@ export default createStore({
     },
     //cart
     async addCart({commit},newProduct){
-      const {data} = await axios.post(baseUrl+'/cart',newProduct)
+      const {data} = await axios.post(baseUrl+'/cart/user',newProduct)
       commit("setCart",alert(data.msg));
+     },
+    async addCartByAdmin({commit},newProduct){
+      const {data} = await axios.post(baseUrl+'/cart/admin',newProduct)
+      commit("setCart",alert(data.msg));
+     },
+     async getUserCart({commit}){
+      const {data} =  await axios.get(baseUrl+'/Cart/user')
+      console.log(data);
+      commit("setCart", data);
      },
      async getCarts({commit}){
       const {data} =  await axios.get(baseUrl+'/cart')
@@ -168,9 +179,21 @@ export default createStore({
       const {data} = await axios.patch(baseUrl+'/cart/'+update.id,update)
       commit("setCart", data);
     },
-    async deleteCart({commit},user_ID){
-      const {data} = await axios.delete(baseUrl+'/cart/'+user_ID)
+    async deleteCart({commit},orderID){
+      const {data} = await axios.delete(baseUrl+'/cart/'+orderID)
       commit("setCart", data);
+    },
+    async deleteCartItem({commit},prodID){
+      console.log('this is in the store'+prodID);
+      const {data} = await axios.delete(baseUrl+'/cart/user/'+prodID)
+      window.Location.reload()
+      commit("setCart", data);
+    },
+    async checkout({commit}){
+      const {data} = await axios.delete(baseUrl+'/cart')
+      commit("setCart", data);
+      alert(data.msg)
+      router.push('/products')
     }
   },
 
