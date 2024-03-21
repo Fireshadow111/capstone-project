@@ -1,37 +1,31 @@
 <template>
-
-<body>
-  
-
-      <navbar/>
-      <div class="container text-center">
+ <body>
+    <navbar/>
+    <div class="container">
       <div class="row align-items-center">
-        <div id="contact-head" class = "mb-5 mt-5">
-          <h1 id = "contactDrag">Contact</h1>
-          </div>
-
-          </div>
-          </div>
-
-         <div id = "con-background" class = "animate__animated animate__fadeIn">
-    <div id="contactForm-div" >
-
-
-<form  action="https://formspree.io/f/xqkrdpya"
-  method="POST" target = "_blank">
-  <label for="firstName">First Name:</label>
-  <input type="text" id="firstName" name="firstName" placeholder="Enter your name..">
-  <label for="lastName">Last Name:</label>
-  <input type="text" id="lastName" name="lastName" placeholder="Enter your last name..">
-  <label for="email">Email:</label>
-  <input type="text" id="email" name="email" placeholder="Enter your email..">
-  <label for="messege">Messege:</label>
-  <textarea id="messege" name="messege" placeholder="Enter a messege.." style="height:170px"></textarea>
-  <input id = "contactButton" type="submit" value="Submit">
-</form>
-
-
-
+        <div id="contact-head" class="mb-5 mt-5">
+          <h1 id="contactDrag">Contact</h1>
+          <div>
+            <div>
+        </div>
+      </div>
+    </div>
+    <div id="con-background" class="animate__animated animate__fadeIn">
+      <div id="contactForm-div">
+        <form @submit.prevent="submitForm" action="https://formspree.io/f/xqkrdpya" method="POST" target="_blank">
+          <label for="firstName">First Name:</label>
+          <input type="text" id="firstName" name="firstName" v-model="formData.firstName" placeholder="Enter your name..">
+          <label for="lastName">Last Name:</label>
+          <input type="text" id="lastName" name="lastName" v-model="formData.lastName" placeholder="Enter your last name..">
+          <label for="email">Email:</label>
+          <input type="text" id="email" name="email" v-model="formData.email" placeholder="Enter your email..">
+          <label for="messege">Messege:</label>
+          <textarea id="messege" name="messege" v-model="formData.message" placeholder="Enter a messege.." style="height:170px"></textarea>
+          <input id="contactButton" type="submit" value="Submit">
+        </form>
+      </div>
+    </div>
+    
 <div id = "icons" class = "d-flex justify-content-center mt-4 mb-5">
 
 <div id = "linkedin-div">
@@ -56,20 +50,55 @@
 </div>
 </div>
 </div>
-
-
-        
-<footer id = "footer-con" class="container py-3 my-5" style="font-family: fantasy;">
-      <p id = "footer" class="text-center text">Redragon - Copyright© - 2024 | All Rights Reserved</p>
+    <footer id="footer-con" class="container py-3 my-5" style="font-family: fantasy;">
+      <p id="footer" class="text-center text">Redragon - Copyright© - 2024 | All Rights Reserved</p>
     </footer>
-  </body>
+ </body>
 </template>
+
 <script>
+import Swal from 'sweetalert2'
 import navbar from '../components/navbar.vue'
+
 export default {
-    components:{
-      navbar
+ components: {
+    navbar
+ },
+ data() {
+    return {
+      formData: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        message: ''
+      },
+      errors: []
     }
+ },
+ methods: {
+    async submitForm() {
+      if (!this.formData.firstName || !this.formData.lastName || !this.formData.email || !this.formData.message) {
+        await Swal.fire({
+          icon: 'warning',
+          title: 'Please complete the form',
+          text: 'All fields are required.',
+          confirmButtonText: 'OK'
+        });
+        return; 
+      }
+      await Swal.fire({
+        icon: 'success',
+        title: 'Message Sent Successfully',
+        text: 'Thank you for contacting us!',
+        confirmButtonText: 'OK'
+      });
+
+      this.formData.firstName = '';
+      this.formData.lastName = '';
+      this.formData.email = '';
+      this.formData.message = '';
+    }
+ }
 }
 </script>
 <style scoped>

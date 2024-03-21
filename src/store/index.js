@@ -66,22 +66,27 @@ export default createStore({
     } 
     },
 
-    async addProduct({commit},add) {
+    async addProduct({commit}, add) {
       try {
-         const {data} = await axios.post(baseUrl+'/products',add)
-     commit("setProducts", data);
-     window.location.reload();
+        const {data} = await axios.post(baseUrl+'/products', add);
+        commit("setProducts", data);
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000); 
       } catch (error) {
         console.error('Error adding product:', error);
       }
-    
-     
     },
+    
+    
+
 
     async deleteProd({commit},prod_ID){
       try {
         await axios.delete(baseUrl+'/products/'+prod_ID)
-      window.location.reload();
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000); 
       } catch (error) {
         console.error('Error deleting product:', error);
       }
@@ -91,7 +96,9 @@ export default createStore({
     async editProd({commit},update){
       try {
          await axios.patch(baseUrl+'/products/'+update.id,update)
-      window.location.reload();
+         setTimeout(() => {
+          window.location.reload();
+        }, 1000); 
       } catch (error) {
         console.error('Erro editing product:', error);
       }
@@ -134,7 +141,9 @@ export default createStore({
       try {
          const {data} = await axios.post(baseUrl+'/users',add)
      commit("setUsers", data);
-     window.location.reload();
+     setTimeout(() => {
+      window.location.reload();
+    }, 1000); 
       } catch (error) {
         console.error('Error adding user:', error);
       }
@@ -142,7 +151,9 @@ export default createStore({
     async deleteUser({commit},user_ID){
       try {
           await axios.delete(baseUrl+'/users/'+user_ID)
-      window.location.reload();
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000); 
       } catch (error) {
         console.error('Error deleting user:', error);
       }
@@ -150,7 +161,9 @@ export default createStore({
     async editUser({commit},update){
       try {
        await axios.patch(baseUrl+'/users/'+update.id,update)
-      window.location.reload();  
+       setTimeout(() => {
+        window.location.reload();
+      }, 1000);   
       } catch (error) {
         console.error('Error edit user:', error);
       }
@@ -177,7 +190,7 @@ export default createStore({
       commit('setLogin', true)
       setTimeout(()=> {
         window.location.reload()
-      },10)
+      },1000)
     },
 
 

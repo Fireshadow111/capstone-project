@@ -84,7 +84,7 @@
           <input type="number" placeholder="Price" class="input" v-model="price" required>
 
           <div id = "prodAddDiv" class = "justify-content-center d-flex text-center">
-          <button style = "border: solid 3px red"  class = "addButton mb-2 mx-5" @click = "addProduct()">Add</button>
+          <button style = "border: solid 3px red"  class = "addButton mb-4 mt-2" @click = "addProduct()">Add</button>
 
         </div>
 
@@ -136,7 +136,9 @@
     
   </body>
   </template>
+
   <script>
+  import Swal from 'sweetalert2'
   import navbar from '../components/navbar.vue'
   export default {
     components:{
@@ -156,42 +158,91 @@
       }
     },
     methods: {
-      addProduct(){
-        this.$store.dispatch('addProduct',this.$data)
-      },
-  
-      deleteProd(prod_ID) {
-        this.$store.dispatch('deleteProd',prod_ID)
-      },
-      editProd(prod_ID){
-        let edit = {
-          id:prod_ID,
-          prod_URL: this.prod_URL,
-          prod_Name: this.prod_Name,
-          category:this.category,
-          price:this.price
-        }
-        this.$store.dispatch('editProd',edit)
-      },
-
-      addUser(){
-      this.$store.dispatch('addUser',this.$data)
-    },
-    deleteUser(user_ID) {
-      this.$store.dispatch('deleteUser',user_ID)
-    },
-    editUser(user_ID){
-      let edit = {
-      id:user_ID,
+  addProduct() {
+    this.$store.dispatch('addProduct', this.$data);
+    Swal.fire({
+      icon: 'success',
+      title: 'Product Added!',
+      text: 'Your product has been successfully added.',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.prod_URL = '';
+        this.prod_Name = '';
+        this.category = '';
+        this.price = null;
+      }
+    });
+  },
+  deleteProd(prod_ID) {
+    this.$store.dispatch('deleteProd', prod_ID);
+    Swal.fire({
+      icon: 'success',
+      title: 'Product Deleted!',
+      text: 'Your product has been successfully deleted.',
+    });
+  },
+  editProd(prod_ID) {
+    let edit = {
+      id: prod_ID,
+      prod_URL: this.prod_URL,
+      prod_Name: this.prod_Name,
+      category: this.category,
+      price: this.price
+    };
+    this.$store.dispatch('editProd', edit);
+    Swal.fire({
+      icon: 'success',
+      title: 'Product Edited!',
+      text: 'Your product has been successfully edited.',
+    });
+  },
+  addUser() {
+    this.$store.dispatch('addUser', this.$data);
+    Swal.fire({
+      icon: 'success',
+      title: 'User Added!',
+      text: 'New user has been successfully added.',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.user_Name = '';
+        this.user_Email = '';
+        this.user_Pass = '';
+        this.user_Role = '';
+      }
+    });
+  },
+  deleteUser(user_ID) {
+    this.$store.dispatch('deleteUser', user_ID);
+    Swal.fire({
+      icon: 'success',
+      title: 'User Deleted!',
+      text: 'User has been successfully deleted.',
+    });
+  },
+  editUser(user_ID) {
+    let edit = {
+      id: user_ID,
       user_Name: this.user_Name,
-     user_Email: this.user_Email,
+      user_Email: this.user_Email,
       user_Pass: this.user_Pass,
       user_Role: this.user_Role,
+    };
+    this.$store.dispatch('editUser', edit);
+    Swal.fire({
+      icon: 'success',
+      title: 'User Edited!',
+      text: 'User information has been successfully edited.',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.user_Name = '';
+        this.user_Email = '';
+        this.user_Pass = '';
+        this.user_Role = '';
       }
-      this.$store.dispatch('editUser',edit)
+    });
+  }
+},
 
-    }
-    },
   
     computed: {
       products(){

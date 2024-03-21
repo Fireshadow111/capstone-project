@@ -35,6 +35,7 @@
       
         <router-link to="/profile" class="sign-but my-3 p-1 py-2 btn btn1">Profile</router-link>
                     <router-link to="/login" class="sign-but my-3 p-1 py-2 btn btn1">Login</router-link>
+                  
               </div>
 </div>
 </nav>
@@ -46,10 +47,41 @@
 import 'animate.css';
 export default {
     name: "navbar",
+    // computed:{
+    //     hasJWT(){
+    //         return !!this.$cookies.get('jwt')
+    //     },
+    // },
+    // created() {
+    //     this.$store.dispatch('getUserRole');
+    // },
     methods: {
       scrollTop() {
         document.body.scrollTop = document.documentElement.scrollTop = 0;
       },
+      // logOut(){
+      // Swal.fire({
+      //   title: 'Are you sure?',
+      //   text: 'You will be logged out',
+      //   icon: 'warning',
+      //   showCancelButton: true,
+      //   confirmButtonColor: 'rgb(71, 98, 218)',
+      //   cancelButtonColor: '#d33',
+      //   confirmButtonText: 'Yes, log me out!',
+      //   position: 'top',
+      // }).then((result) => {
+      //   if (result.isConfirmed) {
+      //   // Remove JWT token
+      //   this.$cookies.remove('jwt');
+      //   // this.$store.dispatch('logOutUser');
+      //   this.$router.push('/'); // Redirect to home page
+      // setTimeout(() => {
+      //   // Refresh the page after a short delay
+      //   window.location.reload();
+      // }, 10);
+      //   }
+      // });
+      //   }
 }
 }
 </script>

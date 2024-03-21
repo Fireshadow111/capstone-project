@@ -7,23 +7,23 @@
 
         <div  class="loginbox animate__animated animate__fadeIn mt-4">
             <h1 id = "register"class="my-3 head" style = "color:#e10800;">Register</h1>
-            <form class="mx-3 my-3">
+            <form  @submit.prevent="registerUser" class="mx-3 my-3">
                 <div class="row">
         <div class="col">
             <p>Username:</p>
-          <input v-model ="user_Name" type="text" class="form-control"  name="user_Name" placeholder="Enter Username..." aria-label="First name" required="">
+          <input v-model ="user_Name" type="text" class="form-control"  name="user_Name" placeholder="Enter Username..." aria-label="First name" >
         </div>
       </div>
       <div class="row">
         <div class="col">
             <p>Email:</p>
-          <input v-model = "user_Email" type="text" class="form-control"  name="user_Email" placeholder="Enter Email..." aria-label="First name" required="">
+          <input v-model = "user_Email" type="text" class="form-control"  name="user_Email" placeholder="Enter Email..." aria-label="First name" >
         </div>
       </div>
       <div class="row">
         <div class="col">
           <p>User Role:</p>
-          <input  v-model = "user_Role" type="text" class="form-control"  name="user_Role" placeholder="Enter User Role..." aria-label="First name" required="">
+          <input  v-model = "user_Role" type="text" class="form-control"  name="user_Role" placeholder="Enter User Role..." aria-label="First name" >
       
      
  
@@ -31,7 +31,7 @@
         <div class="row">
         <div class="col">
           <p>Password:</p>
-          <input v-model = "user_Pass" type="password" class="form-control"   name="user_Pass" placeholder="Enter Password..." aria-label="Last name" required="">
+          <input v-model = "user_Pass" type="password" class="form-control"   name="user_Pass" placeholder="Enter Password..." aria-label="Last name">
  
         </div>
       </div>
@@ -56,6 +56,7 @@
 
 </template>
 <script>
+import router from '@/router'
 import Swal from 'sweetalert2'
 import navbar from '../components/navbar.vue'
 export default {
@@ -69,14 +70,53 @@ export default {
             user_Email: null,
             user_Role: null,
             user_Pass: null,
+            registrationComplete: false
         }
     },
-    computed: {
-        registerUser(){
-            this.$store.dispatch('register',this.$data)
-            console.log(this.$data);
-        },
+    methods: {
+    registerUser(){
+      if (this.registrationComplete) return;
+      if (this.user_Name && this.user_Email && this.user_Role && this.user_Pass) {
+        this.registrationComplete = true;
+        this.$store.dispatch('register', {
+          user_Name: this.user_Name,
+          user_Email: this.user_Email,
+          user_Role: this.user_Role,
+          user_Pass: this.user_Pass
+        }).then(() => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: 'Your account has been created successfully.',
+          }).then(() => {
+            this.resetForm();
+            this.$router.push('/login');
+          });
+        }).catch((error) => {
+          console.error('Error registering user:', error);
+          this.registrationComplete = false;
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong. Please try again later.',
+          });
+        });
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Please fill in all the fields.',
+        });
+      }
     },
+    resetForm() {
+      this.user_Name = '';
+      this.user_Email = '';
+      this.user_Role = '';
+      this.user_Pass = '';
+      this.registrationComplete = false;
+    }
+  },
   
 }
 </script>

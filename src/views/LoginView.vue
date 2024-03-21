@@ -4,14 +4,14 @@
         <div class="loginbox p-2  animate__animated animate__fadeIn">
             <h1 id = "login" class="my-4 head" style = "color:#e10800; ">Login</h1>
             
-            <form  class="mx-3 my-3">
+            <form @submit.prevent = "loginUser"  class="mx-3 my-3">
     <div>
         <p style = "font-weight: bold;">Email:</p>
-       <input v-model = "user_Email" type="text"  name="userEmail" id="email" class="my-2" placeholder="Enter Email..." required> 
+       <input v-model = "user_Email" type="text"  name="userEmail" id="email" class="my-2" placeholder="Enter Email..."> 
     </div>
     <div>
         <p style = "font-weight: bold;">Password:</p>
-        <input v-model = "user_Pass" type="password"  name="password" id="password" class="my-2" placeholder="Enter Password..." required>
+        <input v-model = "user_Pass" type="password"  name="password" id="password" class="my-2" placeholder="Enter Password..." >
     </div>
     <div>
       <button @click="loginUser" class="btn btn-light log" id="log" ><span id="logs">Login </span><i class="fa fa-spinner fa-spin" id="icon"></i></button>
@@ -28,6 +28,7 @@
     </footer>
 </template>
 <script>
+import Swal from 'sweetalert2'
 import navbar from '../components/navbar.vue'
 export default {
     components:{
@@ -40,12 +41,39 @@ export default {
         user_Pass: null
     }
     },
-    computed: {
-        loginUser(){
-            console.log(this.$data)
-            this.$store.dispatch('loginUser',this.$data)
-        },
+    methods: {
+    loginUser() {
+        if (!this.user_Email || !this.user_Pass) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please enter your details correctly!',
+            });
+            return; 
+        }
+
+        const isLoggedIn = true;
+        if (isLoggedIn) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: 'You have logged in successfully!',
+            }).then(() => {
+                this.user_Email = '';
+                this.user_Pass = '';
+                setTimeout(() => {
+                this.$router.push('/');
+            }, 1000);
+            });
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Login failed. Please check your credentials!',
+            });
+        }
     },
+}
 }
 
 </script>
