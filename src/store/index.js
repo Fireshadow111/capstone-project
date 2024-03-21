@@ -16,9 +16,7 @@ export default createStore({
 
   },
   getters: {
-    currentYear: () => {
-      return new Date().getFullYear();
-    },
+    
   },
   mutations: {
     setProducts(state, data){
@@ -118,13 +116,12 @@ export default createStore({
     async getUserRole({ commit }) {
       try {
         const response = await axios.get(baseUrl + '/users/admin');
-        const {isAdmin} = response.data; // Assuming response.data directly represents admin status
+        const {isAdmin} = response.data; 
         console.log(isAdmin);
-        commit("setLogin", isAdmin); // Committing just the admin status
+        commit("setLogin", isAdmin); 
       } catch (error) {
         console.error('Error fetching user role:', error);
-        // You can handle errors more gracefully, such as by setting adminIs to null or false
-        commit("setLogin", false); // Setting adminIs to false in case of error
+        commit("setLogin", false); 
       }
     },
 
@@ -163,7 +160,7 @@ export default createStore({
     async register({ commit }, newUser) {
       try {
           let { data } = await axios.post(baseUrl + '/register', newUser);
-          commit('setUsers', data); // Assuming setUsers mutation sets the user data in the state
+          commit('setUsers', data); 
           return { success: true, message: 'Registration successful' };
       } catch (error) {
           console.error('Error adding user:', error);
@@ -182,6 +179,8 @@ export default createStore({
         window.location.reload()
       },10)
     },
+
+
     async logOut(context){
       let cookies = cookies.keys()
       console.log(cookies)
@@ -190,15 +189,20 @@ export default createStore({
       let { data } = await axios.delete(baseUrl + '/logout')
       alert(data.msg)
     },
+    
 
     async addCart({commit},newProduct){
       const {data} = await axios.post(baseUrl+'/cart/user',newProduct)
       commit("setCart",alert(data.msg));
      },
+
+
     async addCartByAdmin({commit},newProduct){
       const {data} = await axios.post(baseUrl+'/cart',newProduct)
       commit("setCart",alert(data.msg));
      },
+
+
      async getUserCart({commit}){
       const {data} =  await axios.get(baseUrl+'/cart/user')
       commit("setCart",data);
@@ -208,24 +212,30 @@ export default createStore({
         const data = response.data;
         commit("setCart", data);
       } catch (error) {
-        // Handle the error appropriately, for example, logging or displaying a message to the user.
         console.error('Error fetching carts:', error);
-        // Optionally, you can commit an empty cart or handle the error in another way.
         commit("setCart", []);
       }
     },    
+
+
      async editCart({commit},update){
       const {data} = await axios.patch(baseUrl+'/cart/'+update.id,update)
       commit("setCart", data);
     },
+
+
     async deleteCart({commit},user_ID){
       const {data} = await axios.delete(baseUrl+'/cart/'+user_ID)
       commit("setCart", data);
     },
+
+
     async deleteCartItem({commit},prod_ID){
       const {data} = await axios.delete(baseUrl+'/cart/user/'+prod_ID)
       commit("setCart", data);
     },
+
+    
     async checkout({commit}){
       const {data} = await axios.delete(baseUrl+'/cart')
       commit("setCart", alert(data.msg))
