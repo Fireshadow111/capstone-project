@@ -3,24 +3,16 @@ import { getProducts, getProduct, postProduct , deleteProduct, patchProduct} fro
 
 export default{
     getProducts: async(req,res)=>{
-        try{
+    
             res.send(await getProducts())
-        } catch(error){
-            console.error('Error getting products');
-            res.status(500).json({msg: "Internal Server Error"});
-        }
+      
    
     },
 
     getProduct: async(req,res)=>{
 
-        try{
             res.send(await getProduct(+req.params.id))
-        } catch(error){
-
-            console.error('Error getting products');
-            res.status(404).json({msg: "Product not found"});
-        }
+       
 
        
     },
