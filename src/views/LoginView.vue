@@ -4,14 +4,14 @@
         <div class="loginbox p-2  animate__animated animate__fadeIn">
             <h1 id = "login" class="my-4 head" style = "color:#e10800; ">Login</h1>
             
-            <form method="POST" class="mx-3 my-3">
+            <form  class="mx-3 my-3">
     <div>
         <p style = "font-weight: bold;">Email:</p>
-       <input type="email"  name="userEmail" id="email" class="my-2" placeholder="Enter Email..." required> 
+       <input v-model = "user_Email" type="text"  name="userEmail" id="email" class="my-2" placeholder="Enter Email..." required> 
     </div>
     <div>
         <p style = "font-weight: bold;">Password:</p>
-        <input type="password"  name="password" id="password" class="my-2" placeholder="Enter Password..." required>
+        <input v-model = "user_Pass" type="password"  name="password" id="password" class="my-2" placeholder="Enter Password..." required>
     </div>
     <div>
       <button @click="loginUser" class="btn btn-light log" id="log" ><span id="logs">Login </span><i class="fa fa-spinner fa-spin" id="icon"></i></button>
@@ -165,5 +165,10 @@ h1{
 #footer{
 color: #e10800;
 }
+
+
+
+
+
 
 </style>

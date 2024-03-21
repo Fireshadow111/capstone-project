@@ -99,4 +99,51 @@ font-size: 60px;
 color: #e10800;
 }
 
+
+
+
+
+@media only screen and (max-width: 1080px) {
+  .red-banner {
+    width: 80%; 
+  }
+
+  .about-body {
+    font-size: 24px; 
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .red-banner {
+    width: 90%; 
+  }
+
+  .about-body {
+    font-size: 20px;
+  }
+
+  #aboutDrag {
+    font-size: 40px;
+  }
+}
+
+
+
+@media only screen and (max-width: 300px) {
+  .red-banner {
+    width: 100%; 
+  }
+
+  .about-body {
+    font-size: 16px;
+  }
+
+  #aboutDrag {
+    font-size: 30px; 
+  }
+
+  #about-head {
+    font-size: 30px; 
+  }
+}
 </style>

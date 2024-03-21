@@ -11,7 +11,7 @@
 
           </div>
           </div>
-
+<!-- 
     <div class="container mt-4">
     <div class="row">
       <div class="col-md-12">
@@ -26,11 +26,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Row 1, Col 1</td>
-                <td>Row 1, Col 2</td>
-                <td>Row 1, Col 3</td>
-                <td>Row 1, Col 4</td>
+              <tr v-for="cart in $store.state.cart" :key="cart.orderID">
+                <td><img :src="cart.prod_URL" style="height: 150px;width: 200px;"></td>
+                <td>{{cart.prod_Name}}</td>
+                <td>{{cart.sold_quantity}}</td>
+                <td>{{cart.price_per_unit}}</td>
+                <td>{{cart.total_price}}</td>
+                <td><button @click="deleteCartItem(cart.prod_ID)">Delete</button></td>
               </tr>
             </tbody>
           </table>
@@ -38,7 +40,7 @@
       </div>
     </div>
     
-  </div>
+  </div> -->
 
   <div id = "total-con" class="container-fluid d-flex justify-content-center">
 
@@ -68,8 +70,31 @@ export default {
     components:{
       navbar
     },
+
+//     data(){
+//         return{
+//         }
+//     },
+//     computed:{
+//         getUserCart(){
+//             this.$store.dispatch('getUserCart')
+//         },
+//         checkout(){
+//             this.$store.dispatch('checkout')
+//         }
+//     },
+//     methods: {
+//         deleteCartItem(prod_ID){
+//             console.log(prod_ID);
+//             this.$store.dispatch('deleteCartItem',prod_ID)
+//         }
+//     },
+//     mounted(){
+//         this.getUserCart
+//     }
+ }
     
-}
+
 </script>
 <style>
 #checkoutDrag{

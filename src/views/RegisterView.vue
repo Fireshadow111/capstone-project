@@ -7,23 +7,23 @@
 
         <div  class="loginbox animate__animated animate__fadeIn mt-4">
             <h1 id = "register"class="my-3 head" style = "color:#e10800;">Register</h1>
-            <form method="POST" class="mx-3 my-3">
+            <form class="mx-3 my-3">
                 <div class="row">
         <div class="col">
             <p>Username:</p>
-          <input type="text" class="form-control"  name="user_Name" placeholder="Enter Username..." aria-label="First name" required="">
+          <input v-model ="user_Name" type="text" class="form-control"  name="user_Name" placeholder="Enter Username..." aria-label="First name" required="">
         </div>
       </div>
       <div class="row">
         <div class="col">
             <p>Email:</p>
-          <input type="text" class="form-control"  name="userEmail" placeholder="Enter Email..." aria-label="First name" required="">
+          <input v-model = "user_Email" type="text" class="form-control"  name="user_Email" placeholder="Enter Email..." aria-label="First name" required="">
         </div>
       </div>
       <div class="row">
         <div class="col">
           <p>User Role:</p>
-          <input type="text" class="form-control"  name="userEmail" placeholder="Enter User Role..." aria-label="First name" required="">
+          <input  v-model = "user_Role" type="text" class="form-control"  name="user_Role" placeholder="Enter User Role..." aria-label="First name" required="">
       
      
  
@@ -31,14 +31,14 @@
         <div class="row">
         <div class="col">
           <p>Password:</p>
-          <input type="password" class="form-control"   name="userPass" placeholder="Enter Password..." aria-label="Last name" required="">
+          <input v-model = "user_Pass" type="password" class="form-control"   name="user_Pass" placeholder="Enter Password..." aria-label="Last name" required="">
  
         </div>
       </div>
     </div>
 
 <div>
-<button @click="registerUser" style = "font-weight: bold;" type="submit" class="btn btn-light reg" value="register" ><span id="logs">Register</span><i class="fa fa-spinner fa-spin" id="icon"></i></button>
+<button @click="registerUser" style = "font-weight: bold;" class="btn btn-light reg" ><span id="logs">Register</span><i class="fa fa-spinner fa-spin" id="icon"></i></button>
 </div>
 
 <router-link to="/login"><a href="">Already have an account?</a></router-link>
@@ -56,6 +56,7 @@
 
 </template>
 <script>
+import Swal from 'sweetalert2'
 import navbar from '../components/navbar.vue'
 export default {
     components:{
@@ -66,13 +67,14 @@ export default {
         return {
             user_Name: null,
             user_Email: null,
+            user_Role: null,
             user_Pass: null,
-            user_Role: null
         }
     },
     computed: {
         registerUser(){
-            this.$store.dispatch('registerUser',this.$data)
+            this.$store.dispatch('register',this.$data)
+            console.log(this.$data);
         },
     },
   

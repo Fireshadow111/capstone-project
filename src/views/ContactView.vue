@@ -27,7 +27,7 @@
   <input type="text" id="email" name="email" placeholder="Enter your email..">
   <label for="messege">Messege:</label>
   <textarea id="messege" name="messege" placeholder="Enter a messege.." style="height:170px"></textarea>
-  <input type="submit" value="Submit">
+  <input id = "contactButton" type="submit" value="Submit">
 </form>
 
 
@@ -143,8 +143,8 @@ textarea {
 
 }
 
-input[type=submit] {
-  max-width: 500px;
+#contactButton {
+  min-width: 100%;
   height: 45px;
   font-family: "Roboto";
   font-size: 26px;
@@ -158,9 +158,7 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-  background-color: black;
-  color: #e10800;
-  border-color: white;
+  border-color: white !important;
 }
 
 input[type=submit]:active {
@@ -177,144 +175,79 @@ color: #e10800;
 }
 
 
+@media screen and (max-width: 1080px) {
+  #contactForm-div {
+    width: 90%;
+    max-width: 500px;
+  }
 
-
-/* Contact Page */
-
-@media (max-width: 300px) {
-
-body {
-  flex-wrap: wrap;
-}
-
-
-
-#contact-head {
-  font-size: 30px;
-}
-
-#contactForm-div {
-  width: 90%;
-  margin: auto;
-}
-
-label {
-  font-size: 14px;
-}
-
-input[type=text] {
-  width: 100%;
-  font-size: 12px;
-  margin-top: 6px;
-  margin-bottom: 10px;
-}
-
-textarea {
-  width: 100%;
-  font-size: 12px;
-  margin-top: 6px;
-  margin-bottom: 10px;
-}
-
-input[type=submit] {
-  width: auto;
-  height: auto;
-  font-size: 14px;
-}
-
-
-
-.fa-brands {
-  margin-bottom: 10px;
-}
-
-#map iframe {
-    width: 100%;
-    height: 300px;
-}
-.footer {
-    font-size: 12px; 
-    padding: 5px;
+  #contactButton {
+    min-width: 100%;
+    max-width: 500px;
   }
 }
 
 
-@media (max-width: 720px) {
 
-body {
-  flex-wrap: wrap;
-}
-
-#contactForm-div {
-  width: 90%;
-  margin: auto;
-}
-
-label {
-  font-size: 18px;
-}
-
-input[type=text] {
-  width: 100%;
-  font-size: 16px;
-  margin-top: 8px;
-  margin-bottom: 12px;
-}
-
-textarea {
-  width: 100%;
-  font-size: 16px;
-  margin-top: 8px;
-  margin-bottom: 12px;
-}
-
-input[type=submit] {
-  width: 100%;
-  height: 45px;
-  font-size: 18px;
-}
-
-#map iframe {
-            width: 100%;
-            height: 200px; 
-        }
-}
-
-
-@media (max-width: 1080px) {
-#contactForm-div {
-  width: 80%;
-  margin: auto;
-}
-
-label {
-  font-size: 22px;
-}
-
-input[type=text] {
-  width: 100%;
-  font-size: 20px;
-  margin-top: 10px;
-  margin-bottom: 16px;
-}
-
-textarea {
-  width: 100%;
-  font-size: 20px;
-  margin-top: 10px;
-  margin-bottom: 16px;
-}
-
-input[type=submit] {
-  width: 100%;
-  height: 50px;
-  font-size: 22px;
-}
-}
-
-#map iframe {
+@media screen and (max-width: 720px) {
+  #contactForm-div {
     width: 100%;
+    max-width: 400px;
   }
+
+  #contactButton {
+    min-width: 100%;
+    max-width: 400px;
+  }
+
+  #contactDrag {
+    font-size: 40px;
+  }
+
+  label {
+    font-size: 18px;
+  }
+
+  input[type=text],
+  textarea {
+    font-size: 16px;
+  }
+
+  #footer {
+    font-size: 14px;
+  }
+}
+
+
+@media screen and (max-width: 300px) {
+  #contactForm-div {
+    width: 90%;
+    max-width: 250px;
+  }
+
+  #contactButton {
+    min-width: 100%;
+    max-width: 250px;
+    font-size: 14px;
+  }
+
+  #contactDrag {
+    font-size: 30px;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  input[type=text],
+  textarea {
+    font-size: 12px;
+  }
+
+  #footer {
+    font-size: 12px;
+  }
+}
 
 
 

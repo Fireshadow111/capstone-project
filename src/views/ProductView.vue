@@ -110,7 +110,7 @@ h1{
 
 
 .products-add-cart-button {
-  width: 130px;
+  width: 140px;
   height: 50px;
   color: black;
   font-family: "Roboto";
@@ -176,5 +176,181 @@ font-size: 50px;
 #footer{
 color: #e10800;
 }
+
+
+@media (max-width: 1080px) {
+  .container.text-center {
+    padding: 0 20px;
+  }
+
+  .card {
+    width: 30%; 
+    margin: 0 auto;
+  }
+
+  #prod-head {
+    font-size: 50px; 
+    border-radius: 50px; 
+  }
+
+  .card-title {
+    font-size: 22px; 
+  }
+
+  .card-text {
+    font-size: 20px; 
+  }
+
+  .products-add-cart-button {
+    width: 140px; 
+    height: 50px; 
+    font-size: 18px; 
+  }
+
+  #footer {
+    font-size: 18px; 
+  }
+}
+
+@media (max-width: 964px) {
+  .container.text-center {
+    padding: 0 15px; 
+  }
+
+  .card {
+    width: 40%; 
+    margin: 0 auto; 
+  }
+
+  #prod-head {
+    font-size: 45px; 
+    border-radius: 45px; 
+  }
+
+  .card-title {
+    font-size: 20px; 
+  }
+
+  .card-text {
+    font-size: 18px; 
+  }
+
+  .products-add-cart-button {
+    width: 160px;
+    height: 50px; 
+    font-size: 18px; 
+  }
+
+  #footer {
+    font-size: 16px; 
+  }
+}
+
+@media (max-width: 764px) {
+  .container.text-center {
+    padding: 0 10px; 
+  }
+
+  .card {
+    width: 80%; 
+    margin: 0 auto; 
+  }
+
+  #prod-head {
+    font-size: 40px; 
+    border-radius: 40px; 
+  }
+
+  .card-title {
+    font-size: 18px; 
+  }
+
+  .card-text {
+    font-size: 16px; 
+  }
+
+  .products-add-cart-button {
+    width: 140px; 
+    height: 45px; 
+    font-size: 16px; 
+  }
+
+  #footer {
+    font-size: 14px; 
+  }
+}
+
+
+
+
+@media (max-width: 720px) {
+  .card {
+    width: 45%; 
+    margin: 0 auto; 
+  }
+
+  #prod-head {
+    font-size: 40px; 
+    border-radius: 45px;
+  }
+
+  .card-title {
+    font-size: 20px; 
+  }
+
+  .card-text {
+    font-size: 18px; 
+  }
+
+  .products-add-cart-button {
+    width: 130px;
+    height: 50px;
+    font-size: 18px; 
+  }
+
+  #footer {
+    font-size: 16px; 
+  }
+}
+
+
+
+
+
+
+@media (max-width: 300px) {
+  .card {
+    width: 90%; 
+    margin: 0 auto; 
+  }
+
+  .container.text-center {
+    padding: 0; 
+  }
+
+  #prod-head {
+    font-size: 30px;
+    border-radius: 35px;
+  }
+
+  .card-title {
+    font-size: 18px;
+  }
+
+  .card-text {
+    font-size: 16px; 
+  }
+
+  .products-add-cart-button {
+    width: 120px; 
+    height: 40px; 
+    font-size: 16px; 
+  }
+
+  #footer {
+    font-size: 14px; 
+  }
+}
+
 
 </style>

@@ -407,6 +407,81 @@ color: #e10800;
 
 
 
+
+
+@media only screen and (max-width: 1080px) {
+  .container {
+    width: 90%;
+  }
+
+  .input {
+    width: 80%;
+  }
+
+  .prodButtons,
+  .userButtons,
+  .addButton {
+    width: 100px;
+    font-size: 18px;
+  }
+}
+
+
+
+@media only screen and (max-width: 720px) {
+  .container {
+    width: 90%;
+  }
+
+  .input {
+    width: 100%;
+  }
+
+  .prodButtons,
+  .userButtons,
+  .addButton {
+    width: 100px;
+    font-size: 16px;
+  }
+
+  #admin-head {
+    font-size: 30px;
+  }
+
+  #footer {
+    font-size: 12px;
+  }
+}
+
+
+@media only screen and (max-width: 300px) {
+  .container {
+    width: 95%;
+  }
+
+  .input {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .prodButtons,
+  .userButtons,
+  .addButton {
+    width: 80px;
+    font-size: 12px;
+  }
+
+  #admin-head {
+    font-size: 20px;
+  }
+
+  #footer {
+    font-size: 10px;
+  }
+}
+
+
+
 </style>
 
 
