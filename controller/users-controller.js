@@ -1,4 +1,4 @@
-import { getUsers, getUser, postUser, deleteUser, patchUser, login, userInfo, getUserByID, patchUserProfile } from '../models/users-database.js';
+import { getUsers, getUser, postUser, deleteUser, patchUser, login, getUserByID, patchUserProfile, getUserRole } from '../models/users-database.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
@@ -13,6 +13,20 @@ export default {
         const user_Email = req.user_Email;
         res.send(await getUser(user_Email))
     },
+
+
+    getUserRole: async (req, res) => {
+        try {
+          const user_Email = req.user_Email;
+          const role = await getUserRole(user_Email);
+          console.log(role);
+          const isAdmin = role === 'admin';
+          res.send({ isAdmin });
+        } catch (error) {
+          console.error('Error getting user role:', error);
+          res.status(500).send('Internal Server Error');
+        }
+      },
 
     
 
@@ -94,7 +108,7 @@ export default {
 
     postUser: async (req, res) => {
         const { user_Name, user_Email, user_Pass, user_Role } = req.body;
-        try {
+      
             const hashedPassword = await bcrypt.hash(user_Pass, 10);
 
             await postUser(user_Name, user_Email, hashedPassword, user_Role);
@@ -102,10 +116,7 @@ export default {
             res.send({
                 msg: "You have created an account"
             });
-        } catch (error) {
-            console.error("Error creating account", error);
-            res.status(500).send({ error: "An error has occurred" });
-        }
+        
     },
 
     postLogin: async (req, res) => {

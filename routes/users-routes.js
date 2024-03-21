@@ -8,6 +8,9 @@ router
     .route('/user')
         .get(controller.getUser)
         .patch(controller.patchUserProfile)
+router
+    .route('/admin')
+        .get(controller.getUserRole)
 
 router
     .route('/')
@@ -19,7 +22,7 @@ router
         .delete(controller.deleteUser)
         .patch(controller.patchUser)
 
-
+        
 
 
 export default router

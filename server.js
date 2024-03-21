@@ -31,11 +31,11 @@ app.use(cookieParser())
 
 app.use('/products', productsRouter)
 
-app.use('/cart',authenticate, cartRouter)
+app.use('/cart', cartRouter)
 
 app.use('/users',  usersRouter)
 
-app.use('/login', loginRouter)
+app.use('/login',certificate, loginRouter)
 
 app.use('/register', registerRouter)
 

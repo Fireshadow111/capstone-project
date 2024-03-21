@@ -13,7 +13,7 @@ const patchCart = async(user_ID, quantity, prod_ID, id)=>{
     await pool.query(`
         UPDATE cart
         SET user_ID= ?, quantity = ?, prod_ID = ?
-        WHERE prod_ID = ?
+        WHERE order_ID = ?
     `,[user_ID, quantity, prod_ID, id])
     return getCarts()
 };
@@ -42,8 +42,8 @@ const getUserCart = async (user_ID) => {
 
 const getCart = async (user_ID) => {
     const [cartItems] = await pool.query(`
-        SELECT * FROM cart WHERE user_ID = ?
-    `, [user_ID]);
+        SELECT * FROM cart WHERE order_ID = ?
+    `, [order_ID]);
     return cartItems;
 };
 
@@ -71,7 +71,7 @@ const deleteCart = async (user_ID) => {
 const deleteFromCart = async (user_ID, prod_ID) => {
     await pool.query(`
         DELETE FROM cart
-        WHERE user_ID = ? AND productID = ?
+        WHERE user_ID = ? AND prod_ID = ?
     `, [user_ID, prod_ID]);
 };
 
@@ -79,8 +79,8 @@ const deleteCartByID = async (user_ID) => {
     // Removes cart on admin
     await pool.query(`
         DELETE FROM cart
-        WHERE user_ID = ? 
-    `, [user_ID]);
+        WHERE order_ID = ? 
+    `, [order_ID]);
 };
 
 

@@ -16,7 +16,7 @@ router
     .route('/user')
         .get(controller.getUserCart)
         .post(controller.postCart)
-        .delete(controller.deleteFromCart)
+      
 router
     .route('/user/:id')
         .delete(controller.deleteFromCart)
