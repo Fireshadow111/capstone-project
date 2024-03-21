@@ -73,12 +73,12 @@ const getUsers= async()=>{
 
 
 const getUserRole = async (user_Email) => {
-  const [[{userRole}]] = await pool.query(`
-  SELECT userRole 
+  const [[{user_Role}]] = await pool.query(`
+  SELECT user_Role 
   FROM users 
   WHERE user_Email = ?
   `, [user_Email])
-  return userRole
+  return user_Role
 };
   
   

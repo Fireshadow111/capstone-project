@@ -16,18 +16,14 @@ export default {
 
 
     getUserRole: async (req, res) => {
-        try {
+     
           const user_Email = req.user_Email;
           const role = await getUserRole(user_Email);
           console.log(role);
           const isAdmin = role === 'admin';
           res.send({ isAdmin });
-        } catch (error) {
-          console.error('Error getting user role:', error);
-          res.status(500).send('Internal Server Error');
-        }
-      },
-
+      
+    },
     
 
 
