@@ -40,7 +40,7 @@ const getUserCart = async (user_ID) => {
 
 
 
-const getCart = async (user_ID) => {
+const getCart = async (order_ID) => {
     const [cartItems] = await pool.query(`
         SELECT * FROM cart WHERE order_ID = ?
     `, [order_ID]);
@@ -75,8 +75,8 @@ const deleteFromCart = async (user_ID, prod_ID) => {
     `, [user_ID, prod_ID]);
 };
 
-const deleteCartByID = async (user_ID) => {
-    // Removes cart on admin
+const deleteCartByID = async (order_ID) => {
+
     await pool.query(`
         DELETE FROM cart
         WHERE order_ID = ? 
@@ -96,7 +96,6 @@ const getUserID= async (user_Email) => {
 
 
 const updateProductQuantity = async (user_ID) => {
-    // Update the quantity of products in stock after checkout
     await pool.query(`
     UPDATE products p
     JOIN (

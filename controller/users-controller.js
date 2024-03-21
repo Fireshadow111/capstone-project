@@ -84,7 +84,6 @@ export default {
         user_Role ? user_Role=user_Role: {user_Role} = user     
 
         if (user_Pass) {
-            // If present, hash the password
             try {
                 user_Pass = await bcrypt.hash(user_Pass, 10);
             } catch (error) {
@@ -93,14 +92,9 @@ export default {
                 return;
             }
         } else {
-            // If not present, use the existing password from the database
             user_Pass = user.user_Pass;
         }
-
-        // Update user data in the database
         await patchUserProfile(user_Name, user_Email, user_Pass, user_Role);
-
-        // Return updated user data
         res.send(await getUsers());
     },
 
