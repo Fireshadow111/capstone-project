@@ -18,7 +18,7 @@ const app=express()
 
 app.use(cors(
     { 
-        origin: 'http://localhost:8080',
+        origin: 'https://capstone-project-mthn.onrender.com',
         credentials: true
       }
 ))
