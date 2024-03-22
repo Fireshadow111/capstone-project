@@ -4,7 +4,7 @@ import {pool} from '../config/config.js'
 
 const postCart = async (user_ID, prod_ID, quantity) => {
     await pool.query(`
-        INSERT INTO carts (user_ID, prod_ID, quantity)
+        INSERT INTO cart (user_ID, prod_ID, quantity)
         VALUES (?, ?, ?)
     `, [user_ID, prod_ID, quantity]);
 };
@@ -22,8 +22,8 @@ const getUserCart = async (user_ID) => {
     const [cartItems] = await pool.query(`
         SELECT 
             c.quantity AS sold_quantity,
-            p.amount AS price_per_unit,
-            (c.quantity * p.amount) AS total_price,
+            p.price AS price_per_unit,
+            (c.quantity * p.price) AS total_price,
             p.prod_URL,
             p.prod_Name,
             p.prod_ID
@@ -95,20 +95,9 @@ const getUserID= async (user_Email) => {
 
 
 
-const updateProductQuantity = async (user_ID) => {
-    await pool.query(`
-    UPDATE products p
-    JOIN (
-        SELECT c.prod_ID, SUM(c.quantity) AS total_sold
-        FROM cart c
-        WHERE c.User_ID = ?
-        GROUP BY c.prod_ID
-    ) AS soldTotals ON p.prod_ID = soldTotals.prod_ID
-    SET p.quantity = p.quantity - soldTotals.total_sold;
-    `, [user_ID]);
-};
 
 
 
 
-export{postCart, getCart, deleteCart, getUserID,  deleteFromCart, getCarts, patchCart,getUserCart, updateProductQuantity, deleteCartByID}
+
+export{postCart, getCart, deleteCart, getUserID,  deleteFromCart, getCarts, patchCart, getUserCart, deleteCartByID}

@@ -1,10 +1,10 @@
 
-import {postCart, getCart, deleteCart, getUserID,  deleteFromCart, getCarts, patchCart,getUserCart, updateProductQuantity, deleteCartByID } from "../models/cart-database.js";
+import {postCart, getCart, deleteCart, getUserID,  deleteFromCart, getCarts, patchCart,getUserCart, deleteCartByID } from "../models/cart-database.js";
 
 
 export default {
     postCart: async (req, res) => {
-        const user_Email = req.user_Email;    
+        const user_Email = req.Email;    
         console.log(user_Email);
         try {
             const user_ID = await getUserID(user_Email)
@@ -21,7 +21,7 @@ export default {
     },
     getUserCart: async (req, res) => {
         try {
-            const user_Email = req.user_Email;
+            const user_Email = req.Email;
             const user_ID = await getUserID(user_Email);
             const userCart = await getUserCart(user_ID);
             res.send(userCart);
@@ -32,15 +32,14 @@ export default {
     },
 
     deleteCart: async (req, res) => {
-        const user_Email = req.user_Email;    
+        const user_Email = req.Email;    
         const user_ID = await getUserID(user_Email)
-        updateProductQuantity(user_ID)
         await deleteCart(user_ID);
         res.send({msg:'Thank you for your purchase'})
     },
 
     deleteFromCart: async (req, res) => {
-        const user_Email = req.user_Email  
+        const user_Email = req.Email  
         const prod_ID = parseInt(+req.params.id)
         const user_ID = await getUserID(user_Email)
         res.send(await  deleteFromCart(user_ID,prod_ID))

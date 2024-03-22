@@ -51,25 +51,32 @@ const getUsers= async()=>{
   }
 
 
-  const patchUserProfile = async(user_Name, user_Email, user_Pass, user_Role)=>{
+  const patchUserProfile = async(user_Name, user_Email, user_Pass, user_Role, email)=>{
     await pool.query(`
         UPDATE users
         SET user_Name = ?, user_Email = ?, user_Pass = ?, user_Role = ?
         WHERE user_Email = ?
-    `,[user_Name, user_Email, user_Pass, user_Role])
+    `,[user_Name, user_Email, user_Pass, user_Role, email])
     return getUsers()
 };
 
 
 
-  const login = async(user_Email)=> {
-    const [[{user_Pass}]] = await pool.query(`
-    SELECT user_Pass 
-    FROM users 
-    WHERE user_Email = ?
-    `, [user_Email])
-    return user_Pass
+const login = async (user_Email) => {
+  try {
+    const [[{ user_Pass }]] = await pool.query(`
+      SELECT user_Pass 
+      FROM users 
+      WHERE user_Email = ?
+    `, [user_Email]);
+    
+    return user_Pass;
+  } catch (error) {
+    console.error("Error occurred during login:", error);
+    throw new Error("An error occurred during login. Please try again later.");
+  }
 };
+
 
 
 const getUserRole = async (user_Email) => {
