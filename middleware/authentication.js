@@ -3,19 +3,23 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
 
-const authenticate = (req,res,next) => {
-    let {cookie} = req.headers
-    let tokenInHeader = cookie && cookie.split('=')[1]
-   
-    console.log(tokenInHeader)
-    jwt.verify(tokenInHeader, process.env.SECRET_KEY, (err, user)=>{
-        if(err)return res.sendStatus(403)
-        req.user = user
-        req.Email = user.user_Email
-        // console.log(req.Email);
-        next()
-    })
+const authenticate = (req, res, next) => {
+    let { cookie } = req.headers;
+    let tokenInHeader = cookie && cookie.split('=')[1];
+    if (tokenInHeader === null) res.sendStatus(401);
+    console.log(tokenInHeader);
+    try {
+        jwt.verify(tokenInHeader, process.env.SECRET_KEY, (err, user) => {
+            if (err) throw err; 
+            req.user = user;
+            req.Email = user.user_Email;
+            next();
+        });
+    } catch (error) {
+        res.sendStatus(403); 
+    }
 }
+
 
 const certificate = async (req, res, next) => {
     try {
