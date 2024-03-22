@@ -3,7 +3,7 @@ import axios from 'axios'
 import router from '@/router'
 import Swal from 'sweetalert2'
 axios.defaults.withCredentials = true
-const baseUrl = 'http://localhost:9001'
+const baseUrl = 'https://capstone-project-mthn.onrender.com'
 
 export default createStore({
   state: {
