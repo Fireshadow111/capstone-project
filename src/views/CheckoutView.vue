@@ -11,7 +11,7 @@
 
           </div>
           </div>
-<!-- 
+
     <div class="container mt-4">
     <div class="row">
       <div class="col-md-12">
@@ -21,8 +21,8 @@
               <tr>
                 <th scope="col">Name</th>
                 <th scope="col">Quantity</th>
-                <th scope="col">Description</th>
-                <th scope="col">Price</th>
+                <th scope="col">Price per Unit</th>
+                <th scope="col">Total Price</th>
               </tr>
             </thead>
             <tbody>
@@ -40,20 +40,18 @@
       </div>
     </div>
     
-  </div> -->
+  </div> 
 
   <div id = "total-con" class="container-fluid d-flex justify-content-center">
 
-<h5 id="total">Total</h5>
-<input id="cart-total" type="text" readonly>
+
 
 </div>
 
   <div class="container-fluid d-flex justify-content-center">
 
-<button id="checkout-button" type="button" class="btn btn-light mx-2">Checkout</button>
+<button @click="checkout" id="checkout-button" type="button" class="btn btn-light mx-2">Checkout</button>
 
-<button id="clear-button" type="button" class="btn btn-dark">Clear</button>
 
 </div>
 
@@ -71,27 +69,27 @@ export default {
       navbar
     },
 
-//     data(){
-//         return{
-//         }
-//     },
-//     computed:{
-//         getUserCart(){
-//             this.$store.dispatch('getUserCart')
-//         },
-//         checkout(){
-//             this.$store.dispatch('checkout')
-//         }
-//     },
-//     methods: {
-//         deleteCartItem(prod_ID){
-//             console.log(prod_ID);
-//             this.$store.dispatch('deleteCartItem',prod_ID)
-//         }
-//     },
-//     mounted(){
-//         this.getUserCart
-//     }
+    data(){
+        return{
+        }
+    },
+    computed:{
+        getUserCart(){
+            this.$store.dispatch('getUserCart')
+        },
+        checkout(){
+            this.$store.dispatch('checkout')
+        }
+    },
+    methods: {
+        deleteCartItem(prod_ID){
+            console.log(prod_ID);
+            this.$store.dispatch('deleteCartItem',prod_ID)
+        }
+    },
+    mounted(){
+        this.getUserCart
+    }
  }
     
 

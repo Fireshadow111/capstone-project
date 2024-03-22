@@ -41,39 +41,11 @@ export default {
         user_Pass: null
     }
     },
-    methods: {
-    loginUser() {
-        if (!this.user_Email || !this.user_Pass) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Please enter your details correctly!',
-            });
-            return; 
+    computed:{
+        loginUser(){
+            this.$store.dispatch("loginUser", this.$data)
         }
-
-        const isLoggedIn = true;
-        if (isLoggedIn) {
-            Swal.fire({
-                icon: 'success',
-                title: 'Success!',
-                text: 'You have logged in successfully!',
-            }).then(() => {
-                this.user_Email = '';
-                this.user_Pass = '';
-                setTimeout(() => {
-                this.$router.push('/');
-            }, 1000);
-            });
-        } else {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Login failed. Please check your credentials!',
-            });
-        }
-    },
-}
+    }
 }
 
 </script>

@@ -126,6 +126,9 @@
       </tbody>
     </table>
   </div>
+  <div>
+
+  </div>
 </div>
 </div>  
 
@@ -151,7 +154,7 @@
         category:null,
         price:null,
 
-        user_Name:null,
+      user_Name:null,
       user_Email:null,
       user_Pass:null,
       user_Role:null,

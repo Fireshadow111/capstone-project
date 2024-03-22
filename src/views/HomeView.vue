@@ -13,6 +13,10 @@
           </div>
           </div>
 
+         
+     
+     
+
     <div class="container">
     <div class="row justify-content-center text-center">
      
@@ -71,7 +75,8 @@ export default {
         price:null
       }
     },
-  
+    
+   
     methods:{
   
     },

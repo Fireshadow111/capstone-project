@@ -25,7 +25,7 @@
                 <p class="card-text" style="font-size: 20px; font-weight: bold;">{{ item.category }}</p>
                 <p class="card-text" style="font-size: 20px;font-weight: bold">${{ item.price }}</p>
               
-                <button class="btn btn-primary products-add-cart-button mx-1">Add to Cart</button>
+                <button @click = "addCart(item.prod_ID)" class="btn btn-primary products-add-cart-button mx-1">Add to Cart</button>
                 <router-link to = "/"><button class = "products-add-cart-button">Go Back</button></router-link>
             </div>
         </div>
@@ -51,19 +51,21 @@ export default {
 
     data(){
         return{
-            prod_URL:null,
-          prod_Name: null,
-          category:null,
-          price:null
+         
+
+          quantity:1
           
         }
       },
 
       methods: {
-    purchaseClicked() {
- 
-      alert('Thank you for your purchase!'); 
-    },
+    addCart(prod_ID){
+      let add = {
+        prod_ID:prod_ID,
+        quantity: this.quantity
+      }
+      this.$store.dispatch("addCart", add)
+    }
   },
     
       computed: {

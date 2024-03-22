@@ -1,6 +1,7 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
 import router from '@/router'
+import Swal from 'sweetalert2'
 axios.defaults.withCredentials = true
 const baseUrl = 'http://localhost:9001'
 
@@ -114,8 +115,8 @@ export default createStore({
         console.error('Error fetching users:', error);
       }
     },
-    async getUser({commit},prod_ID){
-      const {data} =  await axios.get(baseUrl+'/users/'+prod_ID)
+    async getUser({commit}){
+      const {data} =  await axios.get(baseUrl+'/users/user')
       console.log(data);
       commit("setUser", data);
     },
@@ -180,19 +181,42 @@ export default createStore({
           return { success: false, message: 'Registration failed. Please try again.' };
       }
   },
-
-    
-    async loginUser({commit}, currentUser){
-      let {data} = await axios.post(baseUrl + '/login', currentUser)
-      $cookies.set('jwt', data.token)
-      alert(data.msg)
-      router.push('/')
-      commit('setLogin', true)
-      setTimeout(()=> {
-        window.location.reload()
-      },1000)
-    },
-
+  
+  async loginUser({commit}, currentUser){
+    try {
+      let {data} = await axios.post(baseUrl + '/login', currentUser);
+      $cookies.set('jwt', data.token);
+      
+      Swal.fire({
+        icon: 'success',
+        title: 'Login Successful!',
+        text: data.msg,
+        showConfirmButton: true,
+        timer: 1500 
+      });
+  
+      router.push('/');
+      commit('setLogin', true);
+    } catch (error) {
+      if (error.response && error.response.status === 401) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Login Failed!',
+          text: 'Please enter correct credentials.',
+          confirmButtonText: 'OK'
+        });
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Login Failed!',
+          text: 'An unexpected error occurred. Please try again later.',
+          confirmButtonText: 'OK'
+        });
+      }
+    }
+  },
+  
+  
 
     async logOut(context){
       let cookies = cookies.keys()
@@ -204,10 +228,25 @@ export default createStore({
     },
     
 
-    async addCart({commit},newProduct){
-      const {data} = await axios.post(baseUrl+'/cart/user',newProduct)
-      commit("setCart",alert(data.msg));
-     },
+    async addCart({ commit }, newProduct) {
+      try {
+        const { data } = await axios.post(baseUrl + '/cart/user', newProduct);
+        commit('setCart', data.msg);
+        Swal.fire({
+          icon: 'success',
+          title: 'Your product has been added',
+          text: data.msg,
+          
+        });
+      } catch (error) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+        });
+        console.error('Error adding to cart:', error);
+      }
+    },
 
 
     async addCartByAdmin({commit},newProduct){
@@ -217,8 +256,12 @@ export default createStore({
 
 
      async getUserCart({commit}){
-      const {data} =  await axios.get(baseUrl+'/cart/user')
+      try{const {data} =  await axios.get(baseUrl+'/cart/user')
       commit("setCart",data);
+    } catch (error) {
+      console.error('Error fetching cart:', error);
+      commit("setCart", []);
+    }
      },async getCarts({ commit }) {
       try {
         const response = await axios.get(baseUrl + '/cart');
@@ -248,12 +291,27 @@ export default createStore({
       commit("setCart", data);
     },
 
-    
-    async checkout({commit}){
-      const {data} = await axios.delete(baseUrl+'/cart')
-      commit("setCart", alert(data.msg))
-      router.push('/products');
+    async checkout({ commit }) {
+      try {
+        const { data } = await axios.delete(baseUrl+'/cart');
+        commit("setCart", data.msg);
+        Swal.fire({
+          icon: 'success',
+          title: 'Thank you for your purchase!',
+          text: data.msg,
+        }).then(() => {
+          router.push('/');
+        });
+      } catch (error) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: 'An error occurred while processing your request. Please try again later.',
+          confirmButtonText: 'OK'
+        });
+      }
     }
+    
   },
 
   modules: {

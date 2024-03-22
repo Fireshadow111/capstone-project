@@ -34,7 +34,9 @@
       <div class="btn-group my-4 justify-content-center" data-bs-dismiss="offcanvas">
       
         <router-link to="/profile" class="sign-but my-3 p-1 py-2 btn btn1">Profile</router-link>
-                    <router-link to="/login" class="sign-but my-3 p-1 py-2 btn btn1">Login</router-link>
+                    <router-link v-if ="!hasJWT"  to="/login" class="sign-but my-3 p-1 py-2 btn btn1">Login</router-link>
+                    <button v-if ="hasJWT" @click = "logOut" class="sign-but my-3 p-1 py-2 btn btn1">Log Out</button>
+                 
                   
               </div>
 </div>
@@ -43,45 +45,41 @@
 </body>
 
 </template>
+
 <script>
+import Swal from 'sweetalert2'
 import 'animate.css';
 export default {
     name: "navbar",
-    // computed:{
-    //     hasJWT(){
-    //         return !!this.$cookies.get('jwt')
-    //     },
-    // },
-    // created() {
-    //     this.$store.dispatch('getUserRole');
-    // },
+    computed:{
+        hasJWT(){
+            return !!this.$cookies.get('jwt')
+        },
+    },
+  
     methods: {
       scrollTop() {
         document.body.scrollTop = document.documentElement.scrollTop = 0;
       },
-      // logOut(){
-      // Swal.fire({
-      //   title: 'Are you sure?',
-      //   text: 'You will be logged out',
-      //   icon: 'warning',
-      //   showCancelButton: true,
-      //   confirmButtonColor: 'rgb(71, 98, 218)',
-      //   cancelButtonColor: '#d33',
-      //   confirmButtonText: 'Yes, log me out!',
-      //   position: 'top',
-      // }).then((result) => {
-      //   if (result.isConfirmed) {
-      //   // Remove JWT token
-      //   this.$cookies.remove('jwt');
-      //   // this.$store.dispatch('logOutUser');
-      //   this.$router.push('/'); // Redirect to home page
-      // setTimeout(() => {
-      //   // Refresh the page after a short delay
-      //   window.location.reload();
-      // }, 10);
-      //   }
-      // });
-      //   }
+      logOut(){
+      Swal.fire({
+        title: 'Are you sure?',
+        text: 'You will be logged out',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: 'rgb(71, 98, 218)',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, log me out!',
+        position: 'top',
+      }).then((result) => {
+        if (result.isConfirmed) {
+        this.$cookies.remove('jwt');
+        this.$router.push('/login'); 
+      setTimeout(() => {
+      }, 10);
+        }
+      });
+        }
 }
 }
 </script>
@@ -159,6 +157,17 @@ color:#e10800;
 .numbers{
   color: black;
   font-size: 18px;
+}
+
+button{
+  text-align: center;
+          text-decoration: none;
+          max-width: 75%;
+          border: 2px solid #e10800;
+          transition: background-color 0.3s ease, color 0.3s ease;
+          font-size: 25px;
+          color: #e10800;
+          font-family: 'Syne';
 }
 
 
