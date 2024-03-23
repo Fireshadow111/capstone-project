@@ -73,7 +73,7 @@ export default createStore({
         commit("setProducts", data);
         setTimeout(() => {
           window.location.reload();
-        }, 1000); 
+        }, 500); 
       } catch (error) {
         console.error('Error adding product:', error);
       }
@@ -87,7 +87,7 @@ export default createStore({
         await axios.delete(baseUrl+'/products/'+prod_ID)
         setTimeout(() => {
           window.location.reload();
-        }, 1000); 
+        }, 500); 
       } catch (error) {
         console.error('Error deleting product:', error);
       }
@@ -99,7 +99,7 @@ export default createStore({
          await axios.patch(baseUrl+'/products/'+update.id,update)
          setTimeout(() => {
           window.location.reload();
-        }, 1000); 
+        }, 500); 
       } catch (error) {
         console.error('Erro editing product:', error);
       }
@@ -144,7 +144,7 @@ export default createStore({
      commit("setUsers", data);
      setTimeout(() => {
       window.location.reload();
-    }, 1000); 
+    }, 500); 
       } catch (error) {
         console.error('Error adding user:', error);
       }
@@ -154,7 +154,7 @@ export default createStore({
           await axios.delete(baseUrl+'/users/'+user_ID)
           setTimeout(() => {
             window.location.reload();
-          }, 1000); 
+          }, 500); 
       } catch (error) {
         console.error('Error deleting user:', error);
       }
@@ -164,7 +164,7 @@ export default createStore({
        await axios.patch(baseUrl+'/users/'+update.id,update)
        setTimeout(() => {
         window.location.reload();
-      }, 1000);   
+      }, 500);   
       } catch (error) {
         console.error('Error edit user:', error);
       }
