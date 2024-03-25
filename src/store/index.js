@@ -196,11 +196,14 @@ export default createStore({
         text: data.msg,
         showConfirmButton: true,
         timer: 1500 
-      });
+      })
   
       router.push('/');
-      window.location.reload();
-      
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+
+    
       commit('setLogin', true);
     } catch (error) {
       if (error.response && error.response.status === 401) {
