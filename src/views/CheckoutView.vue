@@ -19,6 +19,7 @@
           <table class="table table-dark table-striped table-bordered">
             <thead>
               <tr>
+                <th scope="col">Image</th>
                 <th scope="col">Name</th>
                 <th scope="col">Quantity</th>
                 <th scope="col">Price per Unit</th>
