@@ -2,8 +2,10 @@ import { createStore } from 'vuex'
 import axios from 'axios'
 import router from '@/router'
 import Swal from 'sweetalert2'
+import { useCookies } from 'vue-cookies'
 axios.defaults.withCredentials = true
-const baseUrl = 'https://capstone-project-mthn.onrender.com'
+axios.defaults.params = {token:$cookies.get('jwt')}
+const baseUrl = 'http://localhost:9001'
 
 export default createStore({
   state: {
@@ -186,6 +188,7 @@ export default createStore({
     try {
       let {data} = await axios.post(baseUrl + '/login', currentUser);
       $cookies.set('jwt', data.token);
+      // $cookies.set('userRole', data.user.userRole)
       
       Swal.fire({
         icon: 'success',
