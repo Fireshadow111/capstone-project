@@ -1,89 +1,69 @@
 <template>
-<body>
-  
-
-<navbar/>
-<center>
-
-
-  <div class="container text-center">
-      <div class="row align-items-center">
-        <div id="prod-head" class = "mt-5">
-          <h1 id = "prodDrag">Products</h1>
+  <body>
+    <navbar/>
+    <center>
+      <div class="container text-center">
+        <div class="row align-items-center">
+          <div id="prod-head" class="mt-5">
+            <h1 id="prodDrag">Products</h1>
           </div>
-
-          </div>
-          </div>
-
-
-<div class="col-md-4 my-5  d-flex justify-content-center animate__animated animate__fadeIn">
-        <div class="card h-100" style="width: 21rem;" v-for="item in product" :key="item.prod_ID">
-            <img :src="item.prod_URL" class="card-img-top" alt="" style = "background-color: black
-            ;">
-            <div class="card-body">
-                <h5 style="color: #e10800; font-size:22px; background-color: black; font-weight: bold;" class="card-title">{{ item.prod_Name }}</h5>
-                <p class="card-text" style="font-size: 20px; font-weight: bold;">{{ item.category }}</p>
-                <p class="card-text" style="font-size: 20px;font-weight: bold">${{ item.price }}</p>
-              
-                <button @click = "addCart(item.prod_ID)" class="btn btn-primary products-add-cart-button mx-1">Add to Cart</button>
-                <router-link to = "/home"><button class = "products-add-cart-button">Go Back</button></router-link>
-            </div>
         </div>
-    </div>
-  
-  </center>
-
-
-
-
-
-    <footer id = "footer-con" class="container py-3 my-1" style="font-family: fantasy;">
-      <p id = "footer" class="text-center text">Redragon - Copyright© - 2024 | All Rights Reserved</p>
+      </div>
+      <spinner v-if="!product"></spinner>
+      <div class="col-md-4 my-5  d-flex justify-content-center animate__animated animate__fadeIn">
+        <div class="card h-100" style="width: 21rem;" v-for="item in product" :key="item.prod_ID">
+          <img :src="item.prod_URL" class="card-img-top" alt="" style="background-color: black;">
+          <div class="card-body">
+            <h5 style="color: #e10800; font-size:22px; background-color: black; font-weight: bold;" class="card-title">{{ item.prod_Name }}</h5>
+            <p class="card-text" style="font-size: 20px; font-weight: bold;">{{ item.category }}</p>
+            <p class="card-text" style="font-size: 20px;font-weight: bold">${{ item.price }}</p>
+            <button @click="addCart(item.prod_ID)" class="btn btn-primary products-add-cart-button mx-1">Add to Cart</button>
+            <router-link to="/home"><button class="products-add-cart-button">Go Back</button></router-link>
+          </div>
+        </div>
+      </div>
+    </center>
+    <footer id="footer-con" class="container py-3 my-1" style="font-family: fantasy;">
+      <p id="footer" class="text-center text">Redragon - Copyright© - 2024 | All Rights Reserved</p>
     </footer>
   </body>
 </template>
+
 <script>
 import navbar from '../components/navbar.vue'
+import spinner from '../components/spinner.vue'
+
 export default {
-  components:{
-    navbar
+  components: {
+    navbar,
+    spinner
   },
 
-    data(){
-        return{
-         
+  data() {
+    return {
+      quantity: 1
+    }
+  },
 
-          quantity:1
-          
-        }
-      },
-
-      methods: {
-    addCart(prod_ID){
+  methods: {
+    addCart(prod_ID) {
       let add = {
-        prod_ID:prod_ID,
+        prod_ID: prod_ID,
         quantity: this.quantity
       }
       this.$store.dispatch("addCart", add)
     }
   },
-    
-      computed: {
-        product(){
-          return this.$store.state.product
-        },
-        getProduct(){
-            console.log(this.$route.params.id);
-          return this.$store.dispatch('getProduct', this.$route.params.id)
-        },
-    
-        
-      },
-      mounted(){
-        return this.getProduct
 
-      },
-    
+  computed: {
+    product() {
+      return this.$store.state.product
+    }
+  },
+
+  mounted() {
+    this.$store.dispatch('getProduct', this.$route.params.id)
+  }
 }
 </script>
 <style scoped>

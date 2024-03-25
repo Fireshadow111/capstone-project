@@ -36,7 +36,7 @@ body * {
 }
 
 .red-shadow {
-  box-shadow: 0px 0px 40px #e85253;
+  box-shadow: 0px 0px 40px #e10800;
   animation: spin 2s linear infinite;
 }
 
@@ -44,7 +44,7 @@ body * {
   position: relative;
   width: 10vw; 
   height: 10vw; 
-  background-color: #e85253;
+  background-color: #e10800;
   box-shadow: inset 0px 0px 20px;
 }
 
