@@ -5,7 +5,7 @@ import Swal from 'sweetalert2'
 import { useCookies } from 'vue-cookies'
 axios.defaults.withCredentials = true
 axios.defaults.params = {token:$cookies.get('jwt')}
-const baseUrl = 'http://localhost:9001'
+const baseUrl = 'https://capstone-project-mthn.onrender.com'
 
 export default createStore({
   state: {
