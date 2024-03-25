@@ -90,7 +90,7 @@ export default {
             text: 'Your account has been created successfully.',
           }).then(() => {
             this.resetForm();
-            this.$router.push('/login');
+            this.$router.push('/');
           });
         }).catch((error) => {
           console.error('Error registering user:', error);

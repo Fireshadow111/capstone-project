@@ -17,7 +17,7 @@
   <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" data-bs-dismiss="offcanvas">
           <li class="nav-item my-4 mx-2">
-            <router-link to="/" @click="scrollTop()">Home</router-link>
+            <router-link to="/home" @click="scrollTop()">Home</router-link>
           </li>
           <li class="nav-item my-4 mx-2">
             <router-link to="/about" @click="scrollTop()">About</router-link>
@@ -34,7 +34,7 @@
       <div class="btn-group my-4 justify-content-center" data-bs-dismiss="offcanvas">
       
         <router-link to="/profile" class="sign-but my-3 p-1 py-2 btn btn1">Profile</router-link>
-                    <router-link v-if ="!hasJWT"  to="/login" class="sign-but my-3 p-1 py-2 btn btn1">Login</router-link>
+                    <router-link v-if ="!hasJWT"  to="/" class="sign-but my-3 p-1 py-2 btn btn1">Login</router-link>
                     <button v-if ="hasJWT" @click = "logOut" class="sign-but my-3 p-1 py-2 btn btn1">Log Out</button>
                  
                   
@@ -74,7 +74,7 @@ export default {
       }).then((result) => {
         if (result.isConfirmed) {
         this.$cookies.remove('jwt');
-        this.$router.push('/login'); 
+        this.$router.push('/'); 
       setTimeout(() => {
       }, 10);
         }

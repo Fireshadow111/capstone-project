@@ -26,7 +26,7 @@
                 <p class="card-text" style="font-size: 20px;font-weight: bold">${{ item.price }}</p>
               
                 <button @click = "addCart(item.prod_ID)" class="btn btn-primary products-add-cart-button mx-1">Add to Cart</button>
-                <router-link to = "/"><button class = "products-add-cart-button">Go Back</button></router-link>
+                <router-link to = "/home"><button class = "products-add-cart-button">Go Back</button></router-link>
             </div>
         </div>
     </div>

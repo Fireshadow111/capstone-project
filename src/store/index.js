@@ -5,7 +5,7 @@ import Swal from 'sweetalert2'
 import { useCookies } from 'vue-cookies'
 axios.defaults.withCredentials = true
 axios.defaults.params = {token:$cookies.get('jwt')}
-const baseUrl = 'https://capstone-project-mthn.onrender.com'
+const baseUrl = 'http://localhost:9001'
 
 export default createStore({
   state: {
@@ -198,7 +198,7 @@ export default createStore({
         timer: 1500 
       })
   
-      router.push('/');
+      router.push('/home');
       setTimeout(() => {
         window.location.reload();
       }, 1000);
@@ -308,7 +308,7 @@ export default createStore({
           title: 'Thank you for your purchase!',
           text: data.msg,
         }).then(() => {
-          router.push('/');
+          router.push('/home');
         });
       } catch (error) {
         Swal.fire({

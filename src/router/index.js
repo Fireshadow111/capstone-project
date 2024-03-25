@@ -12,8 +12,8 @@ import ProfileView from '../views/ProfileView.vue'
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'login',
+    component: LoginView
   },
   {
     path: '/about',
@@ -58,9 +58,9 @@ const routes = [
   },
 
   {
-    path: '/login',
-    name: 'login',
-    component: LoginView
+    path: '/home',
+    name: 'home',
+    component: HomeView
   },
   
 
