@@ -79,6 +79,19 @@ export default {
       user_Role:null
     }
   },
+  methods: {
+    reloadPageOnProfile() {
+      this.$router.beforeEach((to, from, next) => {
+        if (to.path === '/profile') {
+          setTimeout(() => {
+          window.location.reload();
+        }, 3000); 
+        } else {
+          next();
+        }
+      });
+    }
+  },
   computed: {
     editUserProfile(){
       let edit = {
@@ -94,7 +107,8 @@ export default {
     }
   },
   mounted() {
-    this.getUser
+    this.getUser,
+    this.reloadPageOnProfile;
   },
 }
 </script>
