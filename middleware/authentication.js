@@ -4,8 +4,9 @@ import jwt from 'jsonwebtoken';
 
 
 const authenticate = (req, res, next) => {
-    let { cookie } = req.headers;
-    let tokenInHeader = cookie && cookie.split('=')[1];
+    // let { cookie } = req.headers;
+    // let tokenInHeader = cookie && cookie.split('=')[1];
+    let tokenInHeader = req.query.token
     if (tokenInHeader === null) res.sendStatus(401);
     console.log(tokenInHeader);
     try {

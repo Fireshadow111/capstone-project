@@ -18,7 +18,7 @@ const app=express()
 
 app.use(cors(
     { 
-        origin: 'https://capstone-project-4ee89.firebaseapp.com',
+        origin: 'http://localhost:8080',
         credentials: true
       }
 ))
@@ -29,11 +29,11 @@ app.use(express.static('public'))
 
 app.use(cookieParser())
 
-app.use('/products', productsRouter)
+app.use('/products', authenticate, productsRouter)
 
-app.use('/cart', cartRouter)
+app.use('/cart', authenticate, cartRouter)
 
-app.use('/users', usersRouter)
+app.use('/users',authenticate, usersRouter)
 
 app.use('/login',certificate, loginRouter)
 
