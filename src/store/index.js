@@ -199,7 +199,7 @@ export default createStore({
       });
   
       router.push('/');
-      window.location.reload();
+     
       
       commit('setLogin', true);
     } catch (error) {
