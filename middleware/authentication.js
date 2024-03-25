@@ -36,7 +36,7 @@ const certificate = async (req, res, next) => {
 
                   // console.log(token);
 
-            // res.cookie('token', token,{ httpOnly:false, expiresIn:'1hr'});
+            res.cookie('token', token,{ httpOnly:false, expiresIn:'1hr'});
                 res.send({
                     token: token,
                     msg: 'You have logged in! YAY!'
