@@ -199,6 +199,9 @@ export default createStore({
       });
   
       router.push('/');
+      setTimeout(() => {
+        window.location.reload();
+      }, 500);  
       commit('setLogin', true);
     } catch (error) {
       if (error.response && error.response.status === 401) {
