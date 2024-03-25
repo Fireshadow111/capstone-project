@@ -24,6 +24,7 @@
                 <th scope="col">Quantity</th>
                 <th scope="col">Price per Unit</th>
                 <th scope="col">Total Price</th>
+                <th scope="col">Remove Item</th>
               </tr>
             </thead>
             <tbody>
@@ -33,7 +34,7 @@
                 <td>{{cart.sold_quantity}}</td>
                 <td>{{cart.price_per_unit}}</td>
                 <td>{{cart.total_price}}</td>
-                <td><button @click="deleteCartItem(cart.prod_ID)">Delete</button></td>
+                <td><button id = "checkBut" @click="deleteCartItem(cart.prod_ID)">Delete</button></td>
               </tr>
             </tbody>
           </table>
@@ -190,6 +191,30 @@ font-size: 60px;
 
 #footer{
 color: #e10800;
+}
+
+
+#checkBut {
+  width: 130px;
+  height: 50px;
+  font-family: "Roboto";
+  font-size: 22px;
+  font-weight: bold;
+  background-color: #e10800;
+  border: solid 3px black !important;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+#checkBut:hover {
+  background-color: black;
+  color: #e10800;
+  border-color: white !important;
+}
+
+#checkBut:active {
+  box-shadow: 0 5px #666;
+  transform: translatex(4px);
 }
 
 </style>
